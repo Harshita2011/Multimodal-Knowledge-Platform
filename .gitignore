@@ -1,0 +1,79 @@
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+
+# Packaging and build artifacts
+build/
+dist/
+*.egg-info/
+.eggs/
+pip-wheel-metadata/
+
+# Test and coverage artifacts
+.pytest_cache/
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+
+# Lint/type/tool caches
+.mypy_cache/
+.ruff_cache/
+.pyre/
+.tox/
+.nox/
+
+# Runtime logs
+*.log
+
+# Local databases
+*.db
+*.sqlite
+*.sqlite3
+
+# Postgres dumps/backups
+*.sql
+*.dump
+
+# Chroma/vector persistence (runtime data)
+data/chroma/
+chroma/
+chromadb/
+
+# Uploads/local storage/temp
+uploads/
+data/uploads/
+tmp/
+temp/
+
+# Alembic/python temp artifacts
+alembic/*.pyc
+
+# IDE/editor/system files
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Jupyter
+.ipynb_checkpoints/
+# Local planning docs
+context.md
+
+# Demo documents
+data/documents/demo_doc_Resume.pdf

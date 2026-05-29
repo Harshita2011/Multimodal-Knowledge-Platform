@@ -1,0 +1,33 @@
+{
+  "cases": [
+    {
+      "name": "skills_query",
+      "query": "What skills are listed?",
+      "top_k": 3,
+      "relevant_chunk_ids": ["c1", "c2"],
+      "cited_chunk_ids": ["c1"],
+      "max_latency_ms": 50,
+      "min_precision_at_k": 0.33,
+      "min_citation_coverage": 1.0,
+      "chunks": [
+        {"chunk_id": "c1", "score": 0.92, "page_number": 1, "text": "Skills include Python, SQL, and machine learning."},
+        {"chunk_id": "c2", "score": 0.88, "page_number": 1, "text": "Technical skills: FastAPI, ChromaDB, Docker."},
+        {"chunk_id": "c3", "score": 0.60, "page_number": 2, "text": "Hobbies include travel and music."}
+      ]
+    },
+    {
+      "name": "education_query",
+      "query": "Where did the candidate study?",
+      "top_k": 2,
+      "relevant_chunk_ids": ["e1"],
+      "cited_chunk_ids": ["e1"],
+      "max_latency_ms": 50,
+      "min_precision_at_k": 0.5,
+      "min_citation_coverage": 1.0,
+      "chunks": [
+        {"chunk_id": "e1", "score": 0.90, "page_number": 1, "text": "Education: B.Tech from ABC University."},
+        {"chunk_id": "e2", "score": 0.70, "page_number": 1, "text": "Worked as software engineer at XYZ."}
+      ]
+    }
+  ]
+}

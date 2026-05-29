@@ -1,0 +1,12 @@
+[
+  {"dataset_version": "gold-50-v1", "category": "academic", "source_doc": "lecture_notes_01.pdf", "query": "What is the main theorem discussed?", "expected_pages": [3], "expected_chunk_ids": ["lecture_notes_01_p3_c1"], "k": 5},
+  {"dataset_version": "gold-50-v1", "category": "academic", "source_doc": "research_paper_02.pdf", "query": "What method is proposed?", "expected_pages": [2], "expected_chunk_ids": ["research_paper_02_p2_c0"], "k": 5},
+  {"dataset_version": "gold-50-v1", "category": "resume", "source_doc": "resume_a.pdf", "query": "What programming languages does the candidate mention?", "expected_pages": [1], "expected_chunk_ids": ["resume_a_p1_c2"], "k": 5},
+  {"dataset_version": "gold-50-v1", "category": "resume", "source_doc": "resume_b.pdf", "query": "Where did the candidate study?", "expected_pages": [1], "expected_chunk_ids": ["resume_b_p1_c0"], "k": 5},
+  {"dataset_version": "gold-50-v1", "category": "tech-doc", "source_doc": "api_guide_01.pdf", "query": "How is authentication configured?", "expected_pages": [4], "expected_chunk_ids": ["api_guide_01_p4_c1"], "k": 5},
+  {"dataset_version": "gold-50-v1", "category": "tech-doc", "source_doc": "arch_doc_02.pdf", "query": "What are the core system components?", "expected_pages": [2], "expected_chunk_ids": ["arch_doc_02_p2_c0"], "k": 5},
+  {"dataset_version": "gold-50-v1", "category": "mixed", "source_doc": "long_mixed_01.pdf", "query": "What performance concerns are highlighted?", "expected_pages": [9], "expected_chunk_ids": ["long_mixed_01_p9_c1"], "k": 5},
+  {"dataset_version": "gold-50-v1", "category": "mixed", "source_doc": "noisy_scan_02.pdf", "query": "What deployment constraints are listed?", "expected_pages": [6], "expected_chunk_ids": ["noisy_scan_02_p6_c0"], "k": 5},
+  {"dataset_version": "gold-50-v1", "category": "academic", "source_doc": "lecture_notes_03.pdf", "query": "How is the experiment evaluated?", "expected_pages": [7], "expected_chunk_ids": ["lecture_notes_03_p7_c0"], "k": 5},
+  {"dataset_version": "gold-50-v1", "category": "tech-doc", "source_doc": "api_guide_03.pdf", "query": "What is the request timeout default?", "expected_pages": [5], "expected_chunk_ids": ["api_guide_03_p5_c0"], "k": 5}
+]
