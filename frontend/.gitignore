@@ -2,6 +2,7 @@
 node_modules
 out
 dist
+tsconfig.tsbuildinfo
 .env.local
 npm-debug.log*
 yarn-debug.log*
