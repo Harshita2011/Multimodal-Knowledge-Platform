@@ -2,16 +2,42 @@ from fastapi import APIRouter, Depends, File, Form, UploadFile
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.api.dependencies import get_ingestion_orchestrator
-from app.auth.dependencies import UserContext, get_optional_current_user
+from app.auth.dependencies import UserContext, get_current_user, get_optional_current_user
 from app.core.settings import get_settings
 from app.db.postgres.repositories.document_repo import DocumentPgRepository
 from app.db.postgres.repositories.ingestion_repo import IngestionPgRepository
 from app.db.postgres.session import get_db_session
 from app.ingestion.orchestrator import IngestionOrchestrator
+from app.models.responses.document import DocumentSummaryResponse
 from app.models.responses.error import ErrorResponse
 from app.models.responses.rag import UploadResponse
 
 router = APIRouter(prefix="/documents", tags=["documents"])
+
+
+@router.get("", response_model=list[DocumentSummaryResponse])
+async def list_documents(
+    current_user: UserContext = Depends(get_current_user),
+    session: AsyncSession = Depends(get_db_session),
+):
+    if session is None:
+        from app.core.exceptions import AppError
+
+        raise AppError("db_unavailable", "Database unavailable for document operations", 503)
+    repo = DocumentPgRepository(session)
+    rows = await repo.list_active_by_user(current_user.user_id)
+    return [
+        DocumentSummaryResponse(
+            id=row.id,
+            filename=row.filename,
+            status=row.status,
+            page_count=row.page_count,
+            chunk_count=row.chunk_count,
+            created_at=row.created_at.isoformat() if row.created_at else None,
+            updated_at=row.updated_at.isoformat() if row.updated_at else None,
+        )
+        for row in rows
+    ]
 
 
 @router.post(

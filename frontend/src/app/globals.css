@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 210 24% 98%;
+  --foreground: 220 24% 12%;
+  --card: 0 0% 100%;
+  --card-foreground: 220 24% 12%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 220 24% 12%;
+  --primary: 184 74% 30%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 218 18% 92%;
+  --secondary-foreground: 220 24% 16%;
+  --muted: 216 18% 94%;
+  --muted-foreground: 218 10% 42%;
+  --accent: 39 88% 52%;
+  --accent-foreground: 30 24% 12%;
+  --destructive: 0 73% 49%;
+  --destructive-foreground: 0 0% 100%;
+  --success: 151 58% 35%;
+  --success-foreground: 0 0% 100%;
+  --warning: 36 87% 48%;
+  --warning-foreground: 30 24% 12%;
+  --border: 216 17% 86%;
+  --input: 216 17% 86%;
+  --ring: 184 74% 30%;
+  --radius: 8px;
+}
+
+.dark {
+  --background: 220 18% 10%;
+  --foreground: 210 20% 94%;
+  --card: 222 16% 14%;
+  --card-foreground: 210 20% 94%;
+  --popover: 222 16% 14%;
+  --popover-foreground: 210 20% 94%;
+  --primary: 181 62% 44%;
+  --primary-foreground: 210 24% 8%;
+  --secondary: 218 16% 20%;
+  --secondary-foreground: 210 20% 92%;
+  --muted: 218 16% 18%;
+  --muted-foreground: 216 12% 68%;
+  --accent: 39 88% 58%;
+  --accent-foreground: 30 24% 10%;
+  --destructive: 0 68% 52%;
+  --destructive-foreground: 0 0% 100%;
+  --success: 151 52% 42%;
+  --success-foreground: 0 0% 100%;
+  --warning: 36 87% 58%;
+  --warning-foreground: 30 24% 10%;
+  --border: 218 16% 25%;
+  --input: 218 16% 25%;
+  --ring: 181 62% 44%;
+}
+
+* {
+  border-color: hsl(var(--border));
+}
+
+html {
+  min-height: 100%;
+}
+
+body {
+  min-height: 100%;
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-feature-settings: "rlig" 1, "calt" 1;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+::selection {
+  background: hsl(var(--primary) / 0.22);
+}

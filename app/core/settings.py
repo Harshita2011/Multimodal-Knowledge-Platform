@@ -15,6 +15,7 @@ class Settings(BaseSettings):
     app_env: str = Field(default="development", alias="APP_ENV")
     app_name: str = Field(default="rag", alias="APP_NAME")
     api_prefix: str = Field(default="/api/v1", alias="API_PREFIX")
+    cors_allow_origins: str = Field(default="http://localhost:3000,http://127.0.0.1:3000", alias="CORS_ALLOW_ORIGINS")
     database_url: str = Field(default="sqlite+aiosqlite:///./data/app.db", alias="DATABASE_URL")
     auth_required_for_core_routes: bool = Field(default=False, alias="AUTH_REQUIRED_FOR_CORE_ROUTES")
 
@@ -101,6 +102,10 @@ class Settings(BaseSettings):
     @property
     def full_collection_name(self) -> str:
         return f"{self.app_env}_{self.app_name}_{self.vector_collection_name}"
+
+    @property
+    def cors_origins(self) -> list[str]:
+        return [origin.strip() for origin in self.cors_allow_origins.split(",") if origin.strip()]
 
 
 @lru_cache
