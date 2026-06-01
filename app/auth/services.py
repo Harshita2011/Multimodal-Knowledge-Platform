@@ -49,12 +49,31 @@ class AuthService:
         return tokens
 
     async def create_oauth_authorization(self, provider: str, redirect_uri: str) -> dict:
+        self._ensure_oauth_configured(provider)
         state = secrets.token_urlsafe(32)
         nonce = secrets.token_urlsafe(32)
         expires_at = datetime.now(timezone.utc) + timedelta(minutes=self.settings.oauth_state_ttl_minutes)
         await self.oauth_state_repo.create(provider=provider, state=state, nonce=nonce, expires_at=expires_at)
         auth_url = get_provider(provider).authorization_url(state=state, nonce=nonce, redirect_uri=redirect_uri)
         return {"provider": provider, "authorization_url": auth_url, "state": state}
+
+    def _ensure_oauth_configured(self, provider: str) -> None:
+        if provider == "google":
+            enabled = self.settings.enable_google_oauth
+            configured = bool(self.settings.google_client_id and self.settings.google_client_secret)
+        elif provider == "github":
+            enabled = self.settings.enable_github_oauth
+            configured = bool(self.settings.github_client_id and self.settings.github_client_secret)
+        else:
+            raise AppError("oauth_provider_unknown", "OAuth provider is not supported", 404)
+
+        if not enabled or not configured:
+            raise AppError(
+                "oauth_provider_unavailable",
+                f"{provider.title()} sign-in is not configured. Use email/password or add provider credentials.",
+                503,
+                {"provider": provider},
+            )
 
     async def oauth_callback(
         self,

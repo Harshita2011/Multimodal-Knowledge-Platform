@@ -29,6 +29,26 @@ Then open:
 - API docs: `http://127.0.0.1:8000/docs`
 - Health: `http://127.0.0.1:8000/api/v1/health`
 
+## Windows full-stack preview
+
+From PowerShell:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/dev.ps1
+```
+
+If you need to restart the project-owned frontend/backend processes:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/dev.ps1 -Restart
+```
+
+To inspect local preview ports:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/ports.ps1
+```
+
 ## Development Commands
 
 ```bash
