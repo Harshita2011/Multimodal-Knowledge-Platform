@@ -3,6 +3,7 @@ from logging.config import fileConfig
 from alembic import context
 from sqlalchemy import engine_from_config, pool
 
+from app.core.settings import get_settings
 from app.db.postgres.base import Base
 from app.db.postgres import models  # noqa: F401
 
@@ -12,6 +13,18 @@ if config.config_file_name is not None:
     fileConfig(config.config_file_name)
 
 target_metadata = Base.metadata
+
+
+def _sync_migration_url(url: str) -> str:
+    if url.startswith("sqlite+aiosqlite:///"):
+        return url.replace("sqlite+aiosqlite:///", "sqlite:///", 1)
+    if url.startswith("postgresql+asyncpg://"):
+        return url.replace("postgresql+asyncpg://", "postgresql+psycopg2://", 1)
+    return url
+
+
+settings = get_settings()
+config.set_main_option("sqlalchemy.url", _sync_migration_url(settings.database_url).replace("%", "%%"))
 
 
 def run_migrations_offline() -> None:

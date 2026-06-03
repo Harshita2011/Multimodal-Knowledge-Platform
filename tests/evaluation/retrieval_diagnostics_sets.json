@@ -1,0 +1,1673 @@
+{
+  "dataset_version": "retrieval-stress-v1-diagnostics",
+  "query_count": 100,
+  "categories": [
+    "BM25-dominant",
+    "Entity-dominant",
+    "Hybrid-dominant",
+    "Multi-hop-dominant",
+    "Vector-dominant"
+  ],
+  "queries": [
+    {
+      "query_id": "bm25_00_0",
+      "query": "What does QPX-401 specify for cold-path journaling SIGIL00?",
+      "retrieval_category": "BM25-Dominant",
+      "expected_strategy": "vector_bm25",
+      "gold_chunk_ids": [
+        "bm25_exact_00_p4_c0",
+        "bm25_glossary_00_p2_c0"
+      ],
+      "gold_document_ids": [
+        "bm25_exact_00",
+        "bm25_glossary_00"
+      ],
+      "k": 20,
+      "diagnostic_category": "BM25-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "bm25_00_1",
+      "query": "CPJ00 SIGIL00 escrow nonce rotation guidance",
+      "retrieval_category": "BM25-Dominant",
+      "expected_strategy": "vector_bm25",
+      "gold_chunk_ids": [
+        "bm25_exact_00_p4_c0",
+        "bm25_glossary_00_p2_c0"
+      ],
+      "gold_document_ids": [
+        "bm25_exact_00",
+        "bm25_glossary_00"
+      ],
+      "k": 20,
+      "diagnostic_category": "BM25-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "bm25_00_2",
+      "query": "exact keyword lookup QPX-401 CPJ00 SIGIL00",
+      "retrieval_category": "BM25-Dominant",
+      "expected_strategy": "vector_bm25",
+      "gold_chunk_ids": [
+        "bm25_exact_00_p4_c0",
+        "bm25_glossary_00_p2_c0"
+      ],
+      "gold_document_ids": [
+        "bm25_exact_00",
+        "bm25_glossary_00"
+      ],
+      "k": 20,
+      "diagnostic_category": "BM25-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "bm25_00_3",
+      "query": "Find bulletin QPX-401 SIGIL00 failback ordering",
+      "retrieval_category": "BM25-Dominant",
+      "expected_strategy": "vector_bm25",
+      "gold_chunk_ids": [
+        "bm25_exact_00_p4_c0",
+        "bm25_glossary_00_p2_c0"
+      ],
+      "gold_document_ids": [
+        "bm25_exact_00",
+        "bm25_glossary_00"
+      ],
+      "k": 20,
+      "diagnostic_category": "BM25-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "bm25_01_0",
+      "query": "What does QPX-402 specify for cold-path journaling SIGIL01?",
+      "retrieval_category": "BM25-Dominant",
+      "expected_strategy": "vector_bm25",
+      "gold_chunk_ids": [
+        "bm25_exact_01_p4_c0",
+        "bm25_glossary_01_p2_c0"
+      ],
+      "gold_document_ids": [
+        "bm25_exact_01",
+        "bm25_glossary_01"
+      ],
+      "k": 20,
+      "diagnostic_category": "BM25-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "bm25_01_1",
+      "query": "CPJ01 SIGIL01 escrow nonce rotation guidance",
+      "retrieval_category": "BM25-Dominant",
+      "expected_strategy": "vector_bm25",
+      "gold_chunk_ids": [
+        "bm25_exact_01_p4_c0",
+        "bm25_glossary_01_p2_c0"
+      ],
+      "gold_document_ids": [
+        "bm25_exact_01",
+        "bm25_glossary_01"
+      ],
+      "k": 20,
+      "diagnostic_category": "BM25-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "bm25_01_2",
+      "query": "exact keyword lookup QPX-402 CPJ01 SIGIL01",
+      "retrieval_category": "BM25-Dominant",
+      "expected_strategy": "vector_bm25",
+      "gold_chunk_ids": [
+        "bm25_exact_01_p4_c0",
+        "bm25_glossary_01_p2_c0"
+      ],
+      "gold_document_ids": [
+        "bm25_exact_01",
+        "bm25_glossary_01"
+      ],
+      "k": 20,
+      "diagnostic_category": "BM25-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "bm25_01_3",
+      "query": "Find bulletin QPX-402 SIGIL01 failback ordering",
+      "retrieval_category": "BM25-Dominant",
+      "expected_strategy": "vector_bm25",
+      "gold_chunk_ids": [
+        "bm25_exact_01_p4_c0",
+        "bm25_glossary_01_p2_c0"
+      ],
+      "gold_document_ids": [
+        "bm25_exact_01",
+        "bm25_glossary_01"
+      ],
+      "k": 20,
+      "diagnostic_category": "BM25-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "bm25_02_0",
+      "query": "What does QPX-403 specify for cold-path journaling SIGIL02?",
+      "retrieval_category": "BM25-Dominant",
+      "expected_strategy": "vector_bm25",
+      "gold_chunk_ids": [
+        "bm25_exact_02_p4_c0",
+        "bm25_glossary_02_p2_c0"
+      ],
+      "gold_document_ids": [
+        "bm25_exact_02",
+        "bm25_glossary_02"
+      ],
+      "k": 20,
+      "diagnostic_category": "BM25-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "bm25_02_1",
+      "query": "CPJ02 SIGIL02 escrow nonce rotation guidance",
+      "retrieval_category": "BM25-Dominant",
+      "expected_strategy": "vector_bm25",
+      "gold_chunk_ids": [
+        "bm25_exact_02_p4_c0",
+        "bm25_glossary_02_p2_c0"
+      ],
+      "gold_document_ids": [
+        "bm25_exact_02",
+        "bm25_glossary_02"
+      ],
+      "k": 20,
+      "diagnostic_category": "BM25-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "bm25_02_2",
+      "query": "exact keyword lookup QPX-403 CPJ02 SIGIL02",
+      "retrieval_category": "BM25-Dominant",
+      "expected_strategy": "vector_bm25",
+      "gold_chunk_ids": [
+        "bm25_exact_02_p4_c0",
+        "bm25_glossary_02_p2_c0"
+      ],
+      "gold_document_ids": [
+        "bm25_exact_02",
+        "bm25_glossary_02"
+      ],
+      "k": 20,
+      "diagnostic_category": "BM25-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "bm25_02_3",
+      "query": "Find bulletin QPX-403 SIGIL02 failback ordering",
+      "retrieval_category": "BM25-Dominant",
+      "expected_strategy": "vector_bm25",
+      "gold_chunk_ids": [
+        "bm25_exact_02_p4_c0",
+        "bm25_glossary_02_p2_c0"
+      ],
+      "gold_document_ids": [
+        "bm25_exact_02",
+        "bm25_glossary_02"
+      ],
+      "k": 20,
+      "diagnostic_category": "BM25-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "bm25_03_0",
+      "query": "What does QPX-404 specify for cold-path journaling SIGIL03?",
+      "retrieval_category": "BM25-Dominant",
+      "expected_strategy": "vector_bm25",
+      "gold_chunk_ids": [
+        "bm25_exact_03_p4_c0",
+        "bm25_glossary_03_p2_c0"
+      ],
+      "gold_document_ids": [
+        "bm25_exact_03",
+        "bm25_glossary_03"
+      ],
+      "k": 20,
+      "diagnostic_category": "BM25-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "bm25_03_1",
+      "query": "CPJ03 SIGIL03 escrow nonce rotation guidance",
+      "retrieval_category": "BM25-Dominant",
+      "expected_strategy": "vector_bm25",
+      "gold_chunk_ids": [
+        "bm25_exact_03_p4_c0",
+        "bm25_glossary_03_p2_c0"
+      ],
+      "gold_document_ids": [
+        "bm25_exact_03",
+        "bm25_glossary_03"
+      ],
+      "k": 20,
+      "diagnostic_category": "BM25-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "bm25_03_2",
+      "query": "exact keyword lookup QPX-404 CPJ03 SIGIL03",
+      "retrieval_category": "BM25-Dominant",
+      "expected_strategy": "vector_bm25",
+      "gold_chunk_ids": [
+        "bm25_exact_03_p4_c0",
+        "bm25_glossary_03_p2_c0"
+      ],
+      "gold_document_ids": [
+        "bm25_exact_03",
+        "bm25_glossary_03"
+      ],
+      "k": 20,
+      "diagnostic_category": "BM25-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "bm25_03_3",
+      "query": "Find bulletin QPX-404 SIGIL03 failback ordering",
+      "retrieval_category": "BM25-Dominant",
+      "expected_strategy": "vector_bm25",
+      "gold_chunk_ids": [
+        "bm25_exact_03_p4_c0",
+        "bm25_glossary_03_p2_c0"
+      ],
+      "gold_document_ids": [
+        "bm25_exact_03",
+        "bm25_glossary_03"
+      ],
+      "k": 20,
+      "diagnostic_category": "BM25-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "bm25_04_0",
+      "query": "What does QPX-405 specify for cold-path journaling SIGIL04?",
+      "retrieval_category": "BM25-Dominant",
+      "expected_strategy": "vector_bm25",
+      "gold_chunk_ids": [
+        "bm25_exact_04_p4_c0",
+        "bm25_glossary_04_p2_c0"
+      ],
+      "gold_document_ids": [
+        "bm25_exact_04",
+        "bm25_glossary_04"
+      ],
+      "k": 20,
+      "diagnostic_category": "BM25-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "bm25_04_1",
+      "query": "CPJ04 SIGIL04 escrow nonce rotation guidance",
+      "retrieval_category": "BM25-Dominant",
+      "expected_strategy": "vector_bm25",
+      "gold_chunk_ids": [
+        "bm25_exact_04_p4_c0",
+        "bm25_glossary_04_p2_c0"
+      ],
+      "gold_document_ids": [
+        "bm25_exact_04",
+        "bm25_glossary_04"
+      ],
+      "k": 20,
+      "diagnostic_category": "BM25-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "bm25_04_2",
+      "query": "exact keyword lookup QPX-405 CPJ04 SIGIL04",
+      "retrieval_category": "BM25-Dominant",
+      "expected_strategy": "vector_bm25",
+      "gold_chunk_ids": [
+        "bm25_exact_04_p4_c0",
+        "bm25_glossary_04_p2_c0"
+      ],
+      "gold_document_ids": [
+        "bm25_exact_04",
+        "bm25_glossary_04"
+      ],
+      "k": 20,
+      "diagnostic_category": "BM25-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "bm25_04_3",
+      "query": "Find bulletin QPX-405 SIGIL04 failback ordering",
+      "retrieval_category": "BM25-Dominant",
+      "expected_strategy": "vector_bm25",
+      "gold_chunk_ids": [
+        "bm25_exact_04_p4_c0",
+        "bm25_glossary_04_p2_c0"
+      ],
+      "gold_document_ids": [
+        "bm25_exact_04",
+        "bm25_glossary_04"
+      ],
+      "k": 20,
+      "diagnostic_category": "BM25-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "entity_00_0",
+      "query": "Which k8s safeguard limits voluntary outages during maintenance?",
+      "retrieval_category": "Entity-Dominant",
+      "expected_strategy": "vector_entity",
+      "gold_chunk_ids": [
+        "entity_alias_00_p2_c0"
+      ],
+      "gold_document_ids": [
+        "entity_alias_00"
+      ],
+      "k": 20,
+      "diagnostic_category": "Entity-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "entity_00_1",
+      "query": "k8s upgrade outage guardrail",
+      "retrieval_category": "Entity-Dominant",
+      "expected_strategy": "vector_entity",
+      "gold_chunk_ids": [
+        "entity_alias_00_p2_c0"
+      ],
+      "gold_document_ids": [
+        "entity_alias_00"
+      ],
+      "k": 20,
+      "diagnostic_category": "Entity-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "entity_00_2",
+      "query": "How does the k8s standard avoid drain-related downtime?",
+      "retrieval_category": "Entity-Dominant",
+      "expected_strategy": "vector_entity",
+      "gold_chunk_ids": [
+        "entity_alias_00_p2_c0"
+      ],
+      "gold_document_ids": [
+        "entity_alias_00"
+      ],
+      "k": 20,
+      "diagnostic_category": "Entity-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "entity_00_3",
+      "query": "k8s disruption budget guidance",
+      "retrieval_category": "Entity-Dominant",
+      "expected_strategy": "vector_entity",
+      "gold_chunk_ids": [
+        "entity_alias_00_p2_c0"
+      ],
+      "gold_document_ids": [
+        "entity_alias_00"
+      ],
+      "k": 20,
+      "diagnostic_category": "Entity-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "entity_01_0",
+      "query": "How does the JS runtime prevent dependency drift?",
+      "retrieval_category": "Entity-Dominant",
+      "expected_strategy": "vector_entity",
+      "gold_chunk_ids": [
+        "entity_alias_01_p2_c0"
+      ],
+      "gold_document_ids": [
+        "entity_alias_01"
+      ],
+      "k": 20,
+      "diagnostic_category": "Entity-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "entity_01_1",
+      "query": "JS package review control",
+      "retrieval_category": "Entity-Dominant",
+      "expected_strategy": "vector_entity",
+      "gold_chunk_ids": [
+        "entity_alias_01_p2_c0"
+      ],
+      "gold_document_ids": [
+        "entity_alias_01"
+      ],
+      "k": 20,
+      "diagnostic_category": "Entity-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "entity_01_2",
+      "query": "Which JS safeguard enforces signed release manifests?",
+      "retrieval_category": "Entity-Dominant",
+      "expected_strategy": "vector_entity",
+      "gold_chunk_ids": [
+        "entity_alias_01_p2_c0"
+      ],
+      "gold_document_ids": [
+        "entity_alias_01"
+      ],
+      "k": 20,
+      "diagnostic_category": "Entity-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "entity_01_3",
+      "query": "js origin isolation requirement",
+      "retrieval_category": "Entity-Dominant",
+      "expected_strategy": "vector_entity",
+      "gold_chunk_ids": [
+        "entity_alias_01_p2_c0"
+      ],
+      "gold_document_ids": [
+        "entity_alias_01"
+      ],
+      "k": 20,
+      "diagnostic_category": "Entity-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "entity_02_0",
+      "query": "How does the LLM program keep risky responses grounded?",
+      "retrieval_category": "Entity-Dominant",
+      "expected_strategy": "vector_entity",
+      "gold_chunk_ids": [
+        "entity_alias_02_p2_c0"
+      ],
+      "gold_document_ids": [
+        "entity_alias_02"
+      ],
+      "k": 20,
+      "diagnostic_category": "Entity-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "entity_02_1",
+      "query": "LLM approval control for high-risk use",
+      "retrieval_category": "Entity-Dominant",
+      "expected_strategy": "vector_entity",
+      "gold_chunk_ids": [
+        "entity_alias_02_p2_c0"
+      ],
+      "gold_document_ids": [
+        "entity_alias_02"
+      ],
+      "k": 20,
+      "diagnostic_category": "Entity-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "entity_02_2",
+      "query": "Which LLM safeguard requires audit review?",
+      "retrieval_category": "Entity-Dominant",
+      "expected_strategy": "vector_entity",
+      "gold_chunk_ids": [
+        "entity_alias_02_p2_c0"
+      ],
+      "gold_document_ids": [
+        "entity_alias_02"
+      ],
+      "k": 20,
+      "diagnostic_category": "Entity-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "entity_02_3",
+      "query": "llm evidence grounding rule",
+      "retrieval_category": "Entity-Dominant",
+      "expected_strategy": "vector_entity",
+      "gold_chunk_ids": [
+        "entity_alias_02_p2_c0"
+      ],
+      "gold_document_ids": [
+        "entity_alias_02"
+      ],
+      "k": 20,
+      "diagnostic_category": "Entity-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "entity_03_0",
+      "query": "Which k8s safeguard limits voluntary outages during maintenance?",
+      "retrieval_category": "Entity-Dominant",
+      "expected_strategy": "vector_entity",
+      "gold_chunk_ids": [
+        "entity_alias_03_p2_c0"
+      ],
+      "gold_document_ids": [
+        "entity_alias_03"
+      ],
+      "k": 20,
+      "diagnostic_category": "Entity-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "entity_03_1",
+      "query": "k8s upgrade outage guardrail",
+      "retrieval_category": "Entity-Dominant",
+      "expected_strategy": "vector_entity",
+      "gold_chunk_ids": [
+        "entity_alias_03_p2_c0"
+      ],
+      "gold_document_ids": [
+        "entity_alias_03"
+      ],
+      "k": 20,
+      "diagnostic_category": "Entity-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "entity_03_2",
+      "query": "How does the k8s standard avoid drain-related downtime?",
+      "retrieval_category": "Entity-Dominant",
+      "expected_strategy": "vector_entity",
+      "gold_chunk_ids": [
+        "entity_alias_03_p2_c0"
+      ],
+      "gold_document_ids": [
+        "entity_alias_03"
+      ],
+      "k": 20,
+      "diagnostic_category": "Entity-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "entity_03_3",
+      "query": "k8s disruption budget guidance",
+      "retrieval_category": "Entity-Dominant",
+      "expected_strategy": "vector_entity",
+      "gold_chunk_ids": [
+        "entity_alias_03_p2_c0"
+      ],
+      "gold_document_ids": [
+        "entity_alias_03"
+      ],
+      "k": 20,
+      "diagnostic_category": "Entity-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "entity_04_0",
+      "query": "How does the JS runtime prevent dependency drift?",
+      "retrieval_category": "Entity-Dominant",
+      "expected_strategy": "vector_entity",
+      "gold_chunk_ids": [
+        "entity_alias_04_p2_c0"
+      ],
+      "gold_document_ids": [
+        "entity_alias_04"
+      ],
+      "k": 20,
+      "diagnostic_category": "Entity-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "entity_04_1",
+      "query": "JS package review control",
+      "retrieval_category": "Entity-Dominant",
+      "expected_strategy": "vector_entity",
+      "gold_chunk_ids": [
+        "entity_alias_04_p2_c0"
+      ],
+      "gold_document_ids": [
+        "entity_alias_04"
+      ],
+      "k": 20,
+      "diagnostic_category": "Entity-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "entity_04_2",
+      "query": "Which JS safeguard enforces signed release manifests?",
+      "retrieval_category": "Entity-Dominant",
+      "expected_strategy": "vector_entity",
+      "gold_chunk_ids": [
+        "entity_alias_04_p2_c0"
+      ],
+      "gold_document_ids": [
+        "entity_alias_04"
+      ],
+      "k": 20,
+      "diagnostic_category": "Entity-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "entity_04_3",
+      "query": "js origin isolation requirement",
+      "retrieval_category": "Entity-Dominant",
+      "expected_strategy": "vector_entity",
+      "gold_chunk_ids": [
+        "entity_alias_04_p2_c0"
+      ],
+      "gold_document_ids": [
+        "entity_alias_04"
+      ],
+      "k": 20,
+      "diagnostic_category": "Entity-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "hybrid_00_0",
+      "query": "How does HBX-510 MERGE00 keep k8s canary releases from exposing users to half-configured sessions?",
+      "retrieval_category": "Hybrid-Dominant",
+      "expected_strategy": "vector_bm25_entity_rrf",
+      "gold_chunk_ids": [
+        "hybrid_lexical_00_p2_c0",
+        "hybrid_semantic_00_p5_c0",
+        "hybrid_entity_00_p4_c0"
+      ],
+      "gold_document_ids": [
+        "hybrid_lexical_00",
+        "hybrid_semantic_00",
+        "hybrid_entity_00"
+      ],
+      "k": 20,
+      "diagnostic_category": "Hybrid-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "hybrid_00_1",
+      "query": "HBX-510 k8s MERGE00 cookie hydration rollout safeguard",
+      "retrieval_category": "Hybrid-Dominant",
+      "expected_strategy": "vector_bm25_entity_rrf",
+      "gold_chunk_ids": [
+        "hybrid_lexical_00_p2_c0",
+        "hybrid_semantic_00_p5_c0",
+        "hybrid_entity_00_p4_c0"
+      ],
+      "gold_document_ids": [
+        "hybrid_lexical_00",
+        "hybrid_semantic_00",
+        "hybrid_entity_00"
+      ],
+      "k": 20,
+      "diagnostic_category": "Hybrid-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "hybrid_00_2",
+      "query": "Which control avoids partially initialized sessions during staged exposure for HBX-510 MERGE00 on k8s workloads?",
+      "retrieval_category": "Hybrid-Dominant",
+      "expected_strategy": "vector_bm25_entity_rrf",
+      "gold_chunk_ids": [
+        "hybrid_lexical_00_p2_c0",
+        "hybrid_semantic_00_p5_c0",
+        "hybrid_entity_00_p4_c0"
+      ],
+      "gold_document_ids": [
+        "hybrid_lexical_00",
+        "hybrid_semantic_00",
+        "hybrid_entity_00"
+      ],
+      "k": 20,
+      "diagnostic_category": "Hybrid-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "hybrid_00_3",
+      "query": "Find the rollout rule behind HBX-510 MERGE00 state divergence protection for k8s.",
+      "retrieval_category": "Hybrid-Dominant",
+      "expected_strategy": "vector_bm25_entity_rrf",
+      "gold_chunk_ids": [
+        "hybrid_lexical_00_p2_c0",
+        "hybrid_semantic_00_p5_c0",
+        "hybrid_entity_00_p4_c0"
+      ],
+      "gold_document_ids": [
+        "hybrid_lexical_00",
+        "hybrid_semantic_00",
+        "hybrid_entity_00"
+      ],
+      "k": 20,
+      "diagnostic_category": "Hybrid-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "hybrid_00_4",
+      "query": "Explain how HBX-510 MERGE00 stops users from seeing incomplete session state during k8s traffic shifts.",
+      "retrieval_category": "Hybrid-Dominant",
+      "expected_strategy": "vector_bm25_entity_rrf",
+      "gold_chunk_ids": [
+        "hybrid_lexical_00_p2_c0",
+        "hybrid_semantic_00_p5_c0",
+        "hybrid_entity_00_p4_c0"
+      ],
+      "gold_document_ids": [
+        "hybrid_lexical_00",
+        "hybrid_semantic_00",
+        "hybrid_entity_00"
+      ],
+      "k": 20,
+      "diagnostic_category": "Hybrid-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "hybrid_00_5",
+      "query": "HBX-510 k8s MERGE00 staged rollout session safety",
+      "retrieval_category": "Hybrid-Dominant",
+      "expected_strategy": "vector_bm25_entity_rrf",
+      "gold_chunk_ids": [
+        "hybrid_lexical_00_p2_c0",
+        "hybrid_semantic_00_p5_c0",
+        "hybrid_entity_00_p4_c0"
+      ],
+      "gold_document_ids": [
+        "hybrid_lexical_00",
+        "hybrid_semantic_00",
+        "hybrid_entity_00"
+      ],
+      "k": 20,
+      "diagnostic_category": "Hybrid-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "hybrid_00_6",
+      "query": "What rollout safety practice is paired with HBX-510 MERGE00 to verify cookie hydration on k8s workloads?",
+      "retrieval_category": "Hybrid-Dominant",
+      "expected_strategy": "vector_bm25_entity_rrf",
+      "gold_chunk_ids": [
+        "hybrid_lexical_00_p2_c0",
+        "hybrid_semantic_00_p5_c0",
+        "hybrid_entity_00_p4_c0"
+      ],
+      "gold_document_ids": [
+        "hybrid_lexical_00",
+        "hybrid_semantic_00",
+        "hybrid_entity_00"
+      ],
+      "k": 20,
+      "diagnostic_category": "Hybrid-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "hybrid_00_7",
+      "query": "HBX-510 MERGE00 pause exposure when session state diverges for k8s",
+      "retrieval_category": "Hybrid-Dominant",
+      "expected_strategy": "vector_bm25_entity_rrf",
+      "gold_chunk_ids": [
+        "hybrid_lexical_00_p2_c0",
+        "hybrid_semantic_00_p5_c0",
+        "hybrid_entity_00_p4_c0"
+      ],
+      "gold_document_ids": [
+        "hybrid_lexical_00",
+        "hybrid_semantic_00",
+        "hybrid_entity_00"
+      ],
+      "k": 20,
+      "diagnostic_category": "Hybrid-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "hybrid_01_0",
+      "query": "How does HBX-511 MERGE01 keep js canary releases from exposing users to half-configured sessions?",
+      "retrieval_category": "Hybrid-Dominant",
+      "expected_strategy": "vector_bm25_entity_rrf",
+      "gold_chunk_ids": [
+        "hybrid_lexical_01_p2_c0",
+        "hybrid_semantic_01_p5_c0",
+        "hybrid_entity_01_p4_c0"
+      ],
+      "gold_document_ids": [
+        "hybrid_lexical_01",
+        "hybrid_semantic_01",
+        "hybrid_entity_01"
+      ],
+      "k": 20,
+      "diagnostic_category": "Hybrid-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "hybrid_01_1",
+      "query": "HBX-511 js MERGE01 cookie hydration rollout safeguard",
+      "retrieval_category": "Hybrid-Dominant",
+      "expected_strategy": "vector_bm25_entity_rrf",
+      "gold_chunk_ids": [
+        "hybrid_lexical_01_p2_c0",
+        "hybrid_semantic_01_p5_c0",
+        "hybrid_entity_01_p4_c0"
+      ],
+      "gold_document_ids": [
+        "hybrid_lexical_01",
+        "hybrid_semantic_01",
+        "hybrid_entity_01"
+      ],
+      "k": 20,
+      "diagnostic_category": "Hybrid-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "hybrid_01_2",
+      "query": "Which control avoids partially initialized sessions during staged exposure for HBX-511 MERGE01 on js workloads?",
+      "retrieval_category": "Hybrid-Dominant",
+      "expected_strategy": "vector_bm25_entity_rrf",
+      "gold_chunk_ids": [
+        "hybrid_lexical_01_p2_c0",
+        "hybrid_semantic_01_p5_c0",
+        "hybrid_entity_01_p4_c0"
+      ],
+      "gold_document_ids": [
+        "hybrid_lexical_01",
+        "hybrid_semantic_01",
+        "hybrid_entity_01"
+      ],
+      "k": 20,
+      "diagnostic_category": "Hybrid-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "hybrid_01_3",
+      "query": "Find the rollout rule behind HBX-511 MERGE01 state divergence protection for js.",
+      "retrieval_category": "Hybrid-Dominant",
+      "expected_strategy": "vector_bm25_entity_rrf",
+      "gold_chunk_ids": [
+        "hybrid_lexical_01_p2_c0",
+        "hybrid_semantic_01_p5_c0",
+        "hybrid_entity_01_p4_c0"
+      ],
+      "gold_document_ids": [
+        "hybrid_lexical_01",
+        "hybrid_semantic_01",
+        "hybrid_entity_01"
+      ],
+      "k": 20,
+      "diagnostic_category": "Hybrid-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "hybrid_01_4",
+      "query": "Explain how HBX-511 MERGE01 stops users from seeing incomplete session state during js traffic shifts.",
+      "retrieval_category": "Hybrid-Dominant",
+      "expected_strategy": "vector_bm25_entity_rrf",
+      "gold_chunk_ids": [
+        "hybrid_lexical_01_p2_c0",
+        "hybrid_semantic_01_p5_c0",
+        "hybrid_entity_01_p4_c0"
+      ],
+      "gold_document_ids": [
+        "hybrid_lexical_01",
+        "hybrid_semantic_01",
+        "hybrid_entity_01"
+      ],
+      "k": 20,
+      "diagnostic_category": "Hybrid-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "hybrid_01_5",
+      "query": "HBX-511 js MERGE01 staged rollout session safety",
+      "retrieval_category": "Hybrid-Dominant",
+      "expected_strategy": "vector_bm25_entity_rrf",
+      "gold_chunk_ids": [
+        "hybrid_lexical_01_p2_c0",
+        "hybrid_semantic_01_p5_c0",
+        "hybrid_entity_01_p4_c0"
+      ],
+      "gold_document_ids": [
+        "hybrid_lexical_01",
+        "hybrid_semantic_01",
+        "hybrid_entity_01"
+      ],
+      "k": 20,
+      "diagnostic_category": "Hybrid-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "hybrid_01_6",
+      "query": "What rollout safety practice is paired with HBX-511 MERGE01 to verify cookie hydration on js workloads?",
+      "retrieval_category": "Hybrid-Dominant",
+      "expected_strategy": "vector_bm25_entity_rrf",
+      "gold_chunk_ids": [
+        "hybrid_lexical_01_p2_c0",
+        "hybrid_semantic_01_p5_c0",
+        "hybrid_entity_01_p4_c0"
+      ],
+      "gold_document_ids": [
+        "hybrid_lexical_01",
+        "hybrid_semantic_01",
+        "hybrid_entity_01"
+      ],
+      "k": 20,
+      "diagnostic_category": "Hybrid-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "hybrid_01_7",
+      "query": "HBX-511 MERGE01 pause exposure when session state diverges for js",
+      "retrieval_category": "Hybrid-Dominant",
+      "expected_strategy": "vector_bm25_entity_rrf",
+      "gold_chunk_ids": [
+        "hybrid_lexical_01_p2_c0",
+        "hybrid_semantic_01_p5_c0",
+        "hybrid_entity_01_p4_c0"
+      ],
+      "gold_document_ids": [
+        "hybrid_lexical_01",
+        "hybrid_semantic_01",
+        "hybrid_entity_01"
+      ],
+      "k": 20,
+      "diagnostic_category": "Hybrid-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "hybrid_02_0",
+      "query": "How does HBX-512 MERGE02 keep llm canary releases from exposing users to half-configured sessions?",
+      "retrieval_category": "Hybrid-Dominant",
+      "expected_strategy": "vector_bm25_entity_rrf",
+      "gold_chunk_ids": [
+        "hybrid_lexical_02_p2_c0",
+        "hybrid_semantic_02_p5_c0",
+        "hybrid_entity_02_p4_c0"
+      ],
+      "gold_document_ids": [
+        "hybrid_lexical_02",
+        "hybrid_semantic_02",
+        "hybrid_entity_02"
+      ],
+      "k": 20,
+      "diagnostic_category": "Hybrid-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "hybrid_02_1",
+      "query": "HBX-512 llm MERGE02 cookie hydration rollout safeguard",
+      "retrieval_category": "Hybrid-Dominant",
+      "expected_strategy": "vector_bm25_entity_rrf",
+      "gold_chunk_ids": [
+        "hybrid_lexical_02_p2_c0",
+        "hybrid_semantic_02_p5_c0",
+        "hybrid_entity_02_p4_c0"
+      ],
+      "gold_document_ids": [
+        "hybrid_lexical_02",
+        "hybrid_semantic_02",
+        "hybrid_entity_02"
+      ],
+      "k": 20,
+      "diagnostic_category": "Hybrid-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "hybrid_02_2",
+      "query": "Which control avoids partially initialized sessions during staged exposure for HBX-512 MERGE02 on llm workloads?",
+      "retrieval_category": "Hybrid-Dominant",
+      "expected_strategy": "vector_bm25_entity_rrf",
+      "gold_chunk_ids": [
+        "hybrid_lexical_02_p2_c0",
+        "hybrid_semantic_02_p5_c0",
+        "hybrid_entity_02_p4_c0"
+      ],
+      "gold_document_ids": [
+        "hybrid_lexical_02",
+        "hybrid_semantic_02",
+        "hybrid_entity_02"
+      ],
+      "k": 20,
+      "diagnostic_category": "Hybrid-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "hybrid_02_3",
+      "query": "Find the rollout rule behind HBX-512 MERGE02 state divergence protection for llm.",
+      "retrieval_category": "Hybrid-Dominant",
+      "expected_strategy": "vector_bm25_entity_rrf",
+      "gold_chunk_ids": [
+        "hybrid_lexical_02_p2_c0",
+        "hybrid_semantic_02_p5_c0",
+        "hybrid_entity_02_p4_c0"
+      ],
+      "gold_document_ids": [
+        "hybrid_lexical_02",
+        "hybrid_semantic_02",
+        "hybrid_entity_02"
+      ],
+      "k": 20,
+      "diagnostic_category": "Hybrid-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "multihop_00_0",
+      "query": "Which operational action satisfies MP-620 while limiting restart storms during k8s maintenance?",
+      "retrieval_category": "Multi-Hop",
+      "expected_strategy": "vector_bm25_entity_rrf",
+      "gold_chunk_ids": [
+        "multihop_policy_00_p3_c0",
+        "multihop_runbook_00_p7_c1"
+      ],
+      "gold_document_ids": [
+        "multihop_policy_00",
+        "multihop_runbook_00"
+      ],
+      "k": 20,
+      "diagnostic_category": "Multi-hop-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "multihop_00_1",
+      "query": "Map MP-620 to the runbook step that reduces restart storms for k8s.",
+      "retrieval_category": "Multi-Hop",
+      "expected_strategy": "vector_bm25_entity_rrf",
+      "gold_chunk_ids": [
+        "multihop_policy_00_p3_c0",
+        "multihop_runbook_00_p7_c1"
+      ],
+      "gold_document_ids": [
+        "multihop_policy_00",
+        "multihop_runbook_00"
+      ],
+      "k": 20,
+      "diagnostic_category": "Multi-hop-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "multihop_00_2",
+      "query": "How do teams implement MP-620 in the k8s playbook?",
+      "retrieval_category": "Multi-Hop",
+      "expected_strategy": "vector_bm25_entity_rrf",
+      "gold_chunk_ids": [
+        "multihop_policy_00_p3_c0",
+        "multihop_runbook_00_p7_c1"
+      ],
+      "gold_document_ids": [
+        "multihop_policy_00",
+        "multihop_runbook_00"
+      ],
+      "k": 20,
+      "diagnostic_category": "Multi-hop-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "multihop_00_3",
+      "query": "What evidence and action pair answer MP-620 for k8s maintenance?",
+      "retrieval_category": "Multi-Hop",
+      "expected_strategy": "vector_bm25_entity_rrf",
+      "gold_chunk_ids": [
+        "multihop_policy_00_p3_c0",
+        "multihop_runbook_00_p7_c1"
+      ],
+      "gold_document_ids": [
+        "multihop_policy_00",
+        "multihop_runbook_00"
+      ],
+      "k": 20,
+      "diagnostic_category": "Multi-hop-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "multihop_00_4",
+      "query": "Connect policy MP-620 with the maintenance step that lowers restart storms in k8s.",
+      "retrieval_category": "Multi-Hop",
+      "expected_strategy": "vector_bm25_entity_rrf",
+      "gold_chunk_ids": [
+        "multihop_policy_00_p3_c0",
+        "multihop_runbook_00_p7_c1"
+      ],
+      "gold_document_ids": [
+        "multihop_policy_00",
+        "multihop_runbook_00"
+      ],
+      "k": 20,
+      "diagnostic_category": "Multi-hop-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "multihop_00_5",
+      "query": "Which k8s runbook action fulfills MP-620?",
+      "retrieval_category": "Multi-Hop",
+      "expected_strategy": "vector_bm25_entity_rrf",
+      "gold_chunk_ids": [
+        "multihop_policy_00_p3_c0",
+        "multihop_runbook_00_p7_c1"
+      ],
+      "gold_document_ids": [
+        "multihop_policy_00",
+        "multihop_runbook_00"
+      ],
+      "k": 20,
+      "diagnostic_category": "Multi-hop-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "multihop_00_6",
+      "query": "Find the policy-rule and runbook-step pair for MP-620.",
+      "retrieval_category": "Multi-Hop",
+      "expected_strategy": "vector_bm25_entity_rrf",
+      "gold_chunk_ids": [
+        "multihop_policy_00_p3_c0",
+        "multihop_runbook_00_p7_c1"
+      ],
+      "gold_document_ids": [
+        "multihop_policy_00",
+        "multihop_runbook_00"
+      ],
+      "k": 20,
+      "diagnostic_category": "Multi-hop-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "multihop_00_7",
+      "query": "How is MP-620 enforced during k8s maintenance operations?",
+      "retrieval_category": "Multi-Hop",
+      "expected_strategy": "vector_bm25_entity_rrf",
+      "gold_chunk_ids": [
+        "multihop_policy_00_p3_c0",
+        "multihop_runbook_00_p7_c1"
+      ],
+      "gold_document_ids": [
+        "multihop_policy_00",
+        "multihop_runbook_00"
+      ],
+      "k": 20,
+      "diagnostic_category": "Multi-hop-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "multihop_01_0",
+      "query": "Which operational action satisfies MP-621 while limiting restart storms during js maintenance?",
+      "retrieval_category": "Multi-Hop",
+      "expected_strategy": "vector_bm25_entity_rrf",
+      "gold_chunk_ids": [
+        "multihop_policy_01_p3_c0",
+        "multihop_runbook_01_p7_c1"
+      ],
+      "gold_document_ids": [
+        "multihop_policy_01",
+        "multihop_runbook_01"
+      ],
+      "k": 20,
+      "diagnostic_category": "Multi-hop-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "multihop_01_1",
+      "query": "Map MP-621 to the runbook step that reduces restart storms for js.",
+      "retrieval_category": "Multi-Hop",
+      "expected_strategy": "vector_bm25_entity_rrf",
+      "gold_chunk_ids": [
+        "multihop_policy_01_p3_c0",
+        "multihop_runbook_01_p7_c1"
+      ],
+      "gold_document_ids": [
+        "multihop_policy_01",
+        "multihop_runbook_01"
+      ],
+      "k": 20,
+      "diagnostic_category": "Multi-hop-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "multihop_01_2",
+      "query": "How do teams implement MP-621 in the js playbook?",
+      "retrieval_category": "Multi-Hop",
+      "expected_strategy": "vector_bm25_entity_rrf",
+      "gold_chunk_ids": [
+        "multihop_policy_01_p3_c0",
+        "multihop_runbook_01_p7_c1"
+      ],
+      "gold_document_ids": [
+        "multihop_policy_01",
+        "multihop_runbook_01"
+      ],
+      "k": 20,
+      "diagnostic_category": "Multi-hop-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "multihop_01_3",
+      "query": "What evidence and action pair answer MP-621 for js maintenance?",
+      "retrieval_category": "Multi-Hop",
+      "expected_strategy": "vector_bm25_entity_rrf",
+      "gold_chunk_ids": [
+        "multihop_policy_01_p3_c0",
+        "multihop_runbook_01_p7_c1"
+      ],
+      "gold_document_ids": [
+        "multihop_policy_01",
+        "multihop_runbook_01"
+      ],
+      "k": 20,
+      "diagnostic_category": "Multi-hop-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "multihop_01_4",
+      "query": "Connect policy MP-621 with the maintenance step that lowers restart storms in js.",
+      "retrieval_category": "Multi-Hop",
+      "expected_strategy": "vector_bm25_entity_rrf",
+      "gold_chunk_ids": [
+        "multihop_policy_01_p3_c0",
+        "multihop_runbook_01_p7_c1"
+      ],
+      "gold_document_ids": [
+        "multihop_policy_01",
+        "multihop_runbook_01"
+      ],
+      "k": 20,
+      "diagnostic_category": "Multi-hop-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "multihop_01_5",
+      "query": "Which js runbook action fulfills MP-621?",
+      "retrieval_category": "Multi-Hop",
+      "expected_strategy": "vector_bm25_entity_rrf",
+      "gold_chunk_ids": [
+        "multihop_policy_01_p3_c0",
+        "multihop_runbook_01_p7_c1"
+      ],
+      "gold_document_ids": [
+        "multihop_policy_01",
+        "multihop_runbook_01"
+      ],
+      "k": 20,
+      "diagnostic_category": "Multi-hop-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "multihop_01_6",
+      "query": "Find the policy-rule and runbook-step pair for MP-621.",
+      "retrieval_category": "Multi-Hop",
+      "expected_strategy": "vector_bm25_entity_rrf",
+      "gold_chunk_ids": [
+        "multihop_policy_01_p3_c0",
+        "multihop_runbook_01_p7_c1"
+      ],
+      "gold_document_ids": [
+        "multihop_policy_01",
+        "multihop_runbook_01"
+      ],
+      "k": 20,
+      "diagnostic_category": "Multi-hop-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "multihop_01_7",
+      "query": "How is MP-621 enforced during js maintenance operations?",
+      "retrieval_category": "Multi-Hop",
+      "expected_strategy": "vector_bm25_entity_rrf",
+      "gold_chunk_ids": [
+        "multihop_policy_01_p3_c0",
+        "multihop_runbook_01_p7_c1"
+      ],
+      "gold_document_ids": [
+        "multihop_policy_01",
+        "multihop_runbook_01"
+      ],
+      "k": 20,
+      "diagnostic_category": "Multi-hop-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "multihop_02_0",
+      "query": "Which operational action satisfies MP-622 while limiting restart storms during llm maintenance?",
+      "retrieval_category": "Multi-Hop",
+      "expected_strategy": "vector_bm25_entity_rrf",
+      "gold_chunk_ids": [
+        "multihop_policy_02_p3_c0",
+        "multihop_runbook_02_p7_c1"
+      ],
+      "gold_document_ids": [
+        "multihop_policy_02",
+        "multihop_runbook_02"
+      ],
+      "k": 20,
+      "diagnostic_category": "Multi-hop-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "multihop_02_1",
+      "query": "Map MP-622 to the runbook step that reduces restart storms for llm.",
+      "retrieval_category": "Multi-Hop",
+      "expected_strategy": "vector_bm25_entity_rrf",
+      "gold_chunk_ids": [
+        "multihop_policy_02_p3_c0",
+        "multihop_runbook_02_p7_c1"
+      ],
+      "gold_document_ids": [
+        "multihop_policy_02",
+        "multihop_runbook_02"
+      ],
+      "k": 20,
+      "diagnostic_category": "Multi-hop-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "multihop_02_2",
+      "query": "How do teams implement MP-622 in the llm playbook?",
+      "retrieval_category": "Multi-Hop",
+      "expected_strategy": "vector_bm25_entity_rrf",
+      "gold_chunk_ids": [
+        "multihop_policy_02_p3_c0",
+        "multihop_runbook_02_p7_c1"
+      ],
+      "gold_document_ids": [
+        "multihop_policy_02",
+        "multihop_runbook_02"
+      ],
+      "k": 20,
+      "diagnostic_category": "Multi-hop-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "multihop_02_3",
+      "query": "What evidence and action pair answer MP-622 for llm maintenance?",
+      "retrieval_category": "Multi-Hop",
+      "expected_strategy": "vector_bm25_entity_rrf",
+      "gold_chunk_ids": [
+        "multihop_policy_02_p3_c0",
+        "multihop_runbook_02_p7_c1"
+      ],
+      "gold_document_ids": [
+        "multihop_policy_02",
+        "multihop_runbook_02"
+      ],
+      "k": 20,
+      "diagnostic_category": "Multi-hop-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "dense_00_0",
+      "query": "How do we cut hands-on rescue work before an availability zone starts wobbling?",
+      "retrieval_category": "Dense-Dominant",
+      "expected_strategy": "vector_only",
+      "gold_chunk_ids": [
+        "dense_semantic_00_p3_c1"
+      ],
+      "gold_document_ids": [
+        "dense_semantic_00"
+      ],
+      "k": 20,
+      "diagnostic_category": "Vector-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "dense_00_1",
+      "query": "What approach helps when regional instability begins and we want to cut hands-on rescue work before an availability zone starts wobbling?",
+      "retrieval_category": "Dense-Dominant",
+      "expected_strategy": "vector_only",
+      "gold_chunk_ids": [
+        "dense_semantic_00_p3_c1"
+      ],
+      "gold_document_ids": [
+        "dense_semantic_00"
+      ],
+      "k": 20,
+      "diagnostic_category": "Vector-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "dense_00_2",
+      "query": "Which practice is recommended to cut hands-on rescue work before an availability zone starts wobbling?",
+      "retrieval_category": "Dense-Dominant",
+      "expected_strategy": "vector_only",
+      "gold_chunk_ids": [
+        "dense_semantic_00_p3_c1"
+      ],
+      "gold_document_ids": [
+        "dense_semantic_00"
+      ],
+      "k": 20,
+      "diagnostic_category": "Vector-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "dense_00_3",
+      "query": "Describe the method used to cut hands-on rescue work before an availability zone starts wobbling.",
+      "retrieval_category": "Dense-Dominant",
+      "expected_strategy": "vector_only",
+      "gold_chunk_ids": [
+        "dense_semantic_00_p3_c1"
+      ],
+      "gold_document_ids": [
+        "dense_semantic_00"
+      ],
+      "k": 20,
+      "diagnostic_category": "Vector-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "dense_01_0",
+      "query": "How do we reduce the chance that a stolen session can act like a real employee?",
+      "retrieval_category": "Dense-Dominant",
+      "expected_strategy": "vector_only",
+      "gold_chunk_ids": [
+        "dense_semantic_01_p3_c1"
+      ],
+      "gold_document_ids": [
+        "dense_semantic_01"
+      ],
+      "k": 20,
+      "diagnostic_category": "Vector-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "dense_01_1",
+      "query": "What approach helps when identity misuse begins and we want to reduce the chance that a stolen session can act like a real employee?",
+      "retrieval_category": "Dense-Dominant",
+      "expected_strategy": "vector_only",
+      "gold_chunk_ids": [
+        "dense_semantic_01_p3_c1"
+      ],
+      "gold_document_ids": [
+        "dense_semantic_01"
+      ],
+      "k": 20,
+      "diagnostic_category": "Vector-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "dense_01_2",
+      "query": "Which practice is recommended to reduce the chance that a stolen session can act like a real employee?",
+      "retrieval_category": "Dense-Dominant",
+      "expected_strategy": "vector_only",
+      "gold_chunk_ids": [
+        "dense_semantic_01_p3_c1"
+      ],
+      "gold_document_ids": [
+        "dense_semantic_01"
+      ],
+      "k": 20,
+      "diagnostic_category": "Vector-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "dense_01_3",
+      "query": "Describe the method used to reduce the chance that a stolen session can act like a real employee.",
+      "retrieval_category": "Dense-Dominant",
+      "expected_strategy": "vector_only",
+      "gold_chunk_ids": [
+        "dense_semantic_01_p3_c1"
+      ],
+      "gold_document_ids": [
+        "dense_semantic_01"
+      ],
+      "k": 20,
+      "diagnostic_category": "Vector-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "dense_02_0",
+      "query": "How do we keep generated answers from wandering outside policy boundaries?",
+      "retrieval_category": "Dense-Dominant",
+      "expected_strategy": "vector_only",
+      "gold_chunk_ids": [
+        "dense_semantic_02_p3_c1"
+      ],
+      "gold_document_ids": [
+        "dense_semantic_02"
+      ],
+      "k": 20,
+      "diagnostic_category": "Vector-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "dense_02_1",
+      "query": "What approach helps when model overreach begins and we want to keep generated answers from wandering outside policy boundaries?",
+      "retrieval_category": "Dense-Dominant",
+      "expected_strategy": "vector_only",
+      "gold_chunk_ids": [
+        "dense_semantic_02_p3_c1"
+      ],
+      "gold_document_ids": [
+        "dense_semantic_02"
+      ],
+      "k": 20,
+      "diagnostic_category": "Vector-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "dense_02_2",
+      "query": "Which practice is recommended to keep generated answers from wandering outside policy boundaries?",
+      "retrieval_category": "Dense-Dominant",
+      "expected_strategy": "vector_only",
+      "gold_chunk_ids": [
+        "dense_semantic_02_p3_c1"
+      ],
+      "gold_document_ids": [
+        "dense_semantic_02"
+      ],
+      "k": 20,
+      "diagnostic_category": "Vector-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "dense_02_3",
+      "query": "Describe the method used to keep generated answers from wandering outside policy boundaries.",
+      "retrieval_category": "Dense-Dominant",
+      "expected_strategy": "vector_only",
+      "gold_chunk_ids": [
+        "dense_semantic_02_p3_c1"
+      ],
+      "gold_document_ids": [
+        "dense_semantic_02"
+      ],
+      "k": 20,
+      "diagnostic_category": "Vector-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "dense_03_0",
+      "query": "How do we lower customer pain when a rollout starts degrading quietly?",
+      "retrieval_category": "Dense-Dominant",
+      "expected_strategy": "vector_only",
+      "gold_chunk_ids": [
+        "dense_semantic_03_p3_c1"
+      ],
+      "gold_document_ids": [
+        "dense_semantic_03"
+      ],
+      "k": 20,
+      "diagnostic_category": "Vector-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "dense_03_1",
+      "query": "What approach helps when release fatigue begins and we want to lower customer pain when a rollout starts degrading quietly?",
+      "retrieval_category": "Dense-Dominant",
+      "expected_strategy": "vector_only",
+      "gold_chunk_ids": [
+        "dense_semantic_03_p3_c1"
+      ],
+      "gold_document_ids": [
+        "dense_semantic_03"
+      ],
+      "k": 20,
+      "diagnostic_category": "Vector-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "dense_03_2",
+      "query": "Which practice is recommended to lower customer pain when a rollout starts degrading quietly?",
+      "retrieval_category": "Dense-Dominant",
+      "expected_strategy": "vector_only",
+      "gold_chunk_ids": [
+        "dense_semantic_03_p3_c1"
+      ],
+      "gold_document_ids": [
+        "dense_semantic_03"
+      ],
+      "k": 20,
+      "diagnostic_category": "Vector-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "dense_03_3",
+      "query": "Describe the method used to lower customer pain when a rollout starts degrading quietly.",
+      "retrieval_category": "Dense-Dominant",
+      "expected_strategy": "vector_only",
+      "gold_chunk_ids": [
+        "dense_semantic_03_p3_c1"
+      ],
+      "gold_document_ids": [
+        "dense_semantic_03"
+      ],
+      "k": 20,
+      "diagnostic_category": "Vector-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "dense_04_0",
+      "query": "How do we cut hands-on rescue work before an availability zone starts wobbling?",
+      "retrieval_category": "Dense-Dominant",
+      "expected_strategy": "vector_only",
+      "gold_chunk_ids": [
+        "dense_semantic_04_p3_c1"
+      ],
+      "gold_document_ids": [
+        "dense_semantic_04"
+      ],
+      "k": 20,
+      "diagnostic_category": "Vector-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "dense_04_1",
+      "query": "What approach helps when regional instability begins and we want to cut hands-on rescue work before an availability zone starts wobbling?",
+      "retrieval_category": "Dense-Dominant",
+      "expected_strategy": "vector_only",
+      "gold_chunk_ids": [
+        "dense_semantic_04_p3_c1"
+      ],
+      "gold_document_ids": [
+        "dense_semantic_04"
+      ],
+      "k": 20,
+      "diagnostic_category": "Vector-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "dense_04_2",
+      "query": "Which practice is recommended to cut hands-on rescue work before an availability zone starts wobbling?",
+      "retrieval_category": "Dense-Dominant",
+      "expected_strategy": "vector_only",
+      "gold_chunk_ids": [
+        "dense_semantic_04_p3_c1"
+      ],
+      "gold_document_ids": [
+        "dense_semantic_04"
+      ],
+      "k": 20,
+      "diagnostic_category": "Vector-dominant",
+      "document_filter": null
+    },
+    {
+      "query_id": "dense_04_3",
+      "query": "Describe the method used to cut hands-on rescue work before an availability zone starts wobbling.",
+      "retrieval_category": "Dense-Dominant",
+      "expected_strategy": "vector_only",
+      "gold_chunk_ids": [
+        "dense_semantic_04_p3_c1"
+      ],
+      "gold_document_ids": [
+        "dense_semantic_04"
+      ],
+      "k": 20,
+      "diagnostic_category": "Vector-dominant",
+      "document_filter": null
+    }
+  ]
+}

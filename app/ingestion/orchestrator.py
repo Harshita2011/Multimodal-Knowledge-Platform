@@ -3,9 +3,11 @@ import uuid
 
 from app.core.exceptions import AppError
 from app.core.telemetry import StageTimer
+from app.db.postgres.repositories.lexical_repo import LexicalPgRepository
 from app.ingestion.chunker import PDFChunker
 from app.ingestion.parser import PDFParser
 from app.models.responses.rag import UploadResponse
+from app.rag.retrieval_cache import RetrievalCache
 from app.services.embedding_service import EmbeddingService
 from app.services.storage_service import DocumentStorage
 from app.db.repositories.vector_repository import VectorRepository
@@ -21,6 +23,8 @@ class IngestionOrchestrator:
         vector_repository: VectorRepository,
         storage: DocumentStorage,
         max_file_size_mb: int,
+        lexical_repository: LexicalPgRepository | None = None,
+        retrieval_cache: RetrievalCache | None = None,
     ):
         self.parser = parser
         self.chunker = chunker
@@ -28,6 +32,8 @@ class IngestionOrchestrator:
         self.vector_repository = vector_repository
         self.storage = storage
         self.max_file_size_mb = max_file_size_mb
+        self.lexical_repository = lexical_repository
+        self.retrieval_cache = retrieval_cache
 
     async def ingest_pdf(self, file, document_id: str | None = None) -> UploadResponse:
         started = time.perf_counter()
@@ -43,8 +49,8 @@ class IngestionOrchestrator:
                 self.vector_repository.delete_document(doc_id)
             with StageTimer("ingestion.file_save", document_id=doc_id):
                 path = self.storage.save(payload, file.filename, doc_id)
-            with StageTimer("ingestion.pdf_parse", document_id=doc_id):
-                pages = self.parser.parse(path)
+            with StageTimer("ingestion.parse", document_id=doc_id):
+                pages = self.parser.parse_file(path, file.filename)
             if not pages:
                 raise AppError("empty_pdf", "No extractable text found in PDF", 422)
 
@@ -54,8 +60,15 @@ class IngestionOrchestrator:
                 embeddings = self.embedding_service.embed_texts([c.text for c in chunks])
             with StageTimer("ingestion.vector_upsert", document_id=doc_id, chunk_count=len(chunks)):
                 self.vector_repository.upsert_chunks(chunks, embeddings)
+            if self.lexical_repository is not None:
+                with StageTimer("ingestion.lexical_upsert", document_id=doc_id, chunk_count=len(chunks)):
+                    self.lexical_repository.upsert_chunks(chunks)
+            if self.retrieval_cache is not None:
+                self.retrieval_cache.invalidate_document(doc_id)
         except Exception:
             self.vector_repository.delete_document(doc_id)
+            if self.lexical_repository is not None:
+                self.lexical_repository.delete_document(doc_id)
             if path is not None:
                 self.storage.delete(path)
             raise
@@ -68,4 +81,7 @@ class IngestionOrchestrator:
             chunks_created=len(chunks),
             ingestion_timestamp=chunks[0].metadata.ingestion_timestamp.isoformat(),
             duration_ms=duration_ms,
+            doc_type_detected=chunks[0].metadata.doc_type if chunks else None,
+            sections_indexed=len({c.metadata.section_path for c in chunks}),
+            entities_indexed=len({e for c in chunks for e in c.metadata.entities}),
         )

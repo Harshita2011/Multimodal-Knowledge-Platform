@@ -22,7 +22,11 @@ class ChromaVectorRepository(VectorRepository):
             self.initialize_collection()
         ids = [c.chunk_id for c in chunks]
         docs = [c.text for c in chunks]
-        metas = [c.metadata.model_dump(mode="json") for c in chunks]
+        metas = []
+        for c in chunks:
+            md = c.metadata.model_dump(mode="json")
+            md["entities"] = ",".join(c.metadata.entities)
+            metas.append(md)
         self.collection.upsert(ids=ids, documents=docs, embeddings=embeddings, metadatas=metas)
 
     def search_similar(self, query_embedding: list[float], top_k: int, document_filter: str | None = None) -> list[RetrievedChunk]:
@@ -52,6 +56,11 @@ class ChromaVectorRepository(VectorRepository):
                 ingestion_timestamp=datetime.fromisoformat(md["ingestion_timestamp"]),
                 source_type=md.get("source_type", "pdf"),
                 modality=md.get("modality", "text"),
+                doc_type=md.get("doc_type", "general"),
+                section_path=md.get("section_path", ""),
+                heading=md.get("heading", ""),
+                block_type=md.get("block_type", "paragraph"),
+                entities=[e.strip() for e in str(md.get("entities", "")).split(",") if e.strip()],
             )
             distance = float(distances[idx]) if idx < len(distances) else 1.0
             output.append(

@@ -1,0 +1,5122 @@
+[
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0000",
+    "scenario": "synonym",
+    "category": "enterprise",
+    "source_doc": "security_policy_v2.pdf",
+    "document_filter": "security_policy_v2",
+    "query": "What safeguards are specified for privileged access?",
+    "expected_pages": [
+      12
+    ],
+    "expected_chunk_ids": [
+      "security_policy_v2_p12_c3"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0001",
+    "scenario": "synonym",
+    "category": "enterprise",
+    "source_doc": "security_policy_v2.pdf",
+    "document_filter": "security_policy_v2",
+    "query": "How does the platform protect sensitive data at rest?",
+    "expected_pages": [
+      12
+    ],
+    "expected_chunk_ids": [
+      "security_policy_v2_p12_c3"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0002",
+    "scenario": "synonym",
+    "category": "enterprise",
+    "source_doc": "security_policy_v2.pdf",
+    "document_filter": "security_policy_v2",
+    "query": "Which resiliency measures are defined for outages?",
+    "expected_pages": [
+      12
+    ],
+    "expected_chunk_ids": [
+      "security_policy_v2_p12_c3"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0003",
+    "scenario": "acronym",
+    "category": "enterprise",
+    "source_doc": "security_policy_v2.pdf",
+    "document_filter": "security_policy_v2",
+    "query": "What does the document specify for MFA in admin workflows?",
+    "expected_pages": [
+      12
+    ],
+    "expected_chunk_ids": [
+      "security_policy_v2_p12_c3"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0004",
+    "scenario": "acronym",
+    "category": "enterprise",
+    "source_doc": "security_policy_v2.pdf",
+    "document_filter": "security_policy_v2",
+    "query": "How is SSO integrated with API authentication?",
+    "expected_pages": [
+      12
+    ],
+    "expected_chunk_ids": [
+      "security_policy_v2_p12_c3"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0005",
+    "scenario": "acronym",
+    "category": "enterprise",
+    "source_doc": "security_policy_v2.pdf",
+    "document_filter": "security_policy_v2",
+    "query": "What SLA constraints are documented for uptime?",
+    "expected_pages": [
+      12
+    ],
+    "expected_chunk_ids": [
+      "security_policy_v2_p12_c3"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0006",
+    "scenario": "entity_alias",
+    "category": "enterprise",
+    "source_doc": "security_policy_v2.pdf",
+    "document_filter": "security_policy_v2",
+    "query": "What does this corpus say about k8s reliability controls?",
+    "expected_pages": [
+      12
+    ],
+    "expected_chunk_ids": [
+      "security_policy_v2_p12_c3"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0007",
+    "scenario": "entity_alias",
+    "category": "enterprise",
+    "source_doc": "security_policy_v2.pdf",
+    "document_filter": "security_policy_v2",
+    "query": "What guidance is provided for JS runtime security?",
+    "expected_pages": [
+      12
+    ],
+    "expected_chunk_ids": [
+      "security_policy_v2_p12_c3"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0008",
+    "scenario": "entity_alias",
+    "category": "enterprise",
+    "source_doc": "security_policy_v2.pdf",
+    "document_filter": "security_policy_v2",
+    "query": "How does the policy govern LLM usage in production?",
+    "expected_pages": [
+      12
+    ],
+    "expected_chunk_ids": [
+      "security_policy_v2_p12_c3"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0009",
+    "scenario": "keyword_heavy",
+    "category": "enterprise",
+    "source_doc": "security_policy_v2.pdf",
+    "document_filter": "security_policy_v2",
+    "query": "authentication authorization encryption compliance controls",
+    "expected_pages": [
+      12
+    ],
+    "expected_chunk_ids": [
+      "security_policy_v2_p12_c3"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0010",
+    "scenario": "keyword_heavy",
+    "category": "enterprise",
+    "source_doc": "security_policy_v2.pdf",
+    "document_filter": "security_policy_v2",
+    "query": "kubernetes cluster autoscaling pod disruption budget",
+    "expected_pages": [
+      12
+    ],
+    "expected_chunk_ids": [
+      "security_policy_v2_p12_c3"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0011",
+    "scenario": "keyword_heavy",
+    "category": "enterprise",
+    "source_doc": "security_policy_v2.pdf",
+    "document_filter": "security_policy_v2",
+    "query": "api gateway timeout retry backoff circuit breaker",
+    "expected_pages": [
+      12
+    ],
+    "expected_chunk_ids": [
+      "security_policy_v2_p12_c3"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0012",
+    "scenario": "semantic_only",
+    "category": "enterprise",
+    "source_doc": "security_policy_v2.pdf",
+    "document_filter": "security_policy_v2",
+    "query": "How should we reduce user-impact during production failures?",
+    "expected_pages": [
+      12
+    ],
+    "expected_chunk_ids": [
+      "security_policy_v2_p12_c3"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0013",
+    "scenario": "semantic_only",
+    "category": "enterprise",
+    "source_doc": "security_policy_v2.pdf",
+    "document_filter": "security_policy_v2",
+    "query": "What pattern is recommended for handling identity risk?",
+    "expected_pages": [
+      12
+    ],
+    "expected_chunk_ids": [
+      "security_policy_v2_p12_c3"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0014",
+    "scenario": "semantic_only",
+    "category": "enterprise",
+    "source_doc": "security_policy_v2.pdf",
+    "document_filter": "security_policy_v2",
+    "query": "How should model outputs be constrained to policy?",
+    "expected_pages": [
+      12
+    ],
+    "expected_chunk_ids": [
+      "security_policy_v2_p12_c3"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0015",
+    "scenario": "conflicting_documents",
+    "category": "enterprise",
+    "source_doc": "incident_response_runbook.pdf",
+    "document_filter": "incident_response_runbook",
+    "query": "Which timeout is correct when one document says 30s and another says 60s?",
+    "expected_pages": [
+      8
+    ],
+    "expected_chunk_ids": [
+      "incident_response_runbook_p8_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0016",
+    "scenario": "conflicting_documents",
+    "category": "enterprise",
+    "source_doc": "incident_response_runbook.pdf",
+    "document_filter": "incident_response_runbook",
+    "query": "What is the reconciled retention period across conflicting policies?",
+    "expected_pages": [
+      8
+    ],
+    "expected_chunk_ids": [
+      "incident_response_runbook_p8_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0017",
+    "scenario": "conflicting_documents",
+    "category": "enterprise",
+    "source_doc": "incident_response_runbook.pdf",
+    "document_filter": "incident_response_runbook",
+    "query": "Do versions disagree on deprecation timelines?",
+    "expected_pages": [
+      8
+    ],
+    "expected_chunk_ids": [
+      "incident_response_runbook_p8_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0018",
+    "scenario": "multi_document",
+    "category": "enterprise",
+    "source_doc": "incident_response_runbook.pdf",
+    "document_filter": "incident_response_runbook",
+    "query": "Compare policy obligations with technical implementation details.",
+    "expected_pages": [
+      8
+    ],
+    "expected_chunk_ids": [
+      "incident_response_runbook_p8_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0019",
+    "scenario": "multi_document",
+    "category": "enterprise",
+    "source_doc": "incident_response_runbook.pdf",
+    "document_filter": "incident_response_runbook",
+    "query": "How do governance controls map to deployment runbooks?",
+    "expected_pages": [
+      8
+    ],
+    "expected_chunk_ids": [
+      "incident_response_runbook_p8_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0020",
+    "scenario": "multi_document",
+    "category": "enterprise",
+    "source_doc": "incident_response_runbook.pdf",
+    "document_filter": "incident_response_runbook",
+    "query": "Which operational actions satisfy security policy requirements?",
+    "expected_pages": [
+      8
+    ],
+    "expected_chunk_ids": [
+      "incident_response_runbook_p8_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0021",
+    "scenario": "ambiguous",
+    "category": "enterprise",
+    "source_doc": "security_policy_v2.pdf",
+    "document_filter": "security_policy_v2",
+    "query": "What is the default setting?",
+    "expected_pages": [
+      12
+    ],
+    "expected_chunk_ids": [
+      "security_policy_v2_p12_c3"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0022",
+    "scenario": "ambiguous",
+    "category": "enterprise",
+    "source_doc": "security_policy_v2.pdf",
+    "document_filter": "security_policy_v2",
+    "query": "How should this be configured?",
+    "expected_pages": [
+      12
+    ],
+    "expected_chunk_ids": [
+      "security_policy_v2_p12_c3"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0023",
+    "scenario": "ambiguous",
+    "category": "enterprise",
+    "source_doc": "security_policy_v2.pdf",
+    "document_filter": "security_policy_v2",
+    "query": "What does the platform recommend here?",
+    "expected_pages": [
+      12
+    ],
+    "expected_chunk_ids": [
+      "security_policy_v2_p12_c3"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0024",
+    "scenario": "long_context",
+    "category": "enterprise",
+    "source_doc": "security_policy_v2.pdf",
+    "document_filter": "security_policy_v2",
+    "query": "Summarize all controls relevant to security, privacy, retention, and incident response with constraints.",
+    "expected_pages": [
+      12
+    ],
+    "expected_chunk_ids": [
+      "security_policy_v2_p12_c3"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0025",
+    "scenario": "long_context",
+    "category": "enterprise",
+    "source_doc": "security_policy_v2.pdf",
+    "document_filter": "security_policy_v2",
+    "query": "Give a comprehensive cross-document explanation of reliability and recovery strategy.",
+    "expected_pages": [
+      12
+    ],
+    "expected_chunk_ids": [
+      "security_policy_v2_p12_c3"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0026",
+    "scenario": "long_context",
+    "category": "enterprise",
+    "source_doc": "security_policy_v2.pdf",
+    "document_filter": "security_policy_v2",
+    "query": "Provide a detailed answer connecting architecture rationale to release behavior changes.",
+    "expected_pages": [
+      12
+    ],
+    "expected_chunk_ids": [
+      "security_policy_v2_p12_c3"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0027",
+    "scenario": "technical_doc",
+    "category": "enterprise",
+    "source_doc": "security_policy_v2.pdf",
+    "document_filter": "security_policy_v2",
+    "query": "What API parameters control authentication behavior?",
+    "expected_pages": [
+      12
+    ],
+    "expected_chunk_ids": [
+      "security_policy_v2_p12_c3"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0028",
+    "scenario": "technical_doc",
+    "category": "enterprise",
+    "source_doc": "security_policy_v2.pdf",
+    "document_filter": "security_policy_v2",
+    "query": "Which implementation examples show retry and timeout configuration?",
+    "expected_pages": [
+      12
+    ],
+    "expected_chunk_ids": [
+      "security_policy_v2_p12_c3"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0029",
+    "scenario": "technical_doc",
+    "category": "enterprise",
+    "source_doc": "security_policy_v2.pdf",
+    "document_filter": "security_policy_v2",
+    "query": "How is request validation enforced in gateway flows?",
+    "expected_pages": [
+      12
+    ],
+    "expected_chunk_ids": [
+      "security_policy_v2_p12_c3"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0030",
+    "scenario": "synonym",
+    "category": "enterprise",
+    "source_doc": "incident_response_runbook.pdf",
+    "document_filter": "incident_response_runbook",
+    "query": "What safeguards are specified for privileged access?",
+    "expected_pages": [
+      8
+    ],
+    "expected_chunk_ids": [
+      "incident_response_runbook_p8_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0031",
+    "scenario": "synonym",
+    "category": "enterprise",
+    "source_doc": "incident_response_runbook.pdf",
+    "document_filter": "incident_response_runbook",
+    "query": "How does the platform protect sensitive data at rest?",
+    "expected_pages": [
+      8
+    ],
+    "expected_chunk_ids": [
+      "incident_response_runbook_p8_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0032",
+    "scenario": "synonym",
+    "category": "enterprise",
+    "source_doc": "incident_response_runbook.pdf",
+    "document_filter": "incident_response_runbook",
+    "query": "Which resiliency measures are defined for outages?",
+    "expected_pages": [
+      8
+    ],
+    "expected_chunk_ids": [
+      "incident_response_runbook_p8_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0033",
+    "scenario": "acronym",
+    "category": "enterprise",
+    "source_doc": "incident_response_runbook.pdf",
+    "document_filter": "incident_response_runbook",
+    "query": "What does the document specify for MFA in admin workflows?",
+    "expected_pages": [
+      8
+    ],
+    "expected_chunk_ids": [
+      "incident_response_runbook_p8_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0034",
+    "scenario": "acronym",
+    "category": "enterprise",
+    "source_doc": "incident_response_runbook.pdf",
+    "document_filter": "incident_response_runbook",
+    "query": "How is SSO integrated with API authentication?",
+    "expected_pages": [
+      8
+    ],
+    "expected_chunk_ids": [
+      "incident_response_runbook_p8_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0035",
+    "scenario": "acronym",
+    "category": "enterprise",
+    "source_doc": "incident_response_runbook.pdf",
+    "document_filter": "incident_response_runbook",
+    "query": "What SLA constraints are documented for uptime?",
+    "expected_pages": [
+      8
+    ],
+    "expected_chunk_ids": [
+      "incident_response_runbook_p8_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0036",
+    "scenario": "entity_alias",
+    "category": "enterprise",
+    "source_doc": "incident_response_runbook.pdf",
+    "document_filter": "incident_response_runbook",
+    "query": "What does this corpus say about k8s reliability controls?",
+    "expected_pages": [
+      8
+    ],
+    "expected_chunk_ids": [
+      "incident_response_runbook_p8_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0037",
+    "scenario": "entity_alias",
+    "category": "enterprise",
+    "source_doc": "incident_response_runbook.pdf",
+    "document_filter": "incident_response_runbook",
+    "query": "What guidance is provided for JS runtime security?",
+    "expected_pages": [
+      8
+    ],
+    "expected_chunk_ids": [
+      "incident_response_runbook_p8_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0038",
+    "scenario": "entity_alias",
+    "category": "enterprise",
+    "source_doc": "incident_response_runbook.pdf",
+    "document_filter": "incident_response_runbook",
+    "query": "How does the policy govern LLM usage in production?",
+    "expected_pages": [
+      8
+    ],
+    "expected_chunk_ids": [
+      "incident_response_runbook_p8_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0039",
+    "scenario": "keyword_heavy",
+    "category": "enterprise",
+    "source_doc": "incident_response_runbook.pdf",
+    "document_filter": "incident_response_runbook",
+    "query": "authentication authorization encryption compliance controls",
+    "expected_pages": [
+      8
+    ],
+    "expected_chunk_ids": [
+      "incident_response_runbook_p8_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0040",
+    "scenario": "keyword_heavy",
+    "category": "enterprise",
+    "source_doc": "incident_response_runbook.pdf",
+    "document_filter": "incident_response_runbook",
+    "query": "kubernetes cluster autoscaling pod disruption budget",
+    "expected_pages": [
+      8
+    ],
+    "expected_chunk_ids": [
+      "incident_response_runbook_p8_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0041",
+    "scenario": "keyword_heavy",
+    "category": "enterprise",
+    "source_doc": "incident_response_runbook.pdf",
+    "document_filter": "incident_response_runbook",
+    "query": "api gateway timeout retry backoff circuit breaker",
+    "expected_pages": [
+      8
+    ],
+    "expected_chunk_ids": [
+      "incident_response_runbook_p8_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0042",
+    "scenario": "semantic_only",
+    "category": "enterprise",
+    "source_doc": "incident_response_runbook.pdf",
+    "document_filter": "incident_response_runbook",
+    "query": "How should we reduce user-impact during production failures?",
+    "expected_pages": [
+      8
+    ],
+    "expected_chunk_ids": [
+      "incident_response_runbook_p8_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0043",
+    "scenario": "semantic_only",
+    "category": "enterprise",
+    "source_doc": "incident_response_runbook.pdf",
+    "document_filter": "incident_response_runbook",
+    "query": "What pattern is recommended for handling identity risk?",
+    "expected_pages": [
+      8
+    ],
+    "expected_chunk_ids": [
+      "incident_response_runbook_p8_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0044",
+    "scenario": "semantic_only",
+    "category": "enterprise",
+    "source_doc": "incident_response_runbook.pdf",
+    "document_filter": "incident_response_runbook",
+    "query": "How should model outputs be constrained to policy?",
+    "expected_pages": [
+      8
+    ],
+    "expected_chunk_ids": [
+      "incident_response_runbook_p8_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0045",
+    "scenario": "conflicting_documents",
+    "category": "enterprise",
+    "source_doc": "kubernetes_ops_manual.pdf",
+    "document_filter": "kubernetes_ops_manual",
+    "query": "Which timeout is correct when one document says 30s and another says 60s?",
+    "expected_pages": [
+      14
+    ],
+    "expected_chunk_ids": [
+      "kubernetes_ops_manual_p14_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0046",
+    "scenario": "conflicting_documents",
+    "category": "enterprise",
+    "source_doc": "kubernetes_ops_manual.pdf",
+    "document_filter": "kubernetes_ops_manual",
+    "query": "What is the reconciled retention period across conflicting policies?",
+    "expected_pages": [
+      14
+    ],
+    "expected_chunk_ids": [
+      "kubernetes_ops_manual_p14_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0047",
+    "scenario": "conflicting_documents",
+    "category": "enterprise",
+    "source_doc": "kubernetes_ops_manual.pdf",
+    "document_filter": "kubernetes_ops_manual",
+    "query": "Do versions disagree on deprecation timelines?",
+    "expected_pages": [
+      14
+    ],
+    "expected_chunk_ids": [
+      "kubernetes_ops_manual_p14_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0048",
+    "scenario": "multi_document",
+    "category": "enterprise",
+    "source_doc": "kubernetes_ops_manual.pdf",
+    "document_filter": "kubernetes_ops_manual",
+    "query": "Compare policy obligations with technical implementation details.",
+    "expected_pages": [
+      14
+    ],
+    "expected_chunk_ids": [
+      "kubernetes_ops_manual_p14_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0049",
+    "scenario": "multi_document",
+    "category": "enterprise",
+    "source_doc": "kubernetes_ops_manual.pdf",
+    "document_filter": "kubernetes_ops_manual",
+    "query": "How do governance controls map to deployment runbooks?",
+    "expected_pages": [
+      14
+    ],
+    "expected_chunk_ids": [
+      "kubernetes_ops_manual_p14_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0050",
+    "scenario": "multi_document",
+    "category": "enterprise",
+    "source_doc": "kubernetes_ops_manual.pdf",
+    "document_filter": "kubernetes_ops_manual",
+    "query": "Which operational actions satisfy security policy requirements?",
+    "expected_pages": [
+      14
+    ],
+    "expected_chunk_ids": [
+      "kubernetes_ops_manual_p14_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0051",
+    "scenario": "ambiguous",
+    "category": "enterprise",
+    "source_doc": "incident_response_runbook.pdf",
+    "document_filter": "incident_response_runbook",
+    "query": "What is the default setting?",
+    "expected_pages": [
+      8
+    ],
+    "expected_chunk_ids": [
+      "incident_response_runbook_p8_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0052",
+    "scenario": "ambiguous",
+    "category": "enterprise",
+    "source_doc": "incident_response_runbook.pdf",
+    "document_filter": "incident_response_runbook",
+    "query": "How should this be configured?",
+    "expected_pages": [
+      8
+    ],
+    "expected_chunk_ids": [
+      "incident_response_runbook_p8_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0053",
+    "scenario": "ambiguous",
+    "category": "enterprise",
+    "source_doc": "incident_response_runbook.pdf",
+    "document_filter": "incident_response_runbook",
+    "query": "What does the platform recommend here?",
+    "expected_pages": [
+      8
+    ],
+    "expected_chunk_ids": [
+      "incident_response_runbook_p8_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0054",
+    "scenario": "long_context",
+    "category": "enterprise",
+    "source_doc": "incident_response_runbook.pdf",
+    "document_filter": "incident_response_runbook",
+    "query": "Summarize all controls relevant to security, privacy, retention, and incident response with constraints.",
+    "expected_pages": [
+      8
+    ],
+    "expected_chunk_ids": [
+      "incident_response_runbook_p8_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0055",
+    "scenario": "long_context",
+    "category": "enterprise",
+    "source_doc": "incident_response_runbook.pdf",
+    "document_filter": "incident_response_runbook",
+    "query": "Give a comprehensive cross-document explanation of reliability and recovery strategy.",
+    "expected_pages": [
+      8
+    ],
+    "expected_chunk_ids": [
+      "incident_response_runbook_p8_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0056",
+    "scenario": "long_context",
+    "category": "enterprise",
+    "source_doc": "incident_response_runbook.pdf",
+    "document_filter": "incident_response_runbook",
+    "query": "Provide a detailed answer connecting architecture rationale to release behavior changes.",
+    "expected_pages": [
+      8
+    ],
+    "expected_chunk_ids": [
+      "incident_response_runbook_p8_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0057",
+    "scenario": "technical_doc",
+    "category": "enterprise",
+    "source_doc": "incident_response_runbook.pdf",
+    "document_filter": "incident_response_runbook",
+    "query": "What API parameters control authentication behavior?",
+    "expected_pages": [
+      8
+    ],
+    "expected_chunk_ids": [
+      "incident_response_runbook_p8_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0058",
+    "scenario": "technical_doc",
+    "category": "enterprise",
+    "source_doc": "incident_response_runbook.pdf",
+    "document_filter": "incident_response_runbook",
+    "query": "Which implementation examples show retry and timeout configuration?",
+    "expected_pages": [
+      8
+    ],
+    "expected_chunk_ids": [
+      "incident_response_runbook_p8_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0059",
+    "scenario": "technical_doc",
+    "category": "enterprise",
+    "source_doc": "incident_response_runbook.pdf",
+    "document_filter": "incident_response_runbook",
+    "query": "How is request validation enforced in gateway flows?",
+    "expected_pages": [
+      8
+    ],
+    "expected_chunk_ids": [
+      "incident_response_runbook_p8_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0060",
+    "scenario": "synonym",
+    "category": "enterprise",
+    "source_doc": "kubernetes_ops_manual.pdf",
+    "document_filter": "kubernetes_ops_manual",
+    "query": "What safeguards are specified for privileged access?",
+    "expected_pages": [
+      14
+    ],
+    "expected_chunk_ids": [
+      "kubernetes_ops_manual_p14_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0061",
+    "scenario": "synonym",
+    "category": "enterprise",
+    "source_doc": "kubernetes_ops_manual.pdf",
+    "document_filter": "kubernetes_ops_manual",
+    "query": "How does the platform protect sensitive data at rest?",
+    "expected_pages": [
+      14
+    ],
+    "expected_chunk_ids": [
+      "kubernetes_ops_manual_p14_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0062",
+    "scenario": "synonym",
+    "category": "enterprise",
+    "source_doc": "kubernetes_ops_manual.pdf",
+    "document_filter": "kubernetes_ops_manual",
+    "query": "Which resiliency measures are defined for outages?",
+    "expected_pages": [
+      14
+    ],
+    "expected_chunk_ids": [
+      "kubernetes_ops_manual_p14_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0063",
+    "scenario": "acronym",
+    "category": "enterprise",
+    "source_doc": "kubernetes_ops_manual.pdf",
+    "document_filter": "kubernetes_ops_manual",
+    "query": "What does the document specify for MFA in admin workflows?",
+    "expected_pages": [
+      14
+    ],
+    "expected_chunk_ids": [
+      "kubernetes_ops_manual_p14_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0064",
+    "scenario": "acronym",
+    "category": "enterprise",
+    "source_doc": "kubernetes_ops_manual.pdf",
+    "document_filter": "kubernetes_ops_manual",
+    "query": "How is SSO integrated with API authentication?",
+    "expected_pages": [
+      14
+    ],
+    "expected_chunk_ids": [
+      "kubernetes_ops_manual_p14_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0065",
+    "scenario": "acronym",
+    "category": "enterprise",
+    "source_doc": "kubernetes_ops_manual.pdf",
+    "document_filter": "kubernetes_ops_manual",
+    "query": "What SLA constraints are documented for uptime?",
+    "expected_pages": [
+      14
+    ],
+    "expected_chunk_ids": [
+      "kubernetes_ops_manual_p14_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0066",
+    "scenario": "entity_alias",
+    "category": "enterprise",
+    "source_doc": "kubernetes_ops_manual.pdf",
+    "document_filter": "kubernetes_ops_manual",
+    "query": "What does this corpus say about k8s reliability controls?",
+    "expected_pages": [
+      14
+    ],
+    "expected_chunk_ids": [
+      "kubernetes_ops_manual_p14_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0067",
+    "scenario": "entity_alias",
+    "category": "enterprise",
+    "source_doc": "kubernetes_ops_manual.pdf",
+    "document_filter": "kubernetes_ops_manual",
+    "query": "What guidance is provided for JS runtime security?",
+    "expected_pages": [
+      14
+    ],
+    "expected_chunk_ids": [
+      "kubernetes_ops_manual_p14_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0068",
+    "scenario": "entity_alias",
+    "category": "enterprise",
+    "source_doc": "kubernetes_ops_manual.pdf",
+    "document_filter": "kubernetes_ops_manual",
+    "query": "How does the policy govern LLM usage in production?",
+    "expected_pages": [
+      14
+    ],
+    "expected_chunk_ids": [
+      "kubernetes_ops_manual_p14_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0069",
+    "scenario": "keyword_heavy",
+    "category": "enterprise",
+    "source_doc": "kubernetes_ops_manual.pdf",
+    "document_filter": "kubernetes_ops_manual",
+    "query": "authentication authorization encryption compliance controls",
+    "expected_pages": [
+      14
+    ],
+    "expected_chunk_ids": [
+      "kubernetes_ops_manual_p14_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0070",
+    "scenario": "keyword_heavy",
+    "category": "enterprise",
+    "source_doc": "kubernetes_ops_manual.pdf",
+    "document_filter": "kubernetes_ops_manual",
+    "query": "kubernetes cluster autoscaling pod disruption budget",
+    "expected_pages": [
+      14
+    ],
+    "expected_chunk_ids": [
+      "kubernetes_ops_manual_p14_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0071",
+    "scenario": "keyword_heavy",
+    "category": "enterprise",
+    "source_doc": "kubernetes_ops_manual.pdf",
+    "document_filter": "kubernetes_ops_manual",
+    "query": "api gateway timeout retry backoff circuit breaker",
+    "expected_pages": [
+      14
+    ],
+    "expected_chunk_ids": [
+      "kubernetes_ops_manual_p14_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0072",
+    "scenario": "semantic_only",
+    "category": "enterprise",
+    "source_doc": "kubernetes_ops_manual.pdf",
+    "document_filter": "kubernetes_ops_manual",
+    "query": "How should we reduce user-impact during production failures?",
+    "expected_pages": [
+      14
+    ],
+    "expected_chunk_ids": [
+      "kubernetes_ops_manual_p14_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0073",
+    "scenario": "semantic_only",
+    "category": "enterprise",
+    "source_doc": "kubernetes_ops_manual.pdf",
+    "document_filter": "kubernetes_ops_manual",
+    "query": "What pattern is recommended for handling identity risk?",
+    "expected_pages": [
+      14
+    ],
+    "expected_chunk_ids": [
+      "kubernetes_ops_manual_p14_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0074",
+    "scenario": "semantic_only",
+    "category": "enterprise",
+    "source_doc": "kubernetes_ops_manual.pdf",
+    "document_filter": "kubernetes_ops_manual",
+    "query": "How should model outputs be constrained to policy?",
+    "expected_pages": [
+      14
+    ],
+    "expected_chunk_ids": [
+      "kubernetes_ops_manual_p14_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0075",
+    "scenario": "conflicting_documents",
+    "category": "enterprise",
+    "source_doc": "javascript_platform_guide.pdf",
+    "document_filter": "javascript_platform_guide",
+    "query": "Which timeout is correct when one document says 30s and another says 60s?",
+    "expected_pages": [
+      5
+    ],
+    "expected_chunk_ids": [
+      "javascript_platform_guide_p5_c0"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0076",
+    "scenario": "conflicting_documents",
+    "category": "enterprise",
+    "source_doc": "javascript_platform_guide.pdf",
+    "document_filter": "javascript_platform_guide",
+    "query": "What is the reconciled retention period across conflicting policies?",
+    "expected_pages": [
+      5
+    ],
+    "expected_chunk_ids": [
+      "javascript_platform_guide_p5_c0"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0077",
+    "scenario": "conflicting_documents",
+    "category": "enterprise",
+    "source_doc": "javascript_platform_guide.pdf",
+    "document_filter": "javascript_platform_guide",
+    "query": "Do versions disagree on deprecation timelines?",
+    "expected_pages": [
+      5
+    ],
+    "expected_chunk_ids": [
+      "javascript_platform_guide_p5_c0"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0078",
+    "scenario": "multi_document",
+    "category": "enterprise",
+    "source_doc": "javascript_platform_guide.pdf",
+    "document_filter": "javascript_platform_guide",
+    "query": "Compare policy obligations with technical implementation details.",
+    "expected_pages": [
+      5
+    ],
+    "expected_chunk_ids": [
+      "javascript_platform_guide_p5_c0"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0079",
+    "scenario": "multi_document",
+    "category": "enterprise",
+    "source_doc": "javascript_platform_guide.pdf",
+    "document_filter": "javascript_platform_guide",
+    "query": "How do governance controls map to deployment runbooks?",
+    "expected_pages": [
+      5
+    ],
+    "expected_chunk_ids": [
+      "javascript_platform_guide_p5_c0"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0080",
+    "scenario": "multi_document",
+    "category": "enterprise",
+    "source_doc": "javascript_platform_guide.pdf",
+    "document_filter": "javascript_platform_guide",
+    "query": "Which operational actions satisfy security policy requirements?",
+    "expected_pages": [
+      5
+    ],
+    "expected_chunk_ids": [
+      "javascript_platform_guide_p5_c0"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0081",
+    "scenario": "ambiguous",
+    "category": "enterprise",
+    "source_doc": "kubernetes_ops_manual.pdf",
+    "document_filter": "kubernetes_ops_manual",
+    "query": "What is the default setting?",
+    "expected_pages": [
+      14
+    ],
+    "expected_chunk_ids": [
+      "kubernetes_ops_manual_p14_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0082",
+    "scenario": "ambiguous",
+    "category": "enterprise",
+    "source_doc": "kubernetes_ops_manual.pdf",
+    "document_filter": "kubernetes_ops_manual",
+    "query": "How should this be configured?",
+    "expected_pages": [
+      14
+    ],
+    "expected_chunk_ids": [
+      "kubernetes_ops_manual_p14_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0083",
+    "scenario": "ambiguous",
+    "category": "enterprise",
+    "source_doc": "kubernetes_ops_manual.pdf",
+    "document_filter": "kubernetes_ops_manual",
+    "query": "What does the platform recommend here?",
+    "expected_pages": [
+      14
+    ],
+    "expected_chunk_ids": [
+      "kubernetes_ops_manual_p14_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0084",
+    "scenario": "long_context",
+    "category": "enterprise",
+    "source_doc": "kubernetes_ops_manual.pdf",
+    "document_filter": "kubernetes_ops_manual",
+    "query": "Summarize all controls relevant to security, privacy, retention, and incident response with constraints.",
+    "expected_pages": [
+      14
+    ],
+    "expected_chunk_ids": [
+      "kubernetes_ops_manual_p14_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0085",
+    "scenario": "long_context",
+    "category": "enterprise",
+    "source_doc": "kubernetes_ops_manual.pdf",
+    "document_filter": "kubernetes_ops_manual",
+    "query": "Give a comprehensive cross-document explanation of reliability and recovery strategy.",
+    "expected_pages": [
+      14
+    ],
+    "expected_chunk_ids": [
+      "kubernetes_ops_manual_p14_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0086",
+    "scenario": "long_context",
+    "category": "enterprise",
+    "source_doc": "kubernetes_ops_manual.pdf",
+    "document_filter": "kubernetes_ops_manual",
+    "query": "Provide a detailed answer connecting architecture rationale to release behavior changes.",
+    "expected_pages": [
+      14
+    ],
+    "expected_chunk_ids": [
+      "kubernetes_ops_manual_p14_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0087",
+    "scenario": "technical_doc",
+    "category": "enterprise",
+    "source_doc": "kubernetes_ops_manual.pdf",
+    "document_filter": "kubernetes_ops_manual",
+    "query": "What API parameters control authentication behavior?",
+    "expected_pages": [
+      14
+    ],
+    "expected_chunk_ids": [
+      "kubernetes_ops_manual_p14_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0088",
+    "scenario": "technical_doc",
+    "category": "enterprise",
+    "source_doc": "kubernetes_ops_manual.pdf",
+    "document_filter": "kubernetes_ops_manual",
+    "query": "Which implementation examples show retry and timeout configuration?",
+    "expected_pages": [
+      14
+    ],
+    "expected_chunk_ids": [
+      "kubernetes_ops_manual_p14_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0089",
+    "scenario": "technical_doc",
+    "category": "enterprise",
+    "source_doc": "kubernetes_ops_manual.pdf",
+    "document_filter": "kubernetes_ops_manual",
+    "query": "How is request validation enforced in gateway flows?",
+    "expected_pages": [
+      14
+    ],
+    "expected_chunk_ids": [
+      "kubernetes_ops_manual_p14_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0090",
+    "scenario": "synonym",
+    "category": "enterprise",
+    "source_doc": "javascript_platform_guide.pdf",
+    "document_filter": "javascript_platform_guide",
+    "query": "What safeguards are specified for privileged access?",
+    "expected_pages": [
+      5
+    ],
+    "expected_chunk_ids": [
+      "javascript_platform_guide_p5_c0"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0091",
+    "scenario": "synonym",
+    "category": "enterprise",
+    "source_doc": "javascript_platform_guide.pdf",
+    "document_filter": "javascript_platform_guide",
+    "query": "How does the platform protect sensitive data at rest?",
+    "expected_pages": [
+      5
+    ],
+    "expected_chunk_ids": [
+      "javascript_platform_guide_p5_c0"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0092",
+    "scenario": "synonym",
+    "category": "enterprise",
+    "source_doc": "javascript_platform_guide.pdf",
+    "document_filter": "javascript_platform_guide",
+    "query": "Which resiliency measures are defined for outages?",
+    "expected_pages": [
+      5
+    ],
+    "expected_chunk_ids": [
+      "javascript_platform_guide_p5_c0"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0093",
+    "scenario": "acronym",
+    "category": "enterprise",
+    "source_doc": "javascript_platform_guide.pdf",
+    "document_filter": "javascript_platform_guide",
+    "query": "What does the document specify for MFA in admin workflows?",
+    "expected_pages": [
+      5
+    ],
+    "expected_chunk_ids": [
+      "javascript_platform_guide_p5_c0"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0094",
+    "scenario": "acronym",
+    "category": "enterprise",
+    "source_doc": "javascript_platform_guide.pdf",
+    "document_filter": "javascript_platform_guide",
+    "query": "How is SSO integrated with API authentication?",
+    "expected_pages": [
+      5
+    ],
+    "expected_chunk_ids": [
+      "javascript_platform_guide_p5_c0"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0095",
+    "scenario": "acronym",
+    "category": "enterprise",
+    "source_doc": "javascript_platform_guide.pdf",
+    "document_filter": "javascript_platform_guide",
+    "query": "What SLA constraints are documented for uptime?",
+    "expected_pages": [
+      5
+    ],
+    "expected_chunk_ids": [
+      "javascript_platform_guide_p5_c0"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0096",
+    "scenario": "entity_alias",
+    "category": "enterprise",
+    "source_doc": "javascript_platform_guide.pdf",
+    "document_filter": "javascript_platform_guide",
+    "query": "What does this corpus say about k8s reliability controls?",
+    "expected_pages": [
+      5
+    ],
+    "expected_chunk_ids": [
+      "javascript_platform_guide_p5_c0"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0097",
+    "scenario": "entity_alias",
+    "category": "enterprise",
+    "source_doc": "javascript_platform_guide.pdf",
+    "document_filter": "javascript_platform_guide",
+    "query": "What guidance is provided for JS runtime security?",
+    "expected_pages": [
+      5
+    ],
+    "expected_chunk_ids": [
+      "javascript_platform_guide_p5_c0"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0098",
+    "scenario": "entity_alias",
+    "category": "enterprise",
+    "source_doc": "javascript_platform_guide.pdf",
+    "document_filter": "javascript_platform_guide",
+    "query": "How does the policy govern LLM usage in production?",
+    "expected_pages": [
+      5
+    ],
+    "expected_chunk_ids": [
+      "javascript_platform_guide_p5_c0"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0099",
+    "scenario": "keyword_heavy",
+    "category": "enterprise",
+    "source_doc": "javascript_platform_guide.pdf",
+    "document_filter": "javascript_platform_guide",
+    "query": "authentication authorization encryption compliance controls",
+    "expected_pages": [
+      5
+    ],
+    "expected_chunk_ids": [
+      "javascript_platform_guide_p5_c0"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0100",
+    "scenario": "keyword_heavy",
+    "category": "enterprise",
+    "source_doc": "javascript_platform_guide.pdf",
+    "document_filter": "javascript_platform_guide",
+    "query": "kubernetes cluster autoscaling pod disruption budget",
+    "expected_pages": [
+      5
+    ],
+    "expected_chunk_ids": [
+      "javascript_platform_guide_p5_c0"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0101",
+    "scenario": "keyword_heavy",
+    "category": "enterprise",
+    "source_doc": "javascript_platform_guide.pdf",
+    "document_filter": "javascript_platform_guide",
+    "query": "api gateway timeout retry backoff circuit breaker",
+    "expected_pages": [
+      5
+    ],
+    "expected_chunk_ids": [
+      "javascript_platform_guide_p5_c0"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0102",
+    "scenario": "semantic_only",
+    "category": "enterprise",
+    "source_doc": "javascript_platform_guide.pdf",
+    "document_filter": "javascript_platform_guide",
+    "query": "How should we reduce user-impact during production failures?",
+    "expected_pages": [
+      5
+    ],
+    "expected_chunk_ids": [
+      "javascript_platform_guide_p5_c0"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0103",
+    "scenario": "semantic_only",
+    "category": "enterprise",
+    "source_doc": "javascript_platform_guide.pdf",
+    "document_filter": "javascript_platform_guide",
+    "query": "What pattern is recommended for handling identity risk?",
+    "expected_pages": [
+      5
+    ],
+    "expected_chunk_ids": [
+      "javascript_platform_guide_p5_c0"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0104",
+    "scenario": "semantic_only",
+    "category": "enterprise",
+    "source_doc": "javascript_platform_guide.pdf",
+    "document_filter": "javascript_platform_guide",
+    "query": "How should model outputs be constrained to policy?",
+    "expected_pages": [
+      5
+    ],
+    "expected_chunk_ids": [
+      "javascript_platform_guide_p5_c0"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0105",
+    "scenario": "conflicting_documents",
+    "category": "enterprise",
+    "source_doc": "llm_governance_framework.pdf",
+    "document_filter": "llm_governance_framework",
+    "query": "Which timeout is correct when one document says 30s and another says 60s?",
+    "expected_pages": [
+      9
+    ],
+    "expected_chunk_ids": [
+      "llm_governance_framework_p9_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0106",
+    "scenario": "conflicting_documents",
+    "category": "enterprise",
+    "source_doc": "llm_governance_framework.pdf",
+    "document_filter": "llm_governance_framework",
+    "query": "What is the reconciled retention period across conflicting policies?",
+    "expected_pages": [
+      9
+    ],
+    "expected_chunk_ids": [
+      "llm_governance_framework_p9_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0107",
+    "scenario": "conflicting_documents",
+    "category": "enterprise",
+    "source_doc": "llm_governance_framework.pdf",
+    "document_filter": "llm_governance_framework",
+    "query": "Do versions disagree on deprecation timelines?",
+    "expected_pages": [
+      9
+    ],
+    "expected_chunk_ids": [
+      "llm_governance_framework_p9_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0108",
+    "scenario": "multi_document",
+    "category": "enterprise",
+    "source_doc": "llm_governance_framework.pdf",
+    "document_filter": "llm_governance_framework",
+    "query": "Compare policy obligations with technical implementation details.",
+    "expected_pages": [
+      9
+    ],
+    "expected_chunk_ids": [
+      "llm_governance_framework_p9_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0109",
+    "scenario": "multi_document",
+    "category": "enterprise",
+    "source_doc": "llm_governance_framework.pdf",
+    "document_filter": "llm_governance_framework",
+    "query": "How do governance controls map to deployment runbooks?",
+    "expected_pages": [
+      9
+    ],
+    "expected_chunk_ids": [
+      "llm_governance_framework_p9_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0110",
+    "scenario": "multi_document",
+    "category": "enterprise",
+    "source_doc": "llm_governance_framework.pdf",
+    "document_filter": "llm_governance_framework",
+    "query": "Which operational actions satisfy security policy requirements?",
+    "expected_pages": [
+      9
+    ],
+    "expected_chunk_ids": [
+      "llm_governance_framework_p9_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0111",
+    "scenario": "ambiguous",
+    "category": "enterprise",
+    "source_doc": "javascript_platform_guide.pdf",
+    "document_filter": "javascript_platform_guide",
+    "query": "What is the default setting?",
+    "expected_pages": [
+      5
+    ],
+    "expected_chunk_ids": [
+      "javascript_platform_guide_p5_c0"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0112",
+    "scenario": "ambiguous",
+    "category": "enterprise",
+    "source_doc": "javascript_platform_guide.pdf",
+    "document_filter": "javascript_platform_guide",
+    "query": "How should this be configured?",
+    "expected_pages": [
+      5
+    ],
+    "expected_chunk_ids": [
+      "javascript_platform_guide_p5_c0"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0113",
+    "scenario": "ambiguous",
+    "category": "enterprise",
+    "source_doc": "javascript_platform_guide.pdf",
+    "document_filter": "javascript_platform_guide",
+    "query": "What does the platform recommend here?",
+    "expected_pages": [
+      5
+    ],
+    "expected_chunk_ids": [
+      "javascript_platform_guide_p5_c0"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0114",
+    "scenario": "long_context",
+    "category": "enterprise",
+    "source_doc": "javascript_platform_guide.pdf",
+    "document_filter": "javascript_platform_guide",
+    "query": "Summarize all controls relevant to security, privacy, retention, and incident response with constraints.",
+    "expected_pages": [
+      5
+    ],
+    "expected_chunk_ids": [
+      "javascript_platform_guide_p5_c0"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0115",
+    "scenario": "long_context",
+    "category": "enterprise",
+    "source_doc": "javascript_platform_guide.pdf",
+    "document_filter": "javascript_platform_guide",
+    "query": "Give a comprehensive cross-document explanation of reliability and recovery strategy.",
+    "expected_pages": [
+      5
+    ],
+    "expected_chunk_ids": [
+      "javascript_platform_guide_p5_c0"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0116",
+    "scenario": "long_context",
+    "category": "enterprise",
+    "source_doc": "javascript_platform_guide.pdf",
+    "document_filter": "javascript_platform_guide",
+    "query": "Provide a detailed answer connecting architecture rationale to release behavior changes.",
+    "expected_pages": [
+      5
+    ],
+    "expected_chunk_ids": [
+      "javascript_platform_guide_p5_c0"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0117",
+    "scenario": "technical_doc",
+    "category": "enterprise",
+    "source_doc": "javascript_platform_guide.pdf",
+    "document_filter": "javascript_platform_guide",
+    "query": "What API parameters control authentication behavior?",
+    "expected_pages": [
+      5
+    ],
+    "expected_chunk_ids": [
+      "javascript_platform_guide_p5_c0"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0118",
+    "scenario": "technical_doc",
+    "category": "enterprise",
+    "source_doc": "javascript_platform_guide.pdf",
+    "document_filter": "javascript_platform_guide",
+    "query": "Which implementation examples show retry and timeout configuration?",
+    "expected_pages": [
+      5
+    ],
+    "expected_chunk_ids": [
+      "javascript_platform_guide_p5_c0"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0119",
+    "scenario": "technical_doc",
+    "category": "enterprise",
+    "source_doc": "javascript_platform_guide.pdf",
+    "document_filter": "javascript_platform_guide",
+    "query": "How is request validation enforced in gateway flows?",
+    "expected_pages": [
+      5
+    ],
+    "expected_chunk_ids": [
+      "javascript_platform_guide_p5_c0"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0120",
+    "scenario": "synonym",
+    "category": "enterprise",
+    "source_doc": "llm_governance_framework.pdf",
+    "document_filter": "llm_governance_framework",
+    "query": "What safeguards are specified for privileged access?",
+    "expected_pages": [
+      9
+    ],
+    "expected_chunk_ids": [
+      "llm_governance_framework_p9_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0121",
+    "scenario": "synonym",
+    "category": "enterprise",
+    "source_doc": "llm_governance_framework.pdf",
+    "document_filter": "llm_governance_framework",
+    "query": "How does the platform protect sensitive data at rest?",
+    "expected_pages": [
+      9
+    ],
+    "expected_chunk_ids": [
+      "llm_governance_framework_p9_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0122",
+    "scenario": "synonym",
+    "category": "enterprise",
+    "source_doc": "llm_governance_framework.pdf",
+    "document_filter": "llm_governance_framework",
+    "query": "Which resiliency measures are defined for outages?",
+    "expected_pages": [
+      9
+    ],
+    "expected_chunk_ids": [
+      "llm_governance_framework_p9_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0123",
+    "scenario": "acronym",
+    "category": "enterprise",
+    "source_doc": "llm_governance_framework.pdf",
+    "document_filter": "llm_governance_framework",
+    "query": "What does the document specify for MFA in admin workflows?",
+    "expected_pages": [
+      9
+    ],
+    "expected_chunk_ids": [
+      "llm_governance_framework_p9_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0124",
+    "scenario": "acronym",
+    "category": "enterprise",
+    "source_doc": "llm_governance_framework.pdf",
+    "document_filter": "llm_governance_framework",
+    "query": "How is SSO integrated with API authentication?",
+    "expected_pages": [
+      9
+    ],
+    "expected_chunk_ids": [
+      "llm_governance_framework_p9_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0125",
+    "scenario": "acronym",
+    "category": "enterprise",
+    "source_doc": "llm_governance_framework.pdf",
+    "document_filter": "llm_governance_framework",
+    "query": "What SLA constraints are documented for uptime?",
+    "expected_pages": [
+      9
+    ],
+    "expected_chunk_ids": [
+      "llm_governance_framework_p9_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0126",
+    "scenario": "entity_alias",
+    "category": "enterprise",
+    "source_doc": "llm_governance_framework.pdf",
+    "document_filter": "llm_governance_framework",
+    "query": "What does this corpus say about k8s reliability controls?",
+    "expected_pages": [
+      9
+    ],
+    "expected_chunk_ids": [
+      "llm_governance_framework_p9_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0127",
+    "scenario": "entity_alias",
+    "category": "enterprise",
+    "source_doc": "llm_governance_framework.pdf",
+    "document_filter": "llm_governance_framework",
+    "query": "What guidance is provided for JS runtime security?",
+    "expected_pages": [
+      9
+    ],
+    "expected_chunk_ids": [
+      "llm_governance_framework_p9_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0128",
+    "scenario": "entity_alias",
+    "category": "enterprise",
+    "source_doc": "llm_governance_framework.pdf",
+    "document_filter": "llm_governance_framework",
+    "query": "How does the policy govern LLM usage in production?",
+    "expected_pages": [
+      9
+    ],
+    "expected_chunk_ids": [
+      "llm_governance_framework_p9_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0129",
+    "scenario": "keyword_heavy",
+    "category": "enterprise",
+    "source_doc": "llm_governance_framework.pdf",
+    "document_filter": "llm_governance_framework",
+    "query": "authentication authorization encryption compliance controls",
+    "expected_pages": [
+      9
+    ],
+    "expected_chunk_ids": [
+      "llm_governance_framework_p9_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0130",
+    "scenario": "keyword_heavy",
+    "category": "enterprise",
+    "source_doc": "llm_governance_framework.pdf",
+    "document_filter": "llm_governance_framework",
+    "query": "kubernetes cluster autoscaling pod disruption budget",
+    "expected_pages": [
+      9
+    ],
+    "expected_chunk_ids": [
+      "llm_governance_framework_p9_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0131",
+    "scenario": "keyword_heavy",
+    "category": "enterprise",
+    "source_doc": "llm_governance_framework.pdf",
+    "document_filter": "llm_governance_framework",
+    "query": "api gateway timeout retry backoff circuit breaker",
+    "expected_pages": [
+      9
+    ],
+    "expected_chunk_ids": [
+      "llm_governance_framework_p9_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0132",
+    "scenario": "semantic_only",
+    "category": "enterprise",
+    "source_doc": "llm_governance_framework.pdf",
+    "document_filter": "llm_governance_framework",
+    "query": "How should we reduce user-impact during production failures?",
+    "expected_pages": [
+      9
+    ],
+    "expected_chunk_ids": [
+      "llm_governance_framework_p9_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0133",
+    "scenario": "semantic_only",
+    "category": "enterprise",
+    "source_doc": "llm_governance_framework.pdf",
+    "document_filter": "llm_governance_framework",
+    "query": "What pattern is recommended for handling identity risk?",
+    "expected_pages": [
+      9
+    ],
+    "expected_chunk_ids": [
+      "llm_governance_framework_p9_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0134",
+    "scenario": "semantic_only",
+    "category": "enterprise",
+    "source_doc": "llm_governance_framework.pdf",
+    "document_filter": "llm_governance_framework",
+    "query": "How should model outputs be constrained to policy?",
+    "expected_pages": [
+      9
+    ],
+    "expected_chunk_ids": [
+      "llm_governance_framework_p9_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0135",
+    "scenario": "conflicting_documents",
+    "category": "enterprise",
+    "source_doc": "api_gateway_reference.pdf",
+    "document_filter": "api_gateway_reference",
+    "query": "Which timeout is correct when one document says 30s and another says 60s?",
+    "expected_pages": [
+      7
+    ],
+    "expected_chunk_ids": [
+      "api_gateway_reference_p7_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0136",
+    "scenario": "conflicting_documents",
+    "category": "enterprise",
+    "source_doc": "api_gateway_reference.pdf",
+    "document_filter": "api_gateway_reference",
+    "query": "What is the reconciled retention period across conflicting policies?",
+    "expected_pages": [
+      7
+    ],
+    "expected_chunk_ids": [
+      "api_gateway_reference_p7_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0137",
+    "scenario": "conflicting_documents",
+    "category": "enterprise",
+    "source_doc": "api_gateway_reference.pdf",
+    "document_filter": "api_gateway_reference",
+    "query": "Do versions disagree on deprecation timelines?",
+    "expected_pages": [
+      7
+    ],
+    "expected_chunk_ids": [
+      "api_gateway_reference_p7_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0138",
+    "scenario": "multi_document",
+    "category": "enterprise",
+    "source_doc": "api_gateway_reference.pdf",
+    "document_filter": "api_gateway_reference",
+    "query": "Compare policy obligations with technical implementation details.",
+    "expected_pages": [
+      7
+    ],
+    "expected_chunk_ids": [
+      "api_gateway_reference_p7_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0139",
+    "scenario": "multi_document",
+    "category": "enterprise",
+    "source_doc": "api_gateway_reference.pdf",
+    "document_filter": "api_gateway_reference",
+    "query": "How do governance controls map to deployment runbooks?",
+    "expected_pages": [
+      7
+    ],
+    "expected_chunk_ids": [
+      "api_gateway_reference_p7_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0140",
+    "scenario": "multi_document",
+    "category": "enterprise",
+    "source_doc": "api_gateway_reference.pdf",
+    "document_filter": "api_gateway_reference",
+    "query": "Which operational actions satisfy security policy requirements?",
+    "expected_pages": [
+      7
+    ],
+    "expected_chunk_ids": [
+      "api_gateway_reference_p7_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0141",
+    "scenario": "ambiguous",
+    "category": "enterprise",
+    "source_doc": "llm_governance_framework.pdf",
+    "document_filter": "llm_governance_framework",
+    "query": "What is the default setting?",
+    "expected_pages": [
+      9
+    ],
+    "expected_chunk_ids": [
+      "llm_governance_framework_p9_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0142",
+    "scenario": "ambiguous",
+    "category": "enterprise",
+    "source_doc": "llm_governance_framework.pdf",
+    "document_filter": "llm_governance_framework",
+    "query": "How should this be configured?",
+    "expected_pages": [
+      9
+    ],
+    "expected_chunk_ids": [
+      "llm_governance_framework_p9_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0143",
+    "scenario": "ambiguous",
+    "category": "enterprise",
+    "source_doc": "llm_governance_framework.pdf",
+    "document_filter": "llm_governance_framework",
+    "query": "What does the platform recommend here?",
+    "expected_pages": [
+      9
+    ],
+    "expected_chunk_ids": [
+      "llm_governance_framework_p9_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0144",
+    "scenario": "long_context",
+    "category": "enterprise",
+    "source_doc": "llm_governance_framework.pdf",
+    "document_filter": "llm_governance_framework",
+    "query": "Summarize all controls relevant to security, privacy, retention, and incident response with constraints.",
+    "expected_pages": [
+      9
+    ],
+    "expected_chunk_ids": [
+      "llm_governance_framework_p9_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0145",
+    "scenario": "long_context",
+    "category": "enterprise",
+    "source_doc": "llm_governance_framework.pdf",
+    "document_filter": "llm_governance_framework",
+    "query": "Give a comprehensive cross-document explanation of reliability and recovery strategy.",
+    "expected_pages": [
+      9
+    ],
+    "expected_chunk_ids": [
+      "llm_governance_framework_p9_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0146",
+    "scenario": "long_context",
+    "category": "enterprise",
+    "source_doc": "llm_governance_framework.pdf",
+    "document_filter": "llm_governance_framework",
+    "query": "Provide a detailed answer connecting architecture rationale to release behavior changes.",
+    "expected_pages": [
+      9
+    ],
+    "expected_chunk_ids": [
+      "llm_governance_framework_p9_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0147",
+    "scenario": "technical_doc",
+    "category": "enterprise",
+    "source_doc": "llm_governance_framework.pdf",
+    "document_filter": "llm_governance_framework",
+    "query": "What API parameters control authentication behavior?",
+    "expected_pages": [
+      9
+    ],
+    "expected_chunk_ids": [
+      "llm_governance_framework_p9_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0148",
+    "scenario": "technical_doc",
+    "category": "enterprise",
+    "source_doc": "llm_governance_framework.pdf",
+    "document_filter": "llm_governance_framework",
+    "query": "Which implementation examples show retry and timeout configuration?",
+    "expected_pages": [
+      9
+    ],
+    "expected_chunk_ids": [
+      "llm_governance_framework_p9_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0149",
+    "scenario": "technical_doc",
+    "category": "enterprise",
+    "source_doc": "llm_governance_framework.pdf",
+    "document_filter": "llm_governance_framework",
+    "query": "How is request validation enforced in gateway flows?",
+    "expected_pages": [
+      9
+    ],
+    "expected_chunk_ids": [
+      "llm_governance_framework_p9_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0150",
+    "scenario": "synonym",
+    "category": "enterprise",
+    "source_doc": "api_gateway_reference.pdf",
+    "document_filter": "api_gateway_reference",
+    "query": "What safeguards are specified for privileged access?",
+    "expected_pages": [
+      7
+    ],
+    "expected_chunk_ids": [
+      "api_gateway_reference_p7_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0151",
+    "scenario": "synonym",
+    "category": "enterprise",
+    "source_doc": "api_gateway_reference.pdf",
+    "document_filter": "api_gateway_reference",
+    "query": "How does the platform protect sensitive data at rest?",
+    "expected_pages": [
+      7
+    ],
+    "expected_chunk_ids": [
+      "api_gateway_reference_p7_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0152",
+    "scenario": "synonym",
+    "category": "enterprise",
+    "source_doc": "api_gateway_reference.pdf",
+    "document_filter": "api_gateway_reference",
+    "query": "Which resiliency measures are defined for outages?",
+    "expected_pages": [
+      7
+    ],
+    "expected_chunk_ids": [
+      "api_gateway_reference_p7_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0153",
+    "scenario": "acronym",
+    "category": "enterprise",
+    "source_doc": "api_gateway_reference.pdf",
+    "document_filter": "api_gateway_reference",
+    "query": "What does the document specify for MFA in admin workflows?",
+    "expected_pages": [
+      7
+    ],
+    "expected_chunk_ids": [
+      "api_gateway_reference_p7_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0154",
+    "scenario": "acronym",
+    "category": "enterprise",
+    "source_doc": "api_gateway_reference.pdf",
+    "document_filter": "api_gateway_reference",
+    "query": "How is SSO integrated with API authentication?",
+    "expected_pages": [
+      7
+    ],
+    "expected_chunk_ids": [
+      "api_gateway_reference_p7_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0155",
+    "scenario": "acronym",
+    "category": "enterprise",
+    "source_doc": "api_gateway_reference.pdf",
+    "document_filter": "api_gateway_reference",
+    "query": "What SLA constraints are documented for uptime?",
+    "expected_pages": [
+      7
+    ],
+    "expected_chunk_ids": [
+      "api_gateway_reference_p7_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0156",
+    "scenario": "entity_alias",
+    "category": "enterprise",
+    "source_doc": "api_gateway_reference.pdf",
+    "document_filter": "api_gateway_reference",
+    "query": "What does this corpus say about k8s reliability controls?",
+    "expected_pages": [
+      7
+    ],
+    "expected_chunk_ids": [
+      "api_gateway_reference_p7_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0157",
+    "scenario": "entity_alias",
+    "category": "enterprise",
+    "source_doc": "api_gateway_reference.pdf",
+    "document_filter": "api_gateway_reference",
+    "query": "What guidance is provided for JS runtime security?",
+    "expected_pages": [
+      7
+    ],
+    "expected_chunk_ids": [
+      "api_gateway_reference_p7_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0158",
+    "scenario": "entity_alias",
+    "category": "enterprise",
+    "source_doc": "api_gateway_reference.pdf",
+    "document_filter": "api_gateway_reference",
+    "query": "How does the policy govern LLM usage in production?",
+    "expected_pages": [
+      7
+    ],
+    "expected_chunk_ids": [
+      "api_gateway_reference_p7_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0159",
+    "scenario": "keyword_heavy",
+    "category": "enterprise",
+    "source_doc": "api_gateway_reference.pdf",
+    "document_filter": "api_gateway_reference",
+    "query": "authentication authorization encryption compliance controls",
+    "expected_pages": [
+      7
+    ],
+    "expected_chunk_ids": [
+      "api_gateway_reference_p7_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0160",
+    "scenario": "keyword_heavy",
+    "category": "enterprise",
+    "source_doc": "api_gateway_reference.pdf",
+    "document_filter": "api_gateway_reference",
+    "query": "kubernetes cluster autoscaling pod disruption budget",
+    "expected_pages": [
+      7
+    ],
+    "expected_chunk_ids": [
+      "api_gateway_reference_p7_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0161",
+    "scenario": "keyword_heavy",
+    "category": "enterprise",
+    "source_doc": "api_gateway_reference.pdf",
+    "document_filter": "api_gateway_reference",
+    "query": "api gateway timeout retry backoff circuit breaker",
+    "expected_pages": [
+      7
+    ],
+    "expected_chunk_ids": [
+      "api_gateway_reference_p7_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0162",
+    "scenario": "semantic_only",
+    "category": "enterprise",
+    "source_doc": "api_gateway_reference.pdf",
+    "document_filter": "api_gateway_reference",
+    "query": "How should we reduce user-impact during production failures?",
+    "expected_pages": [
+      7
+    ],
+    "expected_chunk_ids": [
+      "api_gateway_reference_p7_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0163",
+    "scenario": "semantic_only",
+    "category": "enterprise",
+    "source_doc": "api_gateway_reference.pdf",
+    "document_filter": "api_gateway_reference",
+    "query": "What pattern is recommended for handling identity risk?",
+    "expected_pages": [
+      7
+    ],
+    "expected_chunk_ids": [
+      "api_gateway_reference_p7_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0164",
+    "scenario": "semantic_only",
+    "category": "enterprise",
+    "source_doc": "api_gateway_reference.pdf",
+    "document_filter": "api_gateway_reference",
+    "query": "How should model outputs be constrained to policy?",
+    "expected_pages": [
+      7
+    ],
+    "expected_chunk_ids": [
+      "api_gateway_reference_p7_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0165",
+    "scenario": "conflicting_documents",
+    "category": "enterprise",
+    "source_doc": "data_retention_policy.pdf",
+    "document_filter": "data_retention_policy",
+    "query": "Which timeout is correct when one document says 30s and another says 60s?",
+    "expected_pages": [
+      3
+    ],
+    "expected_chunk_ids": [
+      "data_retention_policy_p3_c0"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0166",
+    "scenario": "conflicting_documents",
+    "category": "enterprise",
+    "source_doc": "data_retention_policy.pdf",
+    "document_filter": "data_retention_policy",
+    "query": "What is the reconciled retention period across conflicting policies?",
+    "expected_pages": [
+      3
+    ],
+    "expected_chunk_ids": [
+      "data_retention_policy_p3_c0"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0167",
+    "scenario": "conflicting_documents",
+    "category": "enterprise",
+    "source_doc": "data_retention_policy.pdf",
+    "document_filter": "data_retention_policy",
+    "query": "Do versions disagree on deprecation timelines?",
+    "expected_pages": [
+      3
+    ],
+    "expected_chunk_ids": [
+      "data_retention_policy_p3_c0"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0168",
+    "scenario": "multi_document",
+    "category": "enterprise",
+    "source_doc": "data_retention_policy.pdf",
+    "document_filter": "data_retention_policy",
+    "query": "Compare policy obligations with technical implementation details.",
+    "expected_pages": [
+      3
+    ],
+    "expected_chunk_ids": [
+      "data_retention_policy_p3_c0"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0169",
+    "scenario": "multi_document",
+    "category": "enterprise",
+    "source_doc": "data_retention_policy.pdf",
+    "document_filter": "data_retention_policy",
+    "query": "How do governance controls map to deployment runbooks?",
+    "expected_pages": [
+      3
+    ],
+    "expected_chunk_ids": [
+      "data_retention_policy_p3_c0"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0170",
+    "scenario": "multi_document",
+    "category": "enterprise",
+    "source_doc": "data_retention_policy.pdf",
+    "document_filter": "data_retention_policy",
+    "query": "Which operational actions satisfy security policy requirements?",
+    "expected_pages": [
+      3
+    ],
+    "expected_chunk_ids": [
+      "data_retention_policy_p3_c0"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0171",
+    "scenario": "ambiguous",
+    "category": "enterprise",
+    "source_doc": "api_gateway_reference.pdf",
+    "document_filter": "api_gateway_reference",
+    "query": "What is the default setting?",
+    "expected_pages": [
+      7
+    ],
+    "expected_chunk_ids": [
+      "api_gateway_reference_p7_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0172",
+    "scenario": "ambiguous",
+    "category": "enterprise",
+    "source_doc": "api_gateway_reference.pdf",
+    "document_filter": "api_gateway_reference",
+    "query": "How should this be configured?",
+    "expected_pages": [
+      7
+    ],
+    "expected_chunk_ids": [
+      "api_gateway_reference_p7_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0173",
+    "scenario": "ambiguous",
+    "category": "enterprise",
+    "source_doc": "api_gateway_reference.pdf",
+    "document_filter": "api_gateway_reference",
+    "query": "What does the platform recommend here?",
+    "expected_pages": [
+      7
+    ],
+    "expected_chunk_ids": [
+      "api_gateway_reference_p7_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0174",
+    "scenario": "long_context",
+    "category": "enterprise",
+    "source_doc": "api_gateway_reference.pdf",
+    "document_filter": "api_gateway_reference",
+    "query": "Summarize all controls relevant to security, privacy, retention, and incident response with constraints.",
+    "expected_pages": [
+      7
+    ],
+    "expected_chunk_ids": [
+      "api_gateway_reference_p7_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0175",
+    "scenario": "long_context",
+    "category": "enterprise",
+    "source_doc": "api_gateway_reference.pdf",
+    "document_filter": "api_gateway_reference",
+    "query": "Give a comprehensive cross-document explanation of reliability and recovery strategy.",
+    "expected_pages": [
+      7
+    ],
+    "expected_chunk_ids": [
+      "api_gateway_reference_p7_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0176",
+    "scenario": "long_context",
+    "category": "enterprise",
+    "source_doc": "api_gateway_reference.pdf",
+    "document_filter": "api_gateway_reference",
+    "query": "Provide a detailed answer connecting architecture rationale to release behavior changes.",
+    "expected_pages": [
+      7
+    ],
+    "expected_chunk_ids": [
+      "api_gateway_reference_p7_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0177",
+    "scenario": "technical_doc",
+    "category": "enterprise",
+    "source_doc": "api_gateway_reference.pdf",
+    "document_filter": "api_gateway_reference",
+    "query": "What API parameters control authentication behavior?",
+    "expected_pages": [
+      7
+    ],
+    "expected_chunk_ids": [
+      "api_gateway_reference_p7_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0178",
+    "scenario": "technical_doc",
+    "category": "enterprise",
+    "source_doc": "api_gateway_reference.pdf",
+    "document_filter": "api_gateway_reference",
+    "query": "Which implementation examples show retry and timeout configuration?",
+    "expected_pages": [
+      7
+    ],
+    "expected_chunk_ids": [
+      "api_gateway_reference_p7_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0179",
+    "scenario": "technical_doc",
+    "category": "enterprise",
+    "source_doc": "api_gateway_reference.pdf",
+    "document_filter": "api_gateway_reference",
+    "query": "How is request validation enforced in gateway flows?",
+    "expected_pages": [
+      7
+    ],
+    "expected_chunk_ids": [
+      "api_gateway_reference_p7_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0180",
+    "scenario": "synonym",
+    "category": "enterprise",
+    "source_doc": "data_retention_policy.pdf",
+    "document_filter": "data_retention_policy",
+    "query": "What safeguards are specified for privileged access?",
+    "expected_pages": [
+      3
+    ],
+    "expected_chunk_ids": [
+      "data_retention_policy_p3_c0"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0181",
+    "scenario": "synonym",
+    "category": "enterprise",
+    "source_doc": "data_retention_policy.pdf",
+    "document_filter": "data_retention_policy",
+    "query": "How does the platform protect sensitive data at rest?",
+    "expected_pages": [
+      3
+    ],
+    "expected_chunk_ids": [
+      "data_retention_policy_p3_c0"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0182",
+    "scenario": "synonym",
+    "category": "enterprise",
+    "source_doc": "data_retention_policy.pdf",
+    "document_filter": "data_retention_policy",
+    "query": "Which resiliency measures are defined for outages?",
+    "expected_pages": [
+      3
+    ],
+    "expected_chunk_ids": [
+      "data_retention_policy_p3_c0"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0183",
+    "scenario": "acronym",
+    "category": "enterprise",
+    "source_doc": "data_retention_policy.pdf",
+    "document_filter": "data_retention_policy",
+    "query": "What does the document specify for MFA in admin workflows?",
+    "expected_pages": [
+      3
+    ],
+    "expected_chunk_ids": [
+      "data_retention_policy_p3_c0"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0184",
+    "scenario": "acronym",
+    "category": "enterprise",
+    "source_doc": "data_retention_policy.pdf",
+    "document_filter": "data_retention_policy",
+    "query": "How is SSO integrated with API authentication?",
+    "expected_pages": [
+      3
+    ],
+    "expected_chunk_ids": [
+      "data_retention_policy_p3_c0"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0185",
+    "scenario": "acronym",
+    "category": "enterprise",
+    "source_doc": "data_retention_policy.pdf",
+    "document_filter": "data_retention_policy",
+    "query": "What SLA constraints are documented for uptime?",
+    "expected_pages": [
+      3
+    ],
+    "expected_chunk_ids": [
+      "data_retention_policy_p3_c0"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0186",
+    "scenario": "entity_alias",
+    "category": "enterprise",
+    "source_doc": "data_retention_policy.pdf",
+    "document_filter": "data_retention_policy",
+    "query": "What does this corpus say about k8s reliability controls?",
+    "expected_pages": [
+      3
+    ],
+    "expected_chunk_ids": [
+      "data_retention_policy_p3_c0"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0187",
+    "scenario": "entity_alias",
+    "category": "enterprise",
+    "source_doc": "data_retention_policy.pdf",
+    "document_filter": "data_retention_policy",
+    "query": "What guidance is provided for JS runtime security?",
+    "expected_pages": [
+      3
+    ],
+    "expected_chunk_ids": [
+      "data_retention_policy_p3_c0"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0188",
+    "scenario": "entity_alias",
+    "category": "enterprise",
+    "source_doc": "data_retention_policy.pdf",
+    "document_filter": "data_retention_policy",
+    "query": "How does the policy govern LLM usage in production?",
+    "expected_pages": [
+      3
+    ],
+    "expected_chunk_ids": [
+      "data_retention_policy_p3_c0"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0189",
+    "scenario": "keyword_heavy",
+    "category": "enterprise",
+    "source_doc": "data_retention_policy.pdf",
+    "document_filter": "data_retention_policy",
+    "query": "authentication authorization encryption compliance controls",
+    "expected_pages": [
+      3
+    ],
+    "expected_chunk_ids": [
+      "data_retention_policy_p3_c0"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0190",
+    "scenario": "keyword_heavy",
+    "category": "enterprise",
+    "source_doc": "data_retention_policy.pdf",
+    "document_filter": "data_retention_policy",
+    "query": "kubernetes cluster autoscaling pod disruption budget",
+    "expected_pages": [
+      3
+    ],
+    "expected_chunk_ids": [
+      "data_retention_policy_p3_c0"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0191",
+    "scenario": "keyword_heavy",
+    "category": "enterprise",
+    "source_doc": "data_retention_policy.pdf",
+    "document_filter": "data_retention_policy",
+    "query": "api gateway timeout retry backoff circuit breaker",
+    "expected_pages": [
+      3
+    ],
+    "expected_chunk_ids": [
+      "data_retention_policy_p3_c0"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0192",
+    "scenario": "semantic_only",
+    "category": "enterprise",
+    "source_doc": "data_retention_policy.pdf",
+    "document_filter": "data_retention_policy",
+    "query": "How should we reduce user-impact during production failures?",
+    "expected_pages": [
+      3
+    ],
+    "expected_chunk_ids": [
+      "data_retention_policy_p3_c0"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0193",
+    "scenario": "semantic_only",
+    "category": "enterprise",
+    "source_doc": "data_retention_policy.pdf",
+    "document_filter": "data_retention_policy",
+    "query": "What pattern is recommended for handling identity risk?",
+    "expected_pages": [
+      3
+    ],
+    "expected_chunk_ids": [
+      "data_retention_policy_p3_c0"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0194",
+    "scenario": "semantic_only",
+    "category": "enterprise",
+    "source_doc": "data_retention_policy.pdf",
+    "document_filter": "data_retention_policy",
+    "query": "How should model outputs be constrained to policy?",
+    "expected_pages": [
+      3
+    ],
+    "expected_chunk_ids": [
+      "data_retention_policy_p3_c0"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0195",
+    "scenario": "conflicting_documents",
+    "category": "enterprise",
+    "source_doc": "privacy_impact_assessment.pdf",
+    "document_filter": "privacy_impact_assessment",
+    "query": "Which timeout is correct when one document says 30s and another says 60s?",
+    "expected_pages": [
+      6
+    ],
+    "expected_chunk_ids": [
+      "privacy_impact_assessment_p6_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0196",
+    "scenario": "conflicting_documents",
+    "category": "enterprise",
+    "source_doc": "privacy_impact_assessment.pdf",
+    "document_filter": "privacy_impact_assessment",
+    "query": "What is the reconciled retention period across conflicting policies?",
+    "expected_pages": [
+      6
+    ],
+    "expected_chunk_ids": [
+      "privacy_impact_assessment_p6_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0197",
+    "scenario": "conflicting_documents",
+    "category": "enterprise",
+    "source_doc": "privacy_impact_assessment.pdf",
+    "document_filter": "privacy_impact_assessment",
+    "query": "Do versions disagree on deprecation timelines?",
+    "expected_pages": [
+      6
+    ],
+    "expected_chunk_ids": [
+      "privacy_impact_assessment_p6_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0198",
+    "scenario": "multi_document",
+    "category": "enterprise",
+    "source_doc": "privacy_impact_assessment.pdf",
+    "document_filter": "privacy_impact_assessment",
+    "query": "Compare policy obligations with technical implementation details.",
+    "expected_pages": [
+      6
+    ],
+    "expected_chunk_ids": [
+      "privacy_impact_assessment_p6_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0199",
+    "scenario": "multi_document",
+    "category": "enterprise",
+    "source_doc": "privacy_impact_assessment.pdf",
+    "document_filter": "privacy_impact_assessment",
+    "query": "How do governance controls map to deployment runbooks?",
+    "expected_pages": [
+      6
+    ],
+    "expected_chunk_ids": [
+      "privacy_impact_assessment_p6_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0200",
+    "scenario": "multi_document",
+    "category": "enterprise",
+    "source_doc": "privacy_impact_assessment.pdf",
+    "document_filter": "privacy_impact_assessment",
+    "query": "Which operational actions satisfy security policy requirements?",
+    "expected_pages": [
+      6
+    ],
+    "expected_chunk_ids": [
+      "privacy_impact_assessment_p6_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0201",
+    "scenario": "ambiguous",
+    "category": "enterprise",
+    "source_doc": "data_retention_policy.pdf",
+    "document_filter": "data_retention_policy",
+    "query": "What is the default setting?",
+    "expected_pages": [
+      3
+    ],
+    "expected_chunk_ids": [
+      "data_retention_policy_p3_c0"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0202",
+    "scenario": "ambiguous",
+    "category": "enterprise",
+    "source_doc": "data_retention_policy.pdf",
+    "document_filter": "data_retention_policy",
+    "query": "How should this be configured?",
+    "expected_pages": [
+      3
+    ],
+    "expected_chunk_ids": [
+      "data_retention_policy_p3_c0"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0203",
+    "scenario": "ambiguous",
+    "category": "enterprise",
+    "source_doc": "data_retention_policy.pdf",
+    "document_filter": "data_retention_policy",
+    "query": "What does the platform recommend here?",
+    "expected_pages": [
+      3
+    ],
+    "expected_chunk_ids": [
+      "data_retention_policy_p3_c0"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0204",
+    "scenario": "long_context",
+    "category": "enterprise",
+    "source_doc": "data_retention_policy.pdf",
+    "document_filter": "data_retention_policy",
+    "query": "Summarize all controls relevant to security, privacy, retention, and incident response with constraints.",
+    "expected_pages": [
+      3
+    ],
+    "expected_chunk_ids": [
+      "data_retention_policy_p3_c0"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0205",
+    "scenario": "long_context",
+    "category": "enterprise",
+    "source_doc": "data_retention_policy.pdf",
+    "document_filter": "data_retention_policy",
+    "query": "Give a comprehensive cross-document explanation of reliability and recovery strategy.",
+    "expected_pages": [
+      3
+    ],
+    "expected_chunk_ids": [
+      "data_retention_policy_p3_c0"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0206",
+    "scenario": "long_context",
+    "category": "enterprise",
+    "source_doc": "data_retention_policy.pdf",
+    "document_filter": "data_retention_policy",
+    "query": "Provide a detailed answer connecting architecture rationale to release behavior changes.",
+    "expected_pages": [
+      3
+    ],
+    "expected_chunk_ids": [
+      "data_retention_policy_p3_c0"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0207",
+    "scenario": "technical_doc",
+    "category": "enterprise",
+    "source_doc": "data_retention_policy.pdf",
+    "document_filter": "data_retention_policy",
+    "query": "What API parameters control authentication behavior?",
+    "expected_pages": [
+      3
+    ],
+    "expected_chunk_ids": [
+      "data_retention_policy_p3_c0"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0208",
+    "scenario": "technical_doc",
+    "category": "enterprise",
+    "source_doc": "data_retention_policy.pdf",
+    "document_filter": "data_retention_policy",
+    "query": "Which implementation examples show retry and timeout configuration?",
+    "expected_pages": [
+      3
+    ],
+    "expected_chunk_ids": [
+      "data_retention_policy_p3_c0"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0209",
+    "scenario": "technical_doc",
+    "category": "enterprise",
+    "source_doc": "data_retention_policy.pdf",
+    "document_filter": "data_retention_policy",
+    "query": "How is request validation enforced in gateway flows?",
+    "expected_pages": [
+      3
+    ],
+    "expected_chunk_ids": [
+      "data_retention_policy_p3_c0"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0210",
+    "scenario": "synonym",
+    "category": "enterprise",
+    "source_doc": "privacy_impact_assessment.pdf",
+    "document_filter": "privacy_impact_assessment",
+    "query": "What safeguards are specified for privileged access?",
+    "expected_pages": [
+      6
+    ],
+    "expected_chunk_ids": [
+      "privacy_impact_assessment_p6_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0211",
+    "scenario": "synonym",
+    "category": "enterprise",
+    "source_doc": "privacy_impact_assessment.pdf",
+    "document_filter": "privacy_impact_assessment",
+    "query": "How does the platform protect sensitive data at rest?",
+    "expected_pages": [
+      6
+    ],
+    "expected_chunk_ids": [
+      "privacy_impact_assessment_p6_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0212",
+    "scenario": "synonym",
+    "category": "enterprise",
+    "source_doc": "privacy_impact_assessment.pdf",
+    "document_filter": "privacy_impact_assessment",
+    "query": "Which resiliency measures are defined for outages?",
+    "expected_pages": [
+      6
+    ],
+    "expected_chunk_ids": [
+      "privacy_impact_assessment_p6_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0213",
+    "scenario": "acronym",
+    "category": "enterprise",
+    "source_doc": "privacy_impact_assessment.pdf",
+    "document_filter": "privacy_impact_assessment",
+    "query": "What does the document specify for MFA in admin workflows?",
+    "expected_pages": [
+      6
+    ],
+    "expected_chunk_ids": [
+      "privacy_impact_assessment_p6_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0214",
+    "scenario": "acronym",
+    "category": "enterprise",
+    "source_doc": "privacy_impact_assessment.pdf",
+    "document_filter": "privacy_impact_assessment",
+    "query": "How is SSO integrated with API authentication?",
+    "expected_pages": [
+      6
+    ],
+    "expected_chunk_ids": [
+      "privacy_impact_assessment_p6_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0215",
+    "scenario": "acronym",
+    "category": "enterprise",
+    "source_doc": "privacy_impact_assessment.pdf",
+    "document_filter": "privacy_impact_assessment",
+    "query": "What SLA constraints are documented for uptime?",
+    "expected_pages": [
+      6
+    ],
+    "expected_chunk_ids": [
+      "privacy_impact_assessment_p6_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0216",
+    "scenario": "entity_alias",
+    "category": "enterprise",
+    "source_doc": "privacy_impact_assessment.pdf",
+    "document_filter": "privacy_impact_assessment",
+    "query": "What does this corpus say about k8s reliability controls?",
+    "expected_pages": [
+      6
+    ],
+    "expected_chunk_ids": [
+      "privacy_impact_assessment_p6_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0217",
+    "scenario": "entity_alias",
+    "category": "enterprise",
+    "source_doc": "privacy_impact_assessment.pdf",
+    "document_filter": "privacy_impact_assessment",
+    "query": "What guidance is provided for JS runtime security?",
+    "expected_pages": [
+      6
+    ],
+    "expected_chunk_ids": [
+      "privacy_impact_assessment_p6_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0218",
+    "scenario": "entity_alias",
+    "category": "enterprise",
+    "source_doc": "privacy_impact_assessment.pdf",
+    "document_filter": "privacy_impact_assessment",
+    "query": "How does the policy govern LLM usage in production?",
+    "expected_pages": [
+      6
+    ],
+    "expected_chunk_ids": [
+      "privacy_impact_assessment_p6_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0219",
+    "scenario": "keyword_heavy",
+    "category": "enterprise",
+    "source_doc": "privacy_impact_assessment.pdf",
+    "document_filter": "privacy_impact_assessment",
+    "query": "authentication authorization encryption compliance controls",
+    "expected_pages": [
+      6
+    ],
+    "expected_chunk_ids": [
+      "privacy_impact_assessment_p6_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0220",
+    "scenario": "keyword_heavy",
+    "category": "enterprise",
+    "source_doc": "privacy_impact_assessment.pdf",
+    "document_filter": "privacy_impact_assessment",
+    "query": "kubernetes cluster autoscaling pod disruption budget",
+    "expected_pages": [
+      6
+    ],
+    "expected_chunk_ids": [
+      "privacy_impact_assessment_p6_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0221",
+    "scenario": "keyword_heavy",
+    "category": "enterprise",
+    "source_doc": "privacy_impact_assessment.pdf",
+    "document_filter": "privacy_impact_assessment",
+    "query": "api gateway timeout retry backoff circuit breaker",
+    "expected_pages": [
+      6
+    ],
+    "expected_chunk_ids": [
+      "privacy_impact_assessment_p6_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0222",
+    "scenario": "semantic_only",
+    "category": "enterprise",
+    "source_doc": "privacy_impact_assessment.pdf",
+    "document_filter": "privacy_impact_assessment",
+    "query": "How should we reduce user-impact during production failures?",
+    "expected_pages": [
+      6
+    ],
+    "expected_chunk_ids": [
+      "privacy_impact_assessment_p6_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0223",
+    "scenario": "semantic_only",
+    "category": "enterprise",
+    "source_doc": "privacy_impact_assessment.pdf",
+    "document_filter": "privacy_impact_assessment",
+    "query": "What pattern is recommended for handling identity risk?",
+    "expected_pages": [
+      6
+    ],
+    "expected_chunk_ids": [
+      "privacy_impact_assessment_p6_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0224",
+    "scenario": "semantic_only",
+    "category": "enterprise",
+    "source_doc": "privacy_impact_assessment.pdf",
+    "document_filter": "privacy_impact_assessment",
+    "query": "How should model outputs be constrained to policy?",
+    "expected_pages": [
+      6
+    ],
+    "expected_chunk_ids": [
+      "privacy_impact_assessment_p6_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0225",
+    "scenario": "conflicting_documents",
+    "category": "enterprise",
+    "source_doc": "release_notes_v1_v2.pdf",
+    "document_filter": "release_notes_v1_v2",
+    "query": "Which timeout is correct when one document says 30s and another says 60s?",
+    "expected_pages": [
+      10
+    ],
+    "expected_chunk_ids": [
+      "release_notes_v1_v2_p10_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0226",
+    "scenario": "conflicting_documents",
+    "category": "enterprise",
+    "source_doc": "release_notes_v1_v2.pdf",
+    "document_filter": "release_notes_v1_v2",
+    "query": "What is the reconciled retention period across conflicting policies?",
+    "expected_pages": [
+      10
+    ],
+    "expected_chunk_ids": [
+      "release_notes_v1_v2_p10_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0227",
+    "scenario": "conflicting_documents",
+    "category": "enterprise",
+    "source_doc": "release_notes_v1_v2.pdf",
+    "document_filter": "release_notes_v1_v2",
+    "query": "Do versions disagree on deprecation timelines?",
+    "expected_pages": [
+      10
+    ],
+    "expected_chunk_ids": [
+      "release_notes_v1_v2_p10_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0228",
+    "scenario": "multi_document",
+    "category": "enterprise",
+    "source_doc": "release_notes_v1_v2.pdf",
+    "document_filter": "release_notes_v1_v2",
+    "query": "Compare policy obligations with technical implementation details.",
+    "expected_pages": [
+      10
+    ],
+    "expected_chunk_ids": [
+      "release_notes_v1_v2_p10_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0229",
+    "scenario": "multi_document",
+    "category": "enterprise",
+    "source_doc": "release_notes_v1_v2.pdf",
+    "document_filter": "release_notes_v1_v2",
+    "query": "How do governance controls map to deployment runbooks?",
+    "expected_pages": [
+      10
+    ],
+    "expected_chunk_ids": [
+      "release_notes_v1_v2_p10_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0230",
+    "scenario": "multi_document",
+    "category": "enterprise",
+    "source_doc": "release_notes_v1_v2.pdf",
+    "document_filter": "release_notes_v1_v2",
+    "query": "Which operational actions satisfy security policy requirements?",
+    "expected_pages": [
+      10
+    ],
+    "expected_chunk_ids": [
+      "release_notes_v1_v2_p10_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0231",
+    "scenario": "ambiguous",
+    "category": "enterprise",
+    "source_doc": "privacy_impact_assessment.pdf",
+    "document_filter": "privacy_impact_assessment",
+    "query": "What is the default setting?",
+    "expected_pages": [
+      6
+    ],
+    "expected_chunk_ids": [
+      "privacy_impact_assessment_p6_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0232",
+    "scenario": "ambiguous",
+    "category": "enterprise",
+    "source_doc": "privacy_impact_assessment.pdf",
+    "document_filter": "privacy_impact_assessment",
+    "query": "How should this be configured?",
+    "expected_pages": [
+      6
+    ],
+    "expected_chunk_ids": [
+      "privacy_impact_assessment_p6_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0233",
+    "scenario": "ambiguous",
+    "category": "enterprise",
+    "source_doc": "privacy_impact_assessment.pdf",
+    "document_filter": "privacy_impact_assessment",
+    "query": "What does the platform recommend here?",
+    "expected_pages": [
+      6
+    ],
+    "expected_chunk_ids": [
+      "privacy_impact_assessment_p6_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0234",
+    "scenario": "long_context",
+    "category": "enterprise",
+    "source_doc": "privacy_impact_assessment.pdf",
+    "document_filter": "privacy_impact_assessment",
+    "query": "Summarize all controls relevant to security, privacy, retention, and incident response with constraints.",
+    "expected_pages": [
+      6
+    ],
+    "expected_chunk_ids": [
+      "privacy_impact_assessment_p6_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0235",
+    "scenario": "long_context",
+    "category": "enterprise",
+    "source_doc": "privacy_impact_assessment.pdf",
+    "document_filter": "privacy_impact_assessment",
+    "query": "Give a comprehensive cross-document explanation of reliability and recovery strategy.",
+    "expected_pages": [
+      6
+    ],
+    "expected_chunk_ids": [
+      "privacy_impact_assessment_p6_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0236",
+    "scenario": "long_context",
+    "category": "enterprise",
+    "source_doc": "privacy_impact_assessment.pdf",
+    "document_filter": "privacy_impact_assessment",
+    "query": "Provide a detailed answer connecting architecture rationale to release behavior changes.",
+    "expected_pages": [
+      6
+    ],
+    "expected_chunk_ids": [
+      "privacy_impact_assessment_p6_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0237",
+    "scenario": "technical_doc",
+    "category": "enterprise",
+    "source_doc": "privacy_impact_assessment.pdf",
+    "document_filter": "privacy_impact_assessment",
+    "query": "What API parameters control authentication behavior?",
+    "expected_pages": [
+      6
+    ],
+    "expected_chunk_ids": [
+      "privacy_impact_assessment_p6_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0238",
+    "scenario": "technical_doc",
+    "category": "enterprise",
+    "source_doc": "privacy_impact_assessment.pdf",
+    "document_filter": "privacy_impact_assessment",
+    "query": "Which implementation examples show retry and timeout configuration?",
+    "expected_pages": [
+      6
+    ],
+    "expected_chunk_ids": [
+      "privacy_impact_assessment_p6_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0239",
+    "scenario": "technical_doc",
+    "category": "enterprise",
+    "source_doc": "privacy_impact_assessment.pdf",
+    "document_filter": "privacy_impact_assessment",
+    "query": "How is request validation enforced in gateway flows?",
+    "expected_pages": [
+      6
+    ],
+    "expected_chunk_ids": [
+      "privacy_impact_assessment_p6_c2"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0240",
+    "scenario": "synonym",
+    "category": "enterprise",
+    "source_doc": "release_notes_v1_v2.pdf",
+    "document_filter": "release_notes_v1_v2",
+    "query": "What safeguards are specified for privileged access?",
+    "expected_pages": [
+      10
+    ],
+    "expected_chunk_ids": [
+      "release_notes_v1_v2_p10_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0241",
+    "scenario": "synonym",
+    "category": "enterprise",
+    "source_doc": "release_notes_v1_v2.pdf",
+    "document_filter": "release_notes_v1_v2",
+    "query": "How does the platform protect sensitive data at rest?",
+    "expected_pages": [
+      10
+    ],
+    "expected_chunk_ids": [
+      "release_notes_v1_v2_p10_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0242",
+    "scenario": "synonym",
+    "category": "enterprise",
+    "source_doc": "release_notes_v1_v2.pdf",
+    "document_filter": "release_notes_v1_v2",
+    "query": "Which resiliency measures are defined for outages?",
+    "expected_pages": [
+      10
+    ],
+    "expected_chunk_ids": [
+      "release_notes_v1_v2_p10_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0243",
+    "scenario": "acronym",
+    "category": "enterprise",
+    "source_doc": "release_notes_v1_v2.pdf",
+    "document_filter": "release_notes_v1_v2",
+    "query": "What does the document specify for MFA in admin workflows?",
+    "expected_pages": [
+      10
+    ],
+    "expected_chunk_ids": [
+      "release_notes_v1_v2_p10_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0244",
+    "scenario": "acronym",
+    "category": "enterprise",
+    "source_doc": "release_notes_v1_v2.pdf",
+    "document_filter": "release_notes_v1_v2",
+    "query": "How is SSO integrated with API authentication?",
+    "expected_pages": [
+      10
+    ],
+    "expected_chunk_ids": [
+      "release_notes_v1_v2_p10_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0245",
+    "scenario": "acronym",
+    "category": "enterprise",
+    "source_doc": "release_notes_v1_v2.pdf",
+    "document_filter": "release_notes_v1_v2",
+    "query": "What SLA constraints are documented for uptime?",
+    "expected_pages": [
+      10
+    ],
+    "expected_chunk_ids": [
+      "release_notes_v1_v2_p10_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0246",
+    "scenario": "entity_alias",
+    "category": "enterprise",
+    "source_doc": "release_notes_v1_v2.pdf",
+    "document_filter": "release_notes_v1_v2",
+    "query": "What does this corpus say about k8s reliability controls?",
+    "expected_pages": [
+      10
+    ],
+    "expected_chunk_ids": [
+      "release_notes_v1_v2_p10_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0247",
+    "scenario": "entity_alias",
+    "category": "enterprise",
+    "source_doc": "release_notes_v1_v2.pdf",
+    "document_filter": "release_notes_v1_v2",
+    "query": "What guidance is provided for JS runtime security?",
+    "expected_pages": [
+      10
+    ],
+    "expected_chunk_ids": [
+      "release_notes_v1_v2_p10_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0248",
+    "scenario": "entity_alias",
+    "category": "enterprise",
+    "source_doc": "release_notes_v1_v2.pdf",
+    "document_filter": "release_notes_v1_v2",
+    "query": "How does the policy govern LLM usage in production?",
+    "expected_pages": [
+      10
+    ],
+    "expected_chunk_ids": [
+      "release_notes_v1_v2_p10_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0249",
+    "scenario": "keyword_heavy",
+    "category": "enterprise",
+    "source_doc": "release_notes_v1_v2.pdf",
+    "document_filter": "release_notes_v1_v2",
+    "query": "authentication authorization encryption compliance controls",
+    "expected_pages": [
+      10
+    ],
+    "expected_chunk_ids": [
+      "release_notes_v1_v2_p10_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0250",
+    "scenario": "keyword_heavy",
+    "category": "enterprise",
+    "source_doc": "release_notes_v1_v2.pdf",
+    "document_filter": "release_notes_v1_v2",
+    "query": "kubernetes cluster autoscaling pod disruption budget",
+    "expected_pages": [
+      10
+    ],
+    "expected_chunk_ids": [
+      "release_notes_v1_v2_p10_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0251",
+    "scenario": "keyword_heavy",
+    "category": "enterprise",
+    "source_doc": "release_notes_v1_v2.pdf",
+    "document_filter": "release_notes_v1_v2",
+    "query": "api gateway timeout retry backoff circuit breaker",
+    "expected_pages": [
+      10
+    ],
+    "expected_chunk_ids": [
+      "release_notes_v1_v2_p10_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0252",
+    "scenario": "semantic_only",
+    "category": "enterprise",
+    "source_doc": "release_notes_v1_v2.pdf",
+    "document_filter": "release_notes_v1_v2",
+    "query": "How should we reduce user-impact during production failures?",
+    "expected_pages": [
+      10
+    ],
+    "expected_chunk_ids": [
+      "release_notes_v1_v2_p10_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0253",
+    "scenario": "semantic_only",
+    "category": "enterprise",
+    "source_doc": "release_notes_v1_v2.pdf",
+    "document_filter": "release_notes_v1_v2",
+    "query": "What pattern is recommended for handling identity risk?",
+    "expected_pages": [
+      10
+    ],
+    "expected_chunk_ids": [
+      "release_notes_v1_v2_p10_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0254",
+    "scenario": "semantic_only",
+    "category": "enterprise",
+    "source_doc": "release_notes_v1_v2.pdf",
+    "document_filter": "release_notes_v1_v2",
+    "query": "How should model outputs be constrained to policy?",
+    "expected_pages": [
+      10
+    ],
+    "expected_chunk_ids": [
+      "release_notes_v1_v2_p10_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0255",
+    "scenario": "conflicting_documents",
+    "category": "enterprise",
+    "source_doc": "architecture_decisions_log.pdf",
+    "document_filter": "architecture_decisions_log",
+    "query": "Which timeout is correct when one document says 30s and another says 60s?",
+    "expected_pages": [
+      4
+    ],
+    "expected_chunk_ids": [
+      "architecture_decisions_log_p4_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0256",
+    "scenario": "conflicting_documents",
+    "category": "enterprise",
+    "source_doc": "architecture_decisions_log.pdf",
+    "document_filter": "architecture_decisions_log",
+    "query": "What is the reconciled retention period across conflicting policies?",
+    "expected_pages": [
+      4
+    ],
+    "expected_chunk_ids": [
+      "architecture_decisions_log_p4_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0257",
+    "scenario": "conflicting_documents",
+    "category": "enterprise",
+    "source_doc": "architecture_decisions_log.pdf",
+    "document_filter": "architecture_decisions_log",
+    "query": "Do versions disagree on deprecation timelines?",
+    "expected_pages": [
+      4
+    ],
+    "expected_chunk_ids": [
+      "architecture_decisions_log_p4_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0258",
+    "scenario": "multi_document",
+    "category": "enterprise",
+    "source_doc": "architecture_decisions_log.pdf",
+    "document_filter": "architecture_decisions_log",
+    "query": "Compare policy obligations with technical implementation details.",
+    "expected_pages": [
+      4
+    ],
+    "expected_chunk_ids": [
+      "architecture_decisions_log_p4_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0259",
+    "scenario": "multi_document",
+    "category": "enterprise",
+    "source_doc": "architecture_decisions_log.pdf",
+    "document_filter": "architecture_decisions_log",
+    "query": "How do governance controls map to deployment runbooks?",
+    "expected_pages": [
+      4
+    ],
+    "expected_chunk_ids": [
+      "architecture_decisions_log_p4_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0260",
+    "scenario": "multi_document",
+    "category": "enterprise",
+    "source_doc": "architecture_decisions_log.pdf",
+    "document_filter": "architecture_decisions_log",
+    "query": "Which operational actions satisfy security policy requirements?",
+    "expected_pages": [
+      4
+    ],
+    "expected_chunk_ids": [
+      "architecture_decisions_log_p4_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0261",
+    "scenario": "ambiguous",
+    "category": "enterprise",
+    "source_doc": "release_notes_v1_v2.pdf",
+    "document_filter": "release_notes_v1_v2",
+    "query": "What is the default setting?",
+    "expected_pages": [
+      10
+    ],
+    "expected_chunk_ids": [
+      "release_notes_v1_v2_p10_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0262",
+    "scenario": "ambiguous",
+    "category": "enterprise",
+    "source_doc": "release_notes_v1_v2.pdf",
+    "document_filter": "release_notes_v1_v2",
+    "query": "How should this be configured?",
+    "expected_pages": [
+      10
+    ],
+    "expected_chunk_ids": [
+      "release_notes_v1_v2_p10_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0263",
+    "scenario": "ambiguous",
+    "category": "enterprise",
+    "source_doc": "release_notes_v1_v2.pdf",
+    "document_filter": "release_notes_v1_v2",
+    "query": "What does the platform recommend here?",
+    "expected_pages": [
+      10
+    ],
+    "expected_chunk_ids": [
+      "release_notes_v1_v2_p10_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0264",
+    "scenario": "long_context",
+    "category": "enterprise",
+    "source_doc": "release_notes_v1_v2.pdf",
+    "document_filter": "release_notes_v1_v2",
+    "query": "Summarize all controls relevant to security, privacy, retention, and incident response with constraints.",
+    "expected_pages": [
+      10
+    ],
+    "expected_chunk_ids": [
+      "release_notes_v1_v2_p10_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0265",
+    "scenario": "long_context",
+    "category": "enterprise",
+    "source_doc": "release_notes_v1_v2.pdf",
+    "document_filter": "release_notes_v1_v2",
+    "query": "Give a comprehensive cross-document explanation of reliability and recovery strategy.",
+    "expected_pages": [
+      10
+    ],
+    "expected_chunk_ids": [
+      "release_notes_v1_v2_p10_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0266",
+    "scenario": "long_context",
+    "category": "enterprise",
+    "source_doc": "release_notes_v1_v2.pdf",
+    "document_filter": "release_notes_v1_v2",
+    "query": "Provide a detailed answer connecting architecture rationale to release behavior changes.",
+    "expected_pages": [
+      10
+    ],
+    "expected_chunk_ids": [
+      "release_notes_v1_v2_p10_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0267",
+    "scenario": "technical_doc",
+    "category": "enterprise",
+    "source_doc": "release_notes_v1_v2.pdf",
+    "document_filter": "release_notes_v1_v2",
+    "query": "What API parameters control authentication behavior?",
+    "expected_pages": [
+      10
+    ],
+    "expected_chunk_ids": [
+      "release_notes_v1_v2_p10_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0268",
+    "scenario": "technical_doc",
+    "category": "enterprise",
+    "source_doc": "release_notes_v1_v2.pdf",
+    "document_filter": "release_notes_v1_v2",
+    "query": "Which implementation examples show retry and timeout configuration?",
+    "expected_pages": [
+      10
+    ],
+    "expected_chunk_ids": [
+      "release_notes_v1_v2_p10_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0269",
+    "scenario": "technical_doc",
+    "category": "enterprise",
+    "source_doc": "release_notes_v1_v2.pdf",
+    "document_filter": "release_notes_v1_v2",
+    "query": "How is request validation enforced in gateway flows?",
+    "expected_pages": [
+      10
+    ],
+    "expected_chunk_ids": [
+      "release_notes_v1_v2_p10_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0270",
+    "scenario": "synonym",
+    "category": "enterprise",
+    "source_doc": "architecture_decisions_log.pdf",
+    "document_filter": "architecture_decisions_log",
+    "query": "What safeguards are specified for privileged access?",
+    "expected_pages": [
+      4
+    ],
+    "expected_chunk_ids": [
+      "architecture_decisions_log_p4_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0271",
+    "scenario": "synonym",
+    "category": "enterprise",
+    "source_doc": "architecture_decisions_log.pdf",
+    "document_filter": "architecture_decisions_log",
+    "query": "How does the platform protect sensitive data at rest?",
+    "expected_pages": [
+      4
+    ],
+    "expected_chunk_ids": [
+      "architecture_decisions_log_p4_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0272",
+    "scenario": "synonym",
+    "category": "enterprise",
+    "source_doc": "architecture_decisions_log.pdf",
+    "document_filter": "architecture_decisions_log",
+    "query": "Which resiliency measures are defined for outages?",
+    "expected_pages": [
+      4
+    ],
+    "expected_chunk_ids": [
+      "architecture_decisions_log_p4_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0273",
+    "scenario": "acronym",
+    "category": "enterprise",
+    "source_doc": "architecture_decisions_log.pdf",
+    "document_filter": "architecture_decisions_log",
+    "query": "What does the document specify for MFA in admin workflows?",
+    "expected_pages": [
+      4
+    ],
+    "expected_chunk_ids": [
+      "architecture_decisions_log_p4_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0274",
+    "scenario": "acronym",
+    "category": "enterprise",
+    "source_doc": "architecture_decisions_log.pdf",
+    "document_filter": "architecture_decisions_log",
+    "query": "How is SSO integrated with API authentication?",
+    "expected_pages": [
+      4
+    ],
+    "expected_chunk_ids": [
+      "architecture_decisions_log_p4_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0275",
+    "scenario": "acronym",
+    "category": "enterprise",
+    "source_doc": "architecture_decisions_log.pdf",
+    "document_filter": "architecture_decisions_log",
+    "query": "What SLA constraints are documented for uptime?",
+    "expected_pages": [
+      4
+    ],
+    "expected_chunk_ids": [
+      "architecture_decisions_log_p4_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0276",
+    "scenario": "entity_alias",
+    "category": "enterprise",
+    "source_doc": "architecture_decisions_log.pdf",
+    "document_filter": "architecture_decisions_log",
+    "query": "What does this corpus say about k8s reliability controls?",
+    "expected_pages": [
+      4
+    ],
+    "expected_chunk_ids": [
+      "architecture_decisions_log_p4_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0277",
+    "scenario": "entity_alias",
+    "category": "enterprise",
+    "source_doc": "architecture_decisions_log.pdf",
+    "document_filter": "architecture_decisions_log",
+    "query": "What guidance is provided for JS runtime security?",
+    "expected_pages": [
+      4
+    ],
+    "expected_chunk_ids": [
+      "architecture_decisions_log_p4_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0278",
+    "scenario": "entity_alias",
+    "category": "enterprise",
+    "source_doc": "architecture_decisions_log.pdf",
+    "document_filter": "architecture_decisions_log",
+    "query": "How does the policy govern LLM usage in production?",
+    "expected_pages": [
+      4
+    ],
+    "expected_chunk_ids": [
+      "architecture_decisions_log_p4_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0279",
+    "scenario": "keyword_heavy",
+    "category": "enterprise",
+    "source_doc": "architecture_decisions_log.pdf",
+    "document_filter": "architecture_decisions_log",
+    "query": "authentication authorization encryption compliance controls",
+    "expected_pages": [
+      4
+    ],
+    "expected_chunk_ids": [
+      "architecture_decisions_log_p4_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0280",
+    "scenario": "keyword_heavy",
+    "category": "enterprise",
+    "source_doc": "architecture_decisions_log.pdf",
+    "document_filter": "architecture_decisions_log",
+    "query": "kubernetes cluster autoscaling pod disruption budget",
+    "expected_pages": [
+      4
+    ],
+    "expected_chunk_ids": [
+      "architecture_decisions_log_p4_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0281",
+    "scenario": "keyword_heavy",
+    "category": "enterprise",
+    "source_doc": "architecture_decisions_log.pdf",
+    "document_filter": "architecture_decisions_log",
+    "query": "api gateway timeout retry backoff circuit breaker",
+    "expected_pages": [
+      4
+    ],
+    "expected_chunk_ids": [
+      "architecture_decisions_log_p4_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0282",
+    "scenario": "semantic_only",
+    "category": "enterprise",
+    "source_doc": "architecture_decisions_log.pdf",
+    "document_filter": "architecture_decisions_log",
+    "query": "How should we reduce user-impact during production failures?",
+    "expected_pages": [
+      4
+    ],
+    "expected_chunk_ids": [
+      "architecture_decisions_log_p4_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0283",
+    "scenario": "semantic_only",
+    "category": "enterprise",
+    "source_doc": "architecture_decisions_log.pdf",
+    "document_filter": "architecture_decisions_log",
+    "query": "What pattern is recommended for handling identity risk?",
+    "expected_pages": [
+      4
+    ],
+    "expected_chunk_ids": [
+      "architecture_decisions_log_p4_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0284",
+    "scenario": "semantic_only",
+    "category": "enterprise",
+    "source_doc": "architecture_decisions_log.pdf",
+    "document_filter": "architecture_decisions_log",
+    "query": "How should model outputs be constrained to policy?",
+    "expected_pages": [
+      4
+    ],
+    "expected_chunk_ids": [
+      "architecture_decisions_log_p4_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0285",
+    "scenario": "conflicting_documents",
+    "category": "enterprise",
+    "source_doc": "security_policy_v2.pdf",
+    "document_filter": "security_policy_v2",
+    "query": "Which timeout is correct when one document says 30s and another says 60s?",
+    "expected_pages": [
+      12
+    ],
+    "expected_chunk_ids": [
+      "security_policy_v2_p12_c3"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0286",
+    "scenario": "conflicting_documents",
+    "category": "enterprise",
+    "source_doc": "security_policy_v2.pdf",
+    "document_filter": "security_policy_v2",
+    "query": "What is the reconciled retention period across conflicting policies?",
+    "expected_pages": [
+      12
+    ],
+    "expected_chunk_ids": [
+      "security_policy_v2_p12_c3"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0287",
+    "scenario": "conflicting_documents",
+    "category": "enterprise",
+    "source_doc": "security_policy_v2.pdf",
+    "document_filter": "security_policy_v2",
+    "query": "Do versions disagree on deprecation timelines?",
+    "expected_pages": [
+      12
+    ],
+    "expected_chunk_ids": [
+      "security_policy_v2_p12_c3"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0288",
+    "scenario": "multi_document",
+    "category": "enterprise",
+    "source_doc": "security_policy_v2.pdf",
+    "document_filter": "security_policy_v2",
+    "query": "Compare policy obligations with technical implementation details.",
+    "expected_pages": [
+      12
+    ],
+    "expected_chunk_ids": [
+      "security_policy_v2_p12_c3"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0289",
+    "scenario": "multi_document",
+    "category": "enterprise",
+    "source_doc": "security_policy_v2.pdf",
+    "document_filter": "security_policy_v2",
+    "query": "How do governance controls map to deployment runbooks?",
+    "expected_pages": [
+      12
+    ],
+    "expected_chunk_ids": [
+      "security_policy_v2_p12_c3"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0290",
+    "scenario": "multi_document",
+    "category": "enterprise",
+    "source_doc": "security_policy_v2.pdf",
+    "document_filter": "security_policy_v2",
+    "query": "Which operational actions satisfy security policy requirements?",
+    "expected_pages": [
+      12
+    ],
+    "expected_chunk_ids": [
+      "security_policy_v2_p12_c3"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0291",
+    "scenario": "ambiguous",
+    "category": "enterprise",
+    "source_doc": "architecture_decisions_log.pdf",
+    "document_filter": "architecture_decisions_log",
+    "query": "What is the default setting?",
+    "expected_pages": [
+      4
+    ],
+    "expected_chunk_ids": [
+      "architecture_decisions_log_p4_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0292",
+    "scenario": "ambiguous",
+    "category": "enterprise",
+    "source_doc": "architecture_decisions_log.pdf",
+    "document_filter": "architecture_decisions_log",
+    "query": "How should this be configured?",
+    "expected_pages": [
+      4
+    ],
+    "expected_chunk_ids": [
+      "architecture_decisions_log_p4_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0293",
+    "scenario": "ambiguous",
+    "category": "enterprise",
+    "source_doc": "architecture_decisions_log.pdf",
+    "document_filter": "architecture_decisions_log",
+    "query": "What does the platform recommend here?",
+    "expected_pages": [
+      4
+    ],
+    "expected_chunk_ids": [
+      "architecture_decisions_log_p4_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0294",
+    "scenario": "long_context",
+    "category": "enterprise",
+    "source_doc": "architecture_decisions_log.pdf",
+    "document_filter": "architecture_decisions_log",
+    "query": "Summarize all controls relevant to security, privacy, retention, and incident response with constraints.",
+    "expected_pages": [
+      4
+    ],
+    "expected_chunk_ids": [
+      "architecture_decisions_log_p4_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0295",
+    "scenario": "long_context",
+    "category": "enterprise",
+    "source_doc": "architecture_decisions_log.pdf",
+    "document_filter": "architecture_decisions_log",
+    "query": "Give a comprehensive cross-document explanation of reliability and recovery strategy.",
+    "expected_pages": [
+      4
+    ],
+    "expected_chunk_ids": [
+      "architecture_decisions_log_p4_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0296",
+    "scenario": "long_context",
+    "category": "enterprise",
+    "source_doc": "architecture_decisions_log.pdf",
+    "document_filter": "architecture_decisions_log",
+    "query": "Provide a detailed answer connecting architecture rationale to release behavior changes.",
+    "expected_pages": [
+      4
+    ],
+    "expected_chunk_ids": [
+      "architecture_decisions_log_p4_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0297",
+    "scenario": "technical_doc",
+    "category": "enterprise",
+    "source_doc": "architecture_decisions_log.pdf",
+    "document_filter": "architecture_decisions_log",
+    "query": "What API parameters control authentication behavior?",
+    "expected_pages": [
+      4
+    ],
+    "expected_chunk_ids": [
+      "architecture_decisions_log_p4_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0298",
+    "scenario": "technical_doc",
+    "category": "enterprise",
+    "source_doc": "architecture_decisions_log.pdf",
+    "document_filter": "architecture_decisions_log",
+    "query": "Which implementation examples show retry and timeout configuration?",
+    "expected_pages": [
+      4
+    ],
+    "expected_chunk_ids": [
+      "architecture_decisions_log_p4_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0299",
+    "scenario": "technical_doc",
+    "category": "enterprise",
+    "source_doc": "architecture_decisions_log.pdf",
+    "document_filter": "architecture_decisions_log",
+    "query": "How is request validation enforced in gateway flows?",
+    "expected_pages": [
+      4
+    ],
+    "expected_chunk_ids": [
+      "architecture_decisions_log_p4_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0300",
+    "scenario": "synonym",
+    "category": "enterprise",
+    "source_doc": "security_policy_v2.pdf",
+    "document_filter": "security_policy_v2",
+    "query": "What safeguards are specified for privileged access?",
+    "expected_pages": [
+      12
+    ],
+    "expected_chunk_ids": [
+      "security_policy_v2_p12_c3"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0301",
+    "scenario": "synonym",
+    "category": "enterprise",
+    "source_doc": "security_policy_v2.pdf",
+    "document_filter": "security_policy_v2",
+    "query": "How does the platform protect sensitive data at rest?",
+    "expected_pages": [
+      12
+    ],
+    "expected_chunk_ids": [
+      "security_policy_v2_p12_c3"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0302",
+    "scenario": "synonym",
+    "category": "enterprise",
+    "source_doc": "security_policy_v2.pdf",
+    "document_filter": "security_policy_v2",
+    "query": "Which resiliency measures are defined for outages?",
+    "expected_pages": [
+      12
+    ],
+    "expected_chunk_ids": [
+      "security_policy_v2_p12_c3"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0303",
+    "scenario": "acronym",
+    "category": "enterprise",
+    "source_doc": "security_policy_v2.pdf",
+    "document_filter": "security_policy_v2",
+    "query": "What does the document specify for MFA in admin workflows?",
+    "expected_pages": [
+      12
+    ],
+    "expected_chunk_ids": [
+      "security_policy_v2_p12_c3"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0304",
+    "scenario": "acronym",
+    "category": "enterprise",
+    "source_doc": "security_policy_v2.pdf",
+    "document_filter": "security_policy_v2",
+    "query": "How is SSO integrated with API authentication?",
+    "expected_pages": [
+      12
+    ],
+    "expected_chunk_ids": [
+      "security_policy_v2_p12_c3"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0305",
+    "scenario": "acronym",
+    "category": "enterprise",
+    "source_doc": "security_policy_v2.pdf",
+    "document_filter": "security_policy_v2",
+    "query": "What SLA constraints are documented for uptime?",
+    "expected_pages": [
+      12
+    ],
+    "expected_chunk_ids": [
+      "security_policy_v2_p12_c3"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0306",
+    "scenario": "entity_alias",
+    "category": "enterprise",
+    "source_doc": "security_policy_v2.pdf",
+    "document_filter": "security_policy_v2",
+    "query": "What does this corpus say about k8s reliability controls?",
+    "expected_pages": [
+      12
+    ],
+    "expected_chunk_ids": [
+      "security_policy_v2_p12_c3"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0307",
+    "scenario": "entity_alias",
+    "category": "enterprise",
+    "source_doc": "security_policy_v2.pdf",
+    "document_filter": "security_policy_v2",
+    "query": "What guidance is provided for JS runtime security?",
+    "expected_pages": [
+      12
+    ],
+    "expected_chunk_ids": [
+      "security_policy_v2_p12_c3"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0308",
+    "scenario": "entity_alias",
+    "category": "enterprise",
+    "source_doc": "security_policy_v2.pdf",
+    "document_filter": "security_policy_v2",
+    "query": "How does the policy govern LLM usage in production?",
+    "expected_pages": [
+      12
+    ],
+    "expected_chunk_ids": [
+      "security_policy_v2_p12_c3"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0309",
+    "scenario": "keyword_heavy",
+    "category": "enterprise",
+    "source_doc": "security_policy_v2.pdf",
+    "document_filter": "security_policy_v2",
+    "query": "authentication authorization encryption compliance controls",
+    "expected_pages": [
+      12
+    ],
+    "expected_chunk_ids": [
+      "security_policy_v2_p12_c3"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0310",
+    "scenario": "keyword_heavy",
+    "category": "enterprise",
+    "source_doc": "security_policy_v2.pdf",
+    "document_filter": "security_policy_v2",
+    "query": "kubernetes cluster autoscaling pod disruption budget",
+    "expected_pages": [
+      12
+    ],
+    "expected_chunk_ids": [
+      "security_policy_v2_p12_c3"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0311",
+    "scenario": "keyword_heavy",
+    "category": "enterprise",
+    "source_doc": "security_policy_v2.pdf",
+    "document_filter": "security_policy_v2",
+    "query": "api gateway timeout retry backoff circuit breaker",
+    "expected_pages": [
+      12
+    ],
+    "expected_chunk_ids": [
+      "security_policy_v2_p12_c3"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0312",
+    "scenario": "semantic_only",
+    "category": "enterprise",
+    "source_doc": "security_policy_v2.pdf",
+    "document_filter": "security_policy_v2",
+    "query": "How should we reduce user-impact during production failures?",
+    "expected_pages": [
+      12
+    ],
+    "expected_chunk_ids": [
+      "security_policy_v2_p12_c3"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0313",
+    "scenario": "semantic_only",
+    "category": "enterprise",
+    "source_doc": "security_policy_v2.pdf",
+    "document_filter": "security_policy_v2",
+    "query": "What pattern is recommended for handling identity risk?",
+    "expected_pages": [
+      12
+    ],
+    "expected_chunk_ids": [
+      "security_policy_v2_p12_c3"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0314",
+    "scenario": "semantic_only",
+    "category": "enterprise",
+    "source_doc": "security_policy_v2.pdf",
+    "document_filter": "security_policy_v2",
+    "query": "How should model outputs be constrained to policy?",
+    "expected_pages": [
+      12
+    ],
+    "expected_chunk_ids": [
+      "security_policy_v2_p12_c3"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0315",
+    "scenario": "conflicting_documents",
+    "category": "enterprise",
+    "source_doc": "incident_response_runbook.pdf",
+    "document_filter": "incident_response_runbook",
+    "query": "Which timeout is correct when one document says 30s and another says 60s?",
+    "expected_pages": [
+      8
+    ],
+    "expected_chunk_ids": [
+      "incident_response_runbook_p8_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0316",
+    "scenario": "conflicting_documents",
+    "category": "enterprise",
+    "source_doc": "incident_response_runbook.pdf",
+    "document_filter": "incident_response_runbook",
+    "query": "What is the reconciled retention period across conflicting policies?",
+    "expected_pages": [
+      8
+    ],
+    "expected_chunk_ids": [
+      "incident_response_runbook_p8_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0317",
+    "scenario": "conflicting_documents",
+    "category": "enterprise",
+    "source_doc": "incident_response_runbook.pdf",
+    "document_filter": "incident_response_runbook",
+    "query": "Do versions disagree on deprecation timelines?",
+    "expected_pages": [
+      8
+    ],
+    "expected_chunk_ids": [
+      "incident_response_runbook_p8_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0318",
+    "scenario": "multi_document",
+    "category": "enterprise",
+    "source_doc": "incident_response_runbook.pdf",
+    "document_filter": "incident_response_runbook",
+    "query": "Compare policy obligations with technical implementation details.",
+    "expected_pages": [
+      8
+    ],
+    "expected_chunk_ids": [
+      "incident_response_runbook_p8_c1"
+    ],
+    "k": 20
+  },
+  {
+    "dataset_version": "enterprise-v11-gold-300",
+    "query_id": "q0319",
+    "scenario": "multi_document",
+    "category": "enterprise",
+    "source_doc": "incident_response_runbook.pdf",
+    "document_filter": "incident_response_runbook",
+    "query": "How do governance controls map to deployment runbooks?",
+    "expected_pages": [
+      8
+    ],
+    "expected_chunk_ids": [
+      "incident_response_runbook_p8_c1"
+    ],
+    "k": 20
+  }
+]

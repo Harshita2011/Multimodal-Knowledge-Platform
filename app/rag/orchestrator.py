@@ -4,6 +4,7 @@ from app.core.telemetry import QueryAnalyticsInput, StageTimer, TelemetryEvent, 
 from app.models.requests.query import QueryRequest
 from app.models.responses.rag import QueryResponse
 from app.rag.citation_mapper import CitationMapper
+from app.rag.context_compressor import ContextCompressor
 from app.rag.prompt_builder import PromptBuilder
 from app.rag.retriever import Retriever
 from app.services.llm_service import LLMService
@@ -18,6 +19,7 @@ class RagOrchestrator:
         citation_mapper: CitationMapper,
         top_k_default: int,
         debug_enabled: bool,
+        context_compressor: ContextCompressor,
     ):
         self.retriever = retriever
         self.llm_service = llm_service
@@ -25,13 +27,37 @@ class RagOrchestrator:
         self.citation_mapper = citation_mapper
         self.top_k_default = top_k_default
         self.debug_enabled = debug_enabled
+        self.context_compressor = context_compressor
+
+    def _grounding_quality(self, answer: str, chunks_text: str) -> tuple[float, list[str]]:
+        claims = [c.strip() for c in answer.replace("\n", " ").split(".") if c.strip()]
+        if not claims:
+            return 0.0, []
+        warnings: list[str] = []
+        supported = 0
+        corpus = chunks_text.lower()
+        for claim in claims:
+            tokens = [t.lower() for t in claim.split() if len(t) >= 5]
+            if not tokens:
+                supported += 1
+                continue
+            overlap = sum(1 for t in tokens if t in corpus)
+            if overlap / max(1, len(tokens)) >= 0.35:
+                supported += 1
+            else:
+                warnings.append(f"Low evidence support for claim: {claim[:120]}")
+        return supported / len(claims), warnings
 
     def answer(self, req: QueryRequest) -> QueryResponse:
         started = time.perf_counter()
         top_k = req.top_k or self.top_k_default
         try:
             with StageTimer("retrieval.stage", top_k=top_k):
-                chunks, retrieval_stats = self.retriever.retrieve_with_stats(req.query, top_k=top_k, document_filter=req.document_filter)
+                chunks, retrieval_stats = self.retriever.retrieve_with_stats(
+                    req.query, top_k=top_k, document_filter=req.document_filter, retrieval_profile=req.retrieval_profile, answer_mode=req.answer_mode
+                )
+            with StageTimer("compression.stage", chunk_count=len(chunks)):
+                chunks, compression = self.context_compressor.compress(chunks, max_units=10)
             with StageTimer("prompt_build.stage", chunk_count=len(chunks)):
                 context_payload = self.prompt_builder.build_context_payload(chunks)
                 context = context_payload.context
@@ -53,6 +79,22 @@ class RagOrchestrator:
                     question=req.query,
                 )
             citations = self.citation_mapper.map(chunks, query=req.query)
+            grounding_score, evidence_warnings = self._grounding_quality(answer=answer, chunks_text=context)
+            citation_coverage = len({c.chunk_id for c in citations}.intersection({c.chunk_id for c in chunks})) / max(1, len(citations))
+            evidence_coverage = min(1.0, context_payload.retrieved_context_tokens / max(1, context_payload.max_prompt_tokens if hasattr(context_payload, "max_prompt_tokens") else context_payload.total_prompt_budget))
+            claim_support_rate = grounding_score
+            quality = {
+                "retrieval_score": round(retrieval_stats.retrieval_score, 4),
+                "rerank_score": round(retrieval_stats.rerank_score, 4),
+                "grounding_score": round(grounding_score, 4),
+                "citation_coverage": round(citation_coverage, 4),
+            }
+            grounding = {
+                "grounding_score": round(grounding_score, 4),
+                "citation_coverage": round(citation_coverage, 4),
+                "evidence_coverage": round(evidence_coverage, 4),
+                "claim_support_rate": round(claim_support_rate, 4),
+            }
             record_query_analytics(
                 QueryAnalyticsInput(
                     endpoint="/chat/query",
@@ -102,5 +144,19 @@ class RagOrchestrator:
                 "duplicates_removed": retrieval_stats.duplicate_chunks_removed,
                 "diversity_applied": True,
                 "reranker_fallback": retrieval_stats.reranker_fallback,
+                "profile_used": retrieval_stats.profile_used,
+                "compression": {
+                    "input_chunks": compression.input_chunks,
+                    "output_units": compression.output_units,
+                    "compression_ratio": round(compression.compression_ratio, 4),
+                },
             }
-        return QueryResponse(answer=answer, citations=citations, retrieval_debug=debug)
+        return QueryResponse(
+            answer=answer,
+            citations=citations,
+            quality=quality,
+            grounding=grounding,
+            evidence_warnings=evidence_warnings,
+            retrieval_trace=retrieval_stats.trace,
+            retrieval_debug=debug,
+        )

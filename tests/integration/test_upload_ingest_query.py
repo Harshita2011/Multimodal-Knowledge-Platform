@@ -16,6 +16,7 @@ from app.ingestion.orchestrator import IngestionOrchestrator
 from app.ingestion.parser import PDFParser
 from app.main import create_app
 from app.rag.citation_mapper import CitationMapper
+from app.rag.context_compressor import ContextCompressor
 from app.rag.orchestrator import RagOrchestrator
 from app.rag.prompt_builder import PromptBuilder
 from app.rag.retriever import Retriever
@@ -95,6 +96,7 @@ def client(tmp_path: Path):
         citation_mapper=CitationMapper(),
         top_k_default=4,
         debug_enabled=True,
+        context_compressor=ContextCompressor(),
     )
 
     app = create_app()
@@ -231,12 +233,13 @@ def test_query_all_filtered_tracks_threshold_rejections(tmp_path: Path):
         max_file_size_mb=25,
     )
     rag_orchestrator = RagOrchestrator(
-        retriever=Retriever(embeddings=embedding, vectors=vector_repo, min_score_threshold=0.99),
+        retriever=Retriever(embeddings=embedding, vectors=vector_repo, min_score_threshold=1.01),
         llm_service=llm,
         prompt_builder=PromptBuilder(max_context_chars=2500),
         citation_mapper=CitationMapper(),
         top_k_default=4,
         debug_enabled=True,
+        context_compressor=ContextCompressor(),
     )
 
     app = create_app()

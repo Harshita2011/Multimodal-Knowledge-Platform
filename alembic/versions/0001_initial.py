@@ -24,7 +24,7 @@ def upgrade() -> None:
         sa.Column("provider", sa.String(32), nullable=True),
         sa.Column("provider_account_id", sa.String(255), nullable=True),
         sa.Column("password_hash", sa.String(255), nullable=True),
-        sa.Column("is_active", sa.Boolean(), nullable=False, server_default=sa.text("1")),
+        sa.Column("is_active", sa.Boolean(), nullable=False, server_default=sa.text("true")),
         sa.Column("created_at", sa.DateTime(timezone=True)),
         sa.Column("updated_at", sa.DateTime(timezone=True)),
         sa.UniqueConstraint("email", name="uq_users_email"),
@@ -71,7 +71,7 @@ def upgrade() -> None:
         sa.Column("user_id", sa.String(36), sa.ForeignKey("users.id"), nullable=False),
         sa.Column("refresh_token_hash", sa.String(255), nullable=False),
         sa.Column("expires_at", sa.DateTime(timezone=True), nullable=False),
-        sa.Column("revoked", sa.Boolean(), nullable=False, server_default=sa.text("0")),
+        sa.Column("revoked", sa.Boolean(), nullable=False, server_default=sa.text("false")),
         sa.Column("user_agent", sa.String(255), nullable=True),
         sa.Column("created_at", sa.DateTime(timezone=True)),
     )

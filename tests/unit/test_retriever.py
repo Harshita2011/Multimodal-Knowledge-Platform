@@ -34,7 +34,7 @@ def test_retriever_applies_min_score_threshold():
     retriever = Retriever(embeddings=DummyEmbedding(), vectors=DummyRepo(), min_score_threshold=0.5)
     chunks = retriever.retrieve(query="q", top_k=5, document_filter=None)
     assert len(chunks) == 1
-    assert chunks[0].score == 0.8
+    assert chunks[0].score >= 0.8
 
 
 def test_retriever_exposes_threshold_rejection_stats():

@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+from math import log2
 
 from app.models.domain.entities import RetrievedChunk
 
@@ -38,3 +39,18 @@ def mean_reciprocal_rank(chunks: list[RetrievedChunk], relevant_chunk_ids: set[s
         if chunk.chunk_id in relevant_chunk_ids:
             return 1.0 / idx
     return 0.0
+
+
+def ndcg_at_k(chunks: list[RetrievedChunk], relevant_chunk_ids: set[str], k: int) -> float:
+    if k <= 0:
+        return 0.0
+    dcg = 0.0
+    for i, c in enumerate(chunks[:k], start=1):
+        rel = 1.0 if c.chunk_id in relevant_chunk_ids else 0.0
+        if rel > 0:
+            dcg += rel / log2(i + 1)
+    ideal_hits = min(k, len(relevant_chunk_ids))
+    if ideal_hits == 0:
+        return 1.0
+    idcg = sum(1.0 / log2(i + 1) for i in range(1, ideal_hits + 1))
+    return dcg / idcg if idcg > 0 else 0.0

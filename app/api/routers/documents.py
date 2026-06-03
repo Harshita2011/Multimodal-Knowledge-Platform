@@ -6,7 +6,7 @@ from app.auth.dependencies import UserContext, get_current_user, get_optional_cu
 from app.core.settings import get_settings
 from app.db.postgres.repositories.document_repo import DocumentPgRepository
 from app.db.postgres.repositories.ingestion_repo import IngestionPgRepository
-from app.db.postgres.session import get_db_session
+from app.db.postgres.session import get_db_session, get_db_unavailable_message
 from app.ingestion.orchestrator import IngestionOrchestrator
 from app.models.responses.document import DocumentSummaryResponse
 from app.models.responses.error import ErrorResponse
@@ -23,7 +23,7 @@ async def list_documents(
     if session is None:
         from app.core.exceptions import AppError
 
-        raise AppError("db_unavailable", "Database unavailable for document operations", 503)
+        raise AppError("db_unavailable", get_db_unavailable_message("document operations"), 503)
     repo = DocumentPgRepository(session)
     rows = await repo.list_active_by_user(current_user.user_id)
     return [

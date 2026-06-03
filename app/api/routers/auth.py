@@ -7,7 +7,7 @@ from app.auth.services import AuthService
 from app.core.exceptions import AppError
 from app.core.settings import get_settings
 from app.db.postgres.repositories.auth_repo import OAuthStateRepository, SessionPgRepository, UserPgRepository
-from app.db.postgres.session import get_db_session
+from app.db.postgres.session import get_db_session, get_db_unavailable_message
 from app.security.rate_limiter import limiter
 
 router = APIRouter(prefix="/auth", tags=["auth"])
@@ -15,7 +15,7 @@ router = APIRouter(prefix="/auth", tags=["auth"])
 
 def _svc(session: AsyncSession) -> AuthService:
     if session is None:
-        raise AppError("db_unavailable", "Database unavailable for auth operations", 503)
+        raise AppError("db_unavailable", get_db_unavailable_message("auth operations"), 503)
     return AuthService(UserPgRepository(session), SessionPgRepository(session), OAuthStateRepository(session))
 
 

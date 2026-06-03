@@ -1,15 +1,19 @@
 from functools import lru_cache
+from sqlalchemy import create_engine
 
 from app.core.resilience import RetryPolicy
 from app.core.settings import get_settings
+from app.db.postgres.repositories.lexical_repo import LexicalPgRepository
 from app.db.chroma_client import build_chroma_client
 from app.db.repositories.chroma_repository import ChromaVectorRepository
 from app.ingestion.chunker import PDFChunker
 from app.ingestion.orchestrator import IngestionOrchestrator
 from app.ingestion.parser import PDFParser
 from app.rag.citation_mapper import CitationMapper
+from app.rag.context_compressor import ContextCompressor
 from app.rag.orchestrator import RagOrchestrator
 from app.rag.prompt_builder import PromptBuilder
+from app.rag.retrieval_cache import RetrievalCache
 from app.rag.retriever import Retriever
 from app.services.embedding_service import SentenceTransformerEmbeddingService
 from app.services.llm_service import GeminiLLMService
@@ -68,6 +72,29 @@ def get_storage_service():
     return LocalFileStorage(base_dir=s.pdf_storage_dir)
 
 
+def _sync_database_url(url: str) -> str:
+    if url.startswith("postgresql+asyncpg://"):
+        return url.replace("postgresql+asyncpg://", "postgresql+psycopg2://", 1)
+    if url.startswith("postgresql://"):
+        return url.replace("postgresql://", "postgresql+psycopg2://", 1)
+    if url.startswith("sqlite+aiosqlite:///"):
+        return url.replace("sqlite+aiosqlite:///", "sqlite:///", 1)
+    return url
+
+
+@lru_cache
+def get_retrieval_cache() -> RetrievalCache:
+    s = get_settings()
+    return RetrievalCache(ttl_seconds=s.retrieval_cache_ttl_seconds, max_entries=s.retrieval_cache_max_entries)
+
+
+@lru_cache
+def get_lexical_repository() -> LexicalPgRepository:
+    s = get_settings()
+    engine = create_engine(_sync_database_url(s.database_url), future=True)
+    return LexicalPgRepository(engine=engine)
+
+
 def get_ingestion_orchestrator() -> IngestionOrchestrator:
     s = get_settings()
     return IngestionOrchestrator(
@@ -77,6 +104,8 @@ def get_ingestion_orchestrator() -> IngestionOrchestrator:
         vector_repository=get_vector_repository(),
         storage=get_storage_service(),
         max_file_size_mb=s.max_file_size_mb,
+        lexical_repository=get_lexical_repository(),
+        retrieval_cache=get_retrieval_cache(),
     )
 
 
@@ -93,6 +122,9 @@ def get_rag_orchestrator() -> RagOrchestrator:
         diversity_lambda=s.diversity_lambda,
         reranker_model_name=s.reranker_model_name,
         reranker_timeout_ms=s.reranker_max_latency_ms,
+        lexical=get_lexical_repository(),
+        retrieval_cache=get_retrieval_cache(),
+        rrf_k=s.rrf_k,
     )
     return RagOrchestrator(
         retriever=retriever,
@@ -107,4 +139,5 @@ def get_rag_orchestrator() -> RagOrchestrator:
         citation_mapper=CitationMapper(),
         top_k_default=s.top_k_default,
         debug_enabled=s.enable_debug_retrieval,
+        context_compressor=ContextCompressor(),
     )
