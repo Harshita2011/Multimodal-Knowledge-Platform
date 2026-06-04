@@ -9,6 +9,9 @@ from app.db.postgres.models import OAuthStateModel, SessionModel, UserModel
 
 
 class UserPgRepository:
+    ANONYMOUS_USER_ID = "00000000-0000-0000-0000-000000000000"
+    ANONYMOUS_USER_EMAIL = "anonymous@local.invalid"
+
     def __init__(self, session: AsyncSession):
         self.session = session
 
@@ -46,6 +49,24 @@ class UserPgRepository:
         self.session.add(user)
         await self.session.commit()
         await self.session.refresh(user)
+        return user
+
+    async def ensure_anonymous_user(self) -> UserModel:
+        user = await self.session.get(UserModel, self.ANONYMOUS_USER_ID)
+        if user is None:
+            user = UserModel(
+                id=self.ANONYMOUS_USER_ID,
+                email=self.ANONYMOUS_USER_EMAIL,
+                name="Anonymous",
+                provider=None,
+                provider_account_id=None,
+                password_hash=None,
+                avatar_url=None,
+                is_active=True,
+            )
+            self.session.add(user)
+            await self.session.commit()
+            await self.session.refresh(user)
         return user
 
 

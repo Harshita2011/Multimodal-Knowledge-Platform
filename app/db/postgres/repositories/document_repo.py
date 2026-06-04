@@ -11,7 +11,17 @@ class DocumentPgRepository:
     def __init__(self, session: AsyncSession):
         self.session = session
 
-    async def create_or_replace(self, *, document_id: str, user_id: str, filename: str, storage_path: str, page_count: int, chunk_count: int) -> DocumentModel:
+    async def create_or_replace(
+        self,
+        *,
+        document_id: str,
+        user_id: str,
+        filename: str,
+        storage_path: str,
+        page_count: int,
+        chunk_count: int,
+        status: str = "ingested",
+    ) -> DocumentModel:
         existing = await self.session.get(DocumentModel, document_id)
         if existing is None:
             existing = DocumentModel(
@@ -19,7 +29,7 @@ class DocumentPgRepository:
                 user_id=user_id,
                 filename=filename,
                 storage_path=storage_path,
-                status="ingested",
+                status=status,
                 page_count=page_count,
                 chunk_count=chunk_count,
             )
@@ -28,7 +38,7 @@ class DocumentPgRepository:
             existing.user_id = user_id
             existing.filename = filename
             existing.storage_path = storage_path
-            existing.status = "ingested"
+            existing.status = status
             existing.page_count = page_count
             existing.chunk_count = chunk_count
             existing.deleted_at = None

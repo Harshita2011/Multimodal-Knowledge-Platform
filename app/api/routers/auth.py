@@ -9,6 +9,10 @@ from app.core.settings import get_settings
 from app.db.postgres.repositories.auth_repo import OAuthStateRepository, SessionPgRepository, UserPgRepository
 from app.db.postgres.session import get_db_session, get_db_unavailable_message
 from app.security.rate_limiter import limiter
+from fastapi.responses import RedirectResponse
+from urllib.parse import quote
+
+
 
 router = APIRouter(prefix="/auth", tags=["auth"])
 
@@ -60,10 +64,11 @@ async def me(user: UserContext = Depends(get_current_user), session: AsyncSessio
 
 @router.get("/google")
 async def google_entry(session: AsyncSession = Depends(get_db_session)):
-    settings = get_settings()
-    redirect_uri = f"{settings.api_prefix}/auth/google/callback"
-    return await _svc(session).create_oauth_authorization("google", redirect_uri=redirect_uri)
-
+    redirect_uri = "http://localhost:8000/api/v1/auth/google/callback"
+    return await _svc(session).create_oauth_authorization(
+        "google",
+        redirect_uri=redirect_uri
+    )
 
 @router.get("/github")
 async def github_entry(session: AsyncSession = Depends(get_db_session)):
@@ -72,11 +77,17 @@ async def github_entry(session: AsyncSession = Depends(get_db_session)):
     return await _svc(session).create_oauth_authorization("github", redirect_uri=redirect_uri)
 
 
-@router.get("/google/callback", response_model=AuthTokens)
-async def google_callback(code: str, state: str, request: Request, user_agent: str | None = Header(default=None), session: AsyncSession = Depends(get_db_session)):
-    settings = get_settings()
-    redirect_uri = f"{settings.api_prefix}/auth/google/callback"
-    return await _svc(session).oauth_callback(
+@router.get("/google/callback")
+async def google_callback(
+    code: str,
+    state: str,
+    request: Request,
+    user_agent: str | None = Header(default=None),
+    session: AsyncSession = Depends(get_db_session),
+):
+    redirect_uri = "http://localhost:8000/api/v1/auth/google/callback"
+
+    tokens = await _svc(session).oauth_callback(
         provider="google",
         code=code,
         state=state,
@@ -85,6 +96,15 @@ async def google_callback(code: str, state: str, request: Request, user_agent: s
         ip_address=_ip(request),
         device_name=user_agent,
     )
+
+    frontend_url = (
+        f"http://localhost:3000/auth/callback"
+        f"?access_token={quote(tokens.access_token)}"
+        f"&refresh_token={quote(tokens.refresh_token)}"
+    )
+
+    return RedirectResponse(url=frontend_url)
+
 
 
 @router.get("/github/callback", response_model=AuthTokens)
