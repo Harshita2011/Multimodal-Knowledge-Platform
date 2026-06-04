@@ -11,6 +11,14 @@ class LLMService(Protocol):
         ...
 
 
+def compose_llm_prompt(system_prompt: str, context: str, question: str) -> str:
+    return (
+        f"{system_prompt}\n\n"
+        f"CONTEXT:\n{context}\n\n"
+        f"QUESTION:\n{question}"
+    )
+
+
 class GeminiLLMService:
     def __init__(self, api_key: str, model: str, timeout_seconds: float = 25.0, retry_policy: RetryPolicy | None = None):
         self.model = model
@@ -31,11 +39,7 @@ class GeminiLLMService:
             raise AppError("llm_not_configured", "GEMINI_API_KEY is missing", 500)
 
         def _invoke() -> str:
-            prompt = (
-                f"{system_prompt}\n\n"
-                f"CONTEXT:\n{context}\n\n"
-                f"QUESTION:\n{question}"
-            )
+            prompt = compose_llm_prompt(system_prompt, context, question)
             try:
                 completion = call_with_timeout(
                     lambda: self.client.models.generate_content(model=self.model, contents=prompt),

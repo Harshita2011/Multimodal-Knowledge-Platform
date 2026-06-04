@@ -10,7 +10,7 @@ class DocumentModel(Base):
     __tablename__ = "documents"
 
     id: Mapped[str] = mapped_column(String(64), primary_key=True)
-    user_id: Mapped[str] = mapped_column(String(36), ForeignKey("users.id"), index=True)
+    user_id: Mapped[str | None] = mapped_column(String(36), ForeignKey("users.id"), index=True, nullable=True)
     filename: Mapped[str] = mapped_column(String(255))
     storage_path: Mapped[str] = mapped_column(String(1024))
     status: Mapped[str] = mapped_column(String(32), default="ingested")

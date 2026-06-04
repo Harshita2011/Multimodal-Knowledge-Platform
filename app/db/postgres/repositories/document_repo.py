@@ -15,7 +15,7 @@ class DocumentPgRepository:
         self,
         *,
         document_id: str,
-        user_id: str,
+        user_id: str | None,
         filename: str,
         storage_path: str,
         page_count: int,

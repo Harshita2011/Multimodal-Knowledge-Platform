@@ -5,8 +5,14 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useChatStore } from "@/stores/chat-store";
 import type { Citation } from "@/types/chat";
+import { cn } from "@/lib/utils";
 
-export function CitationList({ citations }: { citations: Citation[] }) {
+type CitationListProps = {
+  citations: Citation[];
+  onCitationClick?: (citation: Citation) => void;
+};
+
+export function CitationList({ citations, onCitationClick }: CitationListProps) {
   const openCitation = useChatStore((state) => state.openCitation);
   if (!citations.length) return null;
 
@@ -17,8 +23,12 @@ export function CitationList({ citations }: { citations: Citation[] }) {
         {citations.map((citation) => (
           <button
             key={citation.chunk_id}
+            type="button"
             className="rounded-md border bg-card p-3 text-left transition-colors hover:bg-muted focus:outline-none focus:ring-2 focus:ring-ring"
-            onClick={() => openCitation(citation)}
+            onClick={() => {
+              openCitation(citation);
+              onCitationClick?.(citation);
+            }}
           >
             <div className="flex items-center gap-2">
               <FileText className="h-4 w-4 text-primary" />
@@ -37,6 +47,7 @@ export function CitationPanel() {
   const citation = useChatStore((state) => state.selectedCitation);
   const open = useChatStore((state) => state.citationPanelOpen);
   const close = useChatStore((state) => state.closeCitation);
+  const trace = useChatStore((state) => state.retrievalTrace);
 
   if (!open || !citation) return null;
 
@@ -70,7 +81,41 @@ export function CitationPanel() {
           <p className="text-xs font-medium uppercase text-muted-foreground">Snippet</p>
           <p className="mt-2 rounded-md bg-muted p-4 text-sm leading-6">{citation.snippet}</p>
         </div>
+        {trace ? (
+          <div className="space-y-3">
+            <p className="text-xs font-medium uppercase text-muted-foreground">Retrieval trace</p>
+            <div className="grid gap-3">
+              <TraceRow label="Mode" value={String(trace.retrieval_mode ?? trace.mode ?? "unknown")} />
+              <TraceRow label="Active doc" value={String(trace.active_document ?? "none")} />
+              <TraceRow label="Answer mode" value={String(trace.answer_mode ?? "unknown")} />
+              <TraceRow label="Document scores" value={formatTraceMap(trace.document_scores)} />
+              <TraceRow label="Document distribution" value={formatTraceMap(trace.document_distribution)} />
+              <TraceRow label="Dropped docs" value={formatTraceArray(trace.dropped_documents)} />
+            </div>
+          </div>
+        ) : null}
       </div>
     </div>
   );
+}
+
+function TraceRow({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="rounded-md border p-3">
+      <p className="text-xs uppercase text-muted-foreground">{label}</p>
+      <p className={cn("mt-1 break-words text-sm font-medium", value.length > 80 && "text-xs")}>{value}</p>
+    </div>
+  );
+}
+
+function formatTraceMap(value: unknown): string {
+  if (!value || typeof value !== "object") return "n/a";
+  return Object.entries(value as Record<string, unknown>)
+    .map(([key, item]) => `${key}: ${String(item)}`)
+    .join(" | ");
+}
+
+function formatTraceArray(value: unknown): string {
+  if (!Array.isArray(value) || value.length === 0) return "none";
+  return value.map((item) => String(item)).join(", ");
 }

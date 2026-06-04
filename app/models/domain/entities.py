@@ -47,6 +47,7 @@ class RetrievedChunk(BaseModel):
 
 
 class Citation(BaseModel):
+    document_id: str
     filename: str
     page_number: int
     chunk_id: str

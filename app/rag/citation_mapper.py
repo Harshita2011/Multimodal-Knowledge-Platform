@@ -41,6 +41,7 @@ class CitationMapper:
         for c in chunks:
             out.append(
                 Citation(
+                    document_id=c.metadata.document_id,
                     filename=c.metadata.filename,
                     page_number=c.metadata.page_number,
                     chunk_id=c.chunk_id,

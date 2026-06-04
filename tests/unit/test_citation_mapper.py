@@ -16,6 +16,7 @@ def test_citation_mapper_returns_required_fields():
     )
     chunk = RetrievedChunk(chunk_id="doc1_p3_c0", score=0.9, metadata=md, text="hello world")
     citations = CitationMapper().map([chunk])
+    assert citations[0].document_id == "doc1"
     assert citations[0].filename == "file.pdf"
     assert citations[0].page_number == 3
     assert citations[0].chunk_id == "doc1_p3_c0"

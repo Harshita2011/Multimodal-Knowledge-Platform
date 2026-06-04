@@ -4,10 +4,12 @@ from app.core.telemetry import QueryAnalyticsInput, StageTimer, TelemetryEvent, 
 from app.models.requests.query import QueryRequest
 from app.models.responses.rag import QueryResponse
 from app.rag.citation_mapper import CitationMapper
+from app.rag.document_coherence import DocumentCoherenceFilter
 from app.rag.context_compressor import ContextCompressor
 from app.rag.prompt_builder import PromptBuilder
 from app.rag.retriever import Retriever
-from app.services.llm_service import LLMService
+from app.rag.query_strategy import QueryPlan, build_query_plan
+from app.services.llm_service import LLMService, compose_llm_prompt
 
 
 class RagOrchestrator:
@@ -20,6 +22,7 @@ class RagOrchestrator:
         top_k_default: int,
         debug_enabled: bool,
         context_compressor: ContextCompressor,
+        coherence_filter: DocumentCoherenceFilter | None = None,
     ):
         self.retriever = retriever
         self.llm_service = llm_service
@@ -28,6 +31,7 @@ class RagOrchestrator:
         self.top_k_default = top_k_default
         self.debug_enabled = debug_enabled
         self.context_compressor = context_compressor
+        self.coherence_filter = coherence_filter or DocumentCoherenceFilter()
 
     def _grounding_quality(self, answer: str, chunks_text: str) -> tuple[float, list[str]]:
         claims = [c.strip() for c in answer.replace("\n", " ").split(".") if c.strip()]
@@ -48,14 +52,33 @@ class RagOrchestrator:
                 warnings.append(f"Low evidence support for claim: {claim[:120]}")
         return supported / len(claims), warnings
 
-    def answer(self, req: QueryRequest) -> QueryResponse:
+    def answer(self, req: QueryRequest, plan: QueryPlan | None = None) -> QueryResponse:
         started = time.perf_counter()
         top_k = req.top_k or self.top_k_default
+        effective_plan = plan or build_query_plan(
+            req.query,
+            explicit_answer_mode=req.answer_mode,
+            explicit_document_filter=req.document_filter,
+            memory=None,
+        )
+        retrieval_query = effective_plan.query
         try:
             with StageTimer("retrieval.stage", top_k=top_k):
                 chunks, retrieval_stats = self.retriever.retrieve_with_stats(
-                    req.query, top_k=top_k, document_filter=req.document_filter, retrieval_profile=req.retrieval_profile, answer_mode=req.answer_mode
+                    retrieval_query,
+                    top_k=top_k,
+                    document_filter=effective_plan.document_filter,
+                    retrieval_profile=req.retrieval_profile,
+                    answer_mode=effective_plan.answer_mode,
                 )
+            coherence = self.coherence_filter.filter(
+                chunks,
+                retrieval_mode=effective_plan.retrieval_mode,
+                active_document_id=effective_plan.active_document_id,
+                explicit_document_filter=effective_plan.document_filter,
+                top_k=top_k,
+            )
+            chunks = coherence.chunks
             with StageTimer("compression.stage", chunk_count=len(chunks)):
                 chunks, compression = self.context_compressor.compress(chunks, max_units=10)
             with StageTimer("prompt_build.stage", chunk_count=len(chunks)):
@@ -72,13 +95,19 @@ class RagOrchestrator:
                     },
                 )
             )
+            system_prompt = self.prompt_builder.build_system_prompt(
+                effective_plan.answer_mode,
+                effective_plan.retrieval_mode,
+                single_document=len(coherence.document_distribution) <= 1,
+            )
+            final_prompt = compose_llm_prompt(system_prompt, context, retrieval_query)
             with StageTimer("llm.stage"):
                 answer = self.llm_service.generate_answer(
-                    system_prompt=self.prompt_builder.SYSTEM_PROMPT,
+                    system_prompt=system_prompt,
                     context=context,
-                    question=req.query,
+                    question=retrieval_query,
                 )
-            citations = self.citation_mapper.map(chunks, query=req.query)
+            citations = self.citation_mapper.map(chunks, query=retrieval_query)
             grounding_score, evidence_warnings = self._grounding_quality(answer=answer, chunks_text=context)
             citation_coverage = len({c.chunk_id for c in citations}.intersection({c.chunk_id for c in chunks})) / max(1, len(citations))
             evidence_coverage = min(1.0, context_payload.retrieved_context_tokens / max(1, context_payload.max_prompt_tokens if hasattr(context_payload, "max_prompt_tokens") else context_payload.total_prompt_budget))
@@ -133,6 +162,30 @@ class RagOrchestrator:
                 )
             )
             raise
+        trace = dict(retrieval_stats.trace or {})
+        trace.update(
+            {
+                "original_query": req.query,
+                "rewritten_query": retrieval_query,
+                "answer_mode": effective_plan.answer_mode,
+                "retrieval_mode": effective_plan.retrieval_mode,
+                "active_document": effective_plan.active_document_id,
+                "active_chunk": effective_plan.active_chunk_id,
+                "source_document": effective_plan.source_document,
+                "document_filter": effective_plan.document_filter,
+                "rewritten": effective_plan.rewritten,
+                "rewrite_reason": effective_plan.rewrite_reason,
+                "document_distribution": coherence.document_distribution,
+                "document_scores": coherence.document_scores,
+                "chunk_distribution": coherence.chunk_distribution,
+                "dropped_documents": coherence.dropped_documents,
+                "dropped_chunks": coherence.dropped_chunks,
+                "final_context_documents": list(dict.fromkeys(c.metadata.filename for c in chunks)),
+                "assembled_context": context,
+                "system_prompt": system_prompt,
+                "final_prompt": final_prompt,
+            }
+        )
         debug = None
         if self.debug_enabled:
             debug = {
@@ -145,6 +198,19 @@ class RagOrchestrator:
                 "diversity_applied": True,
                 "reranker_fallback": retrieval_stats.reranker_fallback,
                 "profile_used": retrieval_stats.profile_used,
+                "retrieval_mode": effective_plan.retrieval_mode,
+                "answer_mode": effective_plan.answer_mode,
+                "active_document": effective_plan.active_document_id,
+                "document_distribution": coherence.document_distribution,
+                "document_scores": coherence.document_scores,
+                "chunk_distribution": coherence.chunk_distribution,
+                "dropped_documents": coherence.dropped_documents,
+                "dropped_chunks": coherence.dropped_chunks,
+                "rewritten_query": retrieval_query,
+                "final_context_documents": list(dict.fromkeys(c.metadata.filename for c in chunks)),
+                "assembled_context": context,
+                "system_prompt": system_prompt,
+                "final_prompt": final_prompt,
                 "compression": {
                     "input_chunks": compression.input_chunks,
                     "output_units": compression.output_units,
@@ -157,6 +223,6 @@ class RagOrchestrator:
             quality=quality,
             grounding=grounding,
             evidence_warnings=evidence_warnings,
-            retrieval_trace=retrieval_stats.trace,
+            retrieval_trace=trace,
             retrieval_debug=debug,
         )

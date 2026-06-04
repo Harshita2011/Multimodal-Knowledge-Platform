@@ -1,4 +1,5 @@
 export type Citation = {
+  document_id: string;
   filename: string;
   page_number: number;
   chunk_id: string;
@@ -15,6 +16,7 @@ export type QueryRequest = {
 export type QueryResponse = {
   answer: string;
   citations: Citation[];
+  retrieval_trace?: Record<string, unknown> | null;
   retrieval_debug?: Record<string, unknown> | null;
 };
 

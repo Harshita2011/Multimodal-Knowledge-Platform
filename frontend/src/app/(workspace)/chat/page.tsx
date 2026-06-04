@@ -12,13 +12,17 @@ import { CitationList, CitationPanel } from "@/features/citations/components/cit
 import { chatApi } from "@/services/endpoints/chat";
 import { conversationsApi } from "@/services/endpoints/conversations";
 import { useChatStore } from "@/stores/chat-store";
-import type { LocalMessage } from "@/types/chat";
+import type { Citation, LocalMessage } from "@/types/chat";
+import type { ConversationState } from "@/types/conversations";
 
 function ChatContent() {
   const queryClient = useQueryClient();
   const searchParams = useSearchParams();
   const activeId = useChatStore((state) => state.activeConversationId);
   const setActiveId = useChatStore((state) => state.setActiveConversationId);
+  const setConversationState = useChatStore((state) => state.setConversationState);
+  const updateConversationState = useChatStore((state) => state.updateConversationState);
+  const setRetrievalTrace = useChatStore((state) => state.setRetrievalTrace);
   const draft = useChatStore((state) => state.draft);
   const setDraft = useChatStore((state) => state.setDraft);
   const [localMessages, setLocalMessages] = useState<LocalMessage[]>([]);
@@ -28,11 +32,25 @@ function ChatContent() {
     if (id) setActiveId(id);
   }, [searchParams, setActiveId]);
 
+  useEffect(() => {
+    if (!activeId) {
+      setConversationState(null);
+    }
+  }, [activeId, setConversationState]);
+
   const detail = useQuery({
     queryKey: ["conversation", activeId],
     queryFn: () => conversationsApi.detail(activeId as string),
     enabled: Boolean(activeId)
   });
+
+  useEffect(() => {
+    if (detail.data?.state) {
+      setConversationState(detail.data.state);
+    } else if (detail.isSuccess) {
+      setConversationState(null);
+    }
+  }, [detail.data?.state, detail.isSuccess, setConversationState]);
 
   const messages = useMemo<LocalMessage[]>(() => {
     const persisted =
@@ -48,6 +66,16 @@ function ChatContent() {
   const queryMutation = useMutation({
     mutationFn: chatApi.query,
     onSuccess: (response) => {
+      setRetrievalTrace(response.retrieval_trace ?? response.retrieval_debug ?? null);
+      if (response.retrieval_trace) {
+        const nextState: Partial<ConversationState> = {};
+        if (typeof response.retrieval_trace.active_document === "string") nextState.active_document_id = response.retrieval_trace.active_document;
+        if (typeof response.retrieval_trace.active_chunk === "string") nextState.active_chunk_id = response.retrieval_trace.active_chunk;
+        if (typeof response.retrieval_trace.source_document === "string") nextState.last_source_document = response.retrieval_trace.source_document;
+        if (typeof response.retrieval_trace.retrieval_mode === "string") nextState.last_retrieval_mode = response.retrieval_trace.retrieval_mode;
+        if (typeof response.retrieval_trace.answer_mode === "string") nextState.last_answer_mode = response.retrieval_trace.answer_mode;
+        updateConversationState(nextState);
+      }
       setLocalMessages((current) => [
         ...current.filter((message) => !message.pending),
         {
@@ -62,6 +90,27 @@ function ChatContent() {
       if (activeId) queryClient.invalidateQueries({ queryKey: ["conversation", activeId] });
     }
   });
+
+  async function handleCitationClick(citation: Citation) {
+    updateConversationState({
+      active_document_id: citation.document_id,
+      active_chunk_id: citation.chunk_id,
+      last_clicked_citation: citation,
+      last_source_document: citation.filename
+    });
+    if (!activeId) return;
+    try {
+      await conversationsApi.patchState(activeId, {
+        active_document_id: citation.document_id,
+        active_chunk_id: citation.chunk_id,
+        last_clicked_citation: citation,
+        last_source_document: citation.filename
+      });
+      queryClient.invalidateQueries({ queryKey: ["conversation", activeId] });
+    } catch {
+      // Keep the UI responsive even if state persistence fails.
+    }
+  }
 
   async function send() {
     const text = draft.trim();
@@ -106,7 +155,7 @@ function ChatContent() {
                       {message.pending ? <Loader2 className="h-4 w-4 animate-spin" /> : null}
                       <p className="whitespace-pre-wrap text-sm leading-6">{message.content}</p>
                     </div>
-                    {message.citations ? <CitationList citations={message.citations} /> : null}
+                    {message.citations ? <CitationList citations={message.citations} onCitationClick={handleCitationClick} /> : null}
                   </div>
                 </div>
               ))

@@ -1,6 +1,7 @@
 import uuid
 
 from fastapi import APIRouter, Depends, File, Form, UploadFile
+from sqlalchemy import create_engine, text
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.api.dependencies import get_ingestion_orchestrator
@@ -17,6 +18,37 @@ from app.models.responses.rag import UploadResponse
 from app.utils.files import sanitize_filename
 
 router = APIRouter(prefix="/documents", tags=["documents"])
+
+
+def _sync_database_url(url: str) -> str:
+    if url.startswith("postgresql+asyncpg://"):
+        return url.replace("postgresql+asyncpg://", "postgresql+psycopg2://", 1)
+    if url.startswith("postgresql://"):
+        return url.replace("postgresql://", "postgresql+psycopg2://", 1)
+    return url
+
+
+def _ensure_anonymous_user_row() -> None:
+    settings = get_settings()
+    engine = create_engine(_sync_database_url(settings.database_url), future=True)
+    try:
+        with engine.begin() as conn:
+            conn.execute(
+                text(
+                    """
+                    INSERT INTO users (id, email, name, avatar_url, provider, provider_account_id, password_hash, is_active)
+                    VALUES (:id, :email, :name, NULL, NULL, NULL, NULL, TRUE)
+                    ON CONFLICT (id) DO NOTHING
+                    """
+                ),
+                {
+                    "id": UserPgRepository.ANONYMOUS_USER_ID,
+                    "email": UserPgRepository.ANONYMOUS_USER_EMAIL,
+                    "name": "Anonymous",
+                },
+            )
+    finally:
+        engine.dispose()
 
 
 @router.get("", response_model=list[DocumentSummaryResponse])
@@ -91,8 +123,11 @@ async def upload_pdf(
 
     try:
         if session is not None:
-            user_repo = UserPgRepository(session)
-            owner_id = current_user.user_id if current_user is not None else (await user_repo.ensure_anonymous_user()).id
+            if current_user is not None:
+                owner_id = current_user.user_id
+            else:
+                _ensure_anonymous_user_row()
+                owner_id = UserPgRepository.ANONYMOUS_USER_ID
             doc_repo = DocumentPgRepository(session)
             ingestion_repo = IngestionPgRepository(session)
             await doc_repo.create_or_replace(
