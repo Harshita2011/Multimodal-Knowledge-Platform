@@ -6,6 +6,7 @@ from app.auth.dependencies import UserContext, get_optional_current_user
 from app.db.postgres.repositories.conversation_repo import ConversationPgRepository
 from app.db.postgres.repositories.conversation_state_repo import ConversationStatePgRepository
 from app.db.postgres.repositories.document_repo import DocumentPgRepository
+from app.db.postgres.repositories.auth_repo import UserPgRepository
 from app.db.postgres.session import get_db_session
 from app.core.exceptions import AppError
 from app.core.settings import get_settings
@@ -14,7 +15,7 @@ from app.models.requests.query import QueryRequest
 from app.models.responses.error import ErrorResponse
 from app.models.responses.rag import QueryResponse
 from app.rag.orchestrator import RagOrchestrator
-from app.rag.query_strategy import ConversationMemory, build_query_plan
+from app.rag.query_strategy import ConversationMemory, build_query_plan, resolve_document_reference
 
 router = APIRouter(prefix="/chat", tags=["chat"])
 
@@ -67,11 +68,19 @@ async def query_rag(
     settings = get_settings()
     if settings.auth_required_for_core_routes and current_user is None:
         raise AppError("unauthorized", "Authentication required", 401)
+    user_scope = current_user.user_id if current_user is not None else UserPgRepository.ANONYMOUS_USER_ID
+    workspace_scope = user_scope
     conv_repo = ConversationPgRepository(session) if current_user is not None and session is not None and req.conversation_id else None
     state_repo = ConversationStatePgRepository(session) if current_user is not None and session is not None and req.conversation_id else None
+    resolved_document = None
+    doc_repo = None
+    if session is not None:
+        doc_repo = DocumentPgRepository(session)
+        owned_docs = await doc_repo.list_active_by_user(user_scope)
+        resolved_document = resolve_document_reference(req.query, owned_docs)
     memory = None
     if current_user is not None and session is not None and req.document_filter:
-        doc_repo = DocumentPgRepository(session)
+        doc_repo = doc_repo or DocumentPgRepository(session)
         owned = await doc_repo.get_owned_active(req.document_filter, current_user.user_id)
         if owned is None:
             raise AppError("forbidden_document", "Document not found for current user", 403)
@@ -94,10 +103,11 @@ async def query_rag(
         req.query,
         explicit_answer_mode=req.answer_mode,
         explicit_document_filter=req.document_filter,
+        resolved_document=resolved_document,
         memory=memory,
     )
 
-    response = orchestrator.answer(req, plan=plan)
+    response = orchestrator.answer(req, plan=plan, user_scope=user_scope, workspace_scope=workspace_scope)
     if current_user is not None:
         emit(TelemetryEvent(name="auth.query", attrs={"authenticated_queries": 1}))
     if current_user is not None and session is not None and req.conversation_id:

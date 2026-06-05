@@ -4,6 +4,7 @@ from sqlalchemy import create_engine
 from app.core.resilience import RetryPolicy
 from app.core.settings import get_settings
 from app.db.postgres.repositories.lexical_repo import LexicalPgRepository
+from app.db.postgres.session import normalize_sync_database_url
 from app.db.chroma_client import build_chroma_client
 from app.db.repositories.chroma_repository import ChromaVectorRepository
 from app.ingestion.chunker import PDFChunker
@@ -72,16 +73,6 @@ def get_storage_service():
     return LocalFileStorage(base_dir=s.pdf_storage_dir)
 
 
-def _sync_database_url(url: str) -> str:
-    if url.startswith("postgresql+asyncpg://"):
-        return url.replace("postgresql+asyncpg://", "postgresql+psycopg2://", 1)
-    if url.startswith("postgresql://"):
-        return url.replace("postgresql://", "postgresql+psycopg2://", 1)
-    if url.startswith("sqlite+aiosqlite:///"):
-        return url.replace("sqlite+aiosqlite:///", "sqlite:///", 1)
-    return url
-
-
 @lru_cache
 def get_retrieval_cache() -> RetrievalCache:
     s = get_settings()
@@ -91,7 +82,7 @@ def get_retrieval_cache() -> RetrievalCache:
 @lru_cache
 def get_lexical_repository() -> LexicalPgRepository:
     s = get_settings()
-    engine = create_engine(_sync_database_url(s.database_url), future=True)
+    engine = create_engine(normalize_sync_database_url(s.database_url), future=True)
     return LexicalPgRepository(engine=engine)
 
 

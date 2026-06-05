@@ -13,7 +13,7 @@ SessionLocal = None
 db_init_error: str | None = None
 
 
-def _normalize_database_url(url: str) -> str:
+def normalize_async_database_url(url: str) -> str:
     if url.startswith("sqlite:///") and not url.startswith("sqlite+aiosqlite:///"):
         return url.replace("sqlite:///", "sqlite+aiosqlite:///", 1)
     if url.startswith("postgresql://") and "+asyncpg" not in url:
@@ -23,8 +23,20 @@ def _normalize_database_url(url: str) -> str:
     return url
 
 
+def normalize_sync_database_url(url: str) -> str:
+    if url.startswith("sqlite+aiosqlite:///"):
+        return url.replace("sqlite+aiosqlite:///", "sqlite:///", 1)
+    if url.startswith("postgresql+asyncpg://"):
+        return url.replace("postgresql+asyncpg://", "postgresql+psycopg2://", 1)
+    if url.startswith("postgresql://"):
+        return url.replace("postgresql://", "postgresql+psycopg2://", 1)
+    if url.startswith("postgres://"):
+        return url.replace("postgres://", "postgresql+psycopg2://", 1)
+    return url
+
+
 try:
-    normalized_database_url = _normalize_database_url(_settings.database_url)
+    normalized_database_url = normalize_async_database_url(_settings.database_url)
     _engine = create_async_engine(normalized_database_url, future=True, echo=False)
     SessionLocal = async_sessionmaker(_engine, class_=AsyncSession, expire_on_commit=False)
 except Exception as exc:

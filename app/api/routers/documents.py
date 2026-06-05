@@ -10,7 +10,7 @@ from app.core.settings import get_settings
 from app.db.postgres.repositories.auth_repo import UserPgRepository
 from app.db.postgres.repositories.document_repo import DocumentPgRepository
 from app.db.postgres.repositories.ingestion_repo import IngestionPgRepository
-from app.db.postgres.session import get_db_session, get_db_unavailable_message
+from app.db.postgres.session import get_db_session, get_db_unavailable_message, normalize_sync_database_url
 from app.ingestion.orchestrator import IngestionOrchestrator
 from app.models.responses.document import DocumentSummaryResponse
 from app.models.responses.error import ErrorResponse
@@ -20,17 +20,9 @@ from app.utils.files import sanitize_filename
 router = APIRouter(prefix="/documents", tags=["documents"])
 
 
-def _sync_database_url(url: str) -> str:
-    if url.startswith("postgresql+asyncpg://"):
-        return url.replace("postgresql+asyncpg://", "postgresql+psycopg2://", 1)
-    if url.startswith("postgresql://"):
-        return url.replace("postgresql://", "postgresql+psycopg2://", 1)
-    return url
-
-
 def _ensure_anonymous_user_row() -> None:
     settings = get_settings()
-    engine = create_engine(_sync_database_url(settings.database_url), future=True)
+    engine = create_engine(normalize_sync_database_url(settings.database_url), future=True)
     try:
         with engine.begin() as conn:
             conn.execute(
@@ -117,17 +109,14 @@ async def upload_pdf(
         raise AppError("unauthorized", "Authentication required", 401)
     doc_id = document_id or str(uuid.uuid4())
     storage_path = f"{doc_id}_{sanitize_filename(file.filename or 'upload.pdf')}"
-    owner_id = None
+    owner_id = current_user.user_id if current_user is not None else UserPgRepository.ANONYMOUS_USER_ID
     doc_repo = None
     ingestion_repo = None
 
     try:
         if session is not None:
-            if current_user is not None:
-                owner_id = current_user.user_id
-            else:
+            if current_user is None:
                 _ensure_anonymous_user_row()
-                owner_id = UserPgRepository.ANONYMOUS_USER_ID
             doc_repo = DocumentPgRepository(session)
             ingestion_repo = IngestionPgRepository(session)
             await doc_repo.create_or_replace(
@@ -140,7 +129,7 @@ async def upload_pdf(
                 status="ingesting",
             )
 
-        response = await orchestrator.ingest_pdf(file=file, document_id=doc_id)
+        response = await orchestrator.ingest_pdf(file=file, document_id=doc_id, owner_user_id=owner_id, workspace_id=owner_id)
 
         if doc_repo is not None and ingestion_repo is not None and owner_id is not None:
             await doc_repo.create_or_replace(

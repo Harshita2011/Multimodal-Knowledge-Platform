@@ -6,13 +6,39 @@ class BM25Retriever:
     def __init__(self, lexical_repo: LexicalPgRepository):
         self.lexical_repo = lexical_repo
 
-    def retrieve(self, query: str, top_k: int, document_filter: str | None = None) -> list[RetrievedChunk]:
-        return self.lexical_repo.search_bm25(query=query, top_k=top_k, document_filter=document_filter)
+    def retrieve(
+        self,
+        query: str,
+        top_k: int,
+        document_filter: str | None = None,
+        user_scope: str | None = None,
+        workspace_scope: str | None = None,
+    ) -> list[RetrievedChunk]:
+        return self.lexical_repo.search_bm25(
+            query=query,
+            top_k=top_k,
+            document_filter=document_filter,
+            user_scope=user_scope,
+            workspace_scope=workspace_scope,
+        )
 
 
 class EntityRetriever:
     def __init__(self, lexical_repo: LexicalPgRepository):
         self.lexical_repo = lexical_repo
 
-    def retrieve(self, query: str, top_k: int, document_filter: str | None = None) -> tuple[list[RetrievedChunk], list[str]]:
-        return self.lexical_repo.search_entities(query=query, top_k=top_k, document_filter=document_filter)
+    def retrieve(
+        self,
+        query: str,
+        top_k: int,
+        document_filter: str | None = None,
+        user_scope: str | None = None,
+        workspace_scope: str | None = None,
+    ) -> tuple[list[RetrievedChunk], list[str]]:
+        return self.lexical_repo.search_entities(
+            query=query,
+            top_k=top_k,
+            document_filter=document_filter,
+            user_scope=user_scope,
+            workspace_scope=workspace_scope,
+        )

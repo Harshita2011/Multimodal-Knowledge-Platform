@@ -2,6 +2,7 @@ from sqlalchemy import text
 
 from app.api.dependencies import get_embedding_service, get_lexical_repository, get_vector_repository
 from app.models.domain.entities import ChunkMetadata, DocumentChunk
+from app.rag.scopes import BENCHMARK_RETRIEVAL_USER_ID
 from app.utils.time import utc_now
 
 
@@ -108,29 +109,27 @@ def main() -> None:
     chunks: list[DocumentChunk] = []
 
     with engine.begin() as conn:
-        owner_id = conn.execute(text("SELECT id FROM users ORDER BY created_at ASC LIMIT 1")).scalar()
-        if owner_id is None:
-            owner_id = "00000000-0000-0000-0000-000000000001"
-            conn.execute(
-                text(
-                    """
-                    INSERT INTO users (id, email, name, is_active, created_at, updated_at)
-                    VALUES (:id, :email, :name, TRUE, :created_at, :updated_at)
-                    ON CONFLICT (id) DO UPDATE SET
-                    email = EXCLUDED.email,
-                    name = EXCLUDED.name,
-                    is_active = EXCLUDED.is_active,
-                    updated_at = EXCLUDED.updated_at
-                    """
-                ),
-                {
-                    "id": owner_id,
-                    "email": "benchmark-seed@example.com",
-                    "name": "Benchmark Seed",
-                    "created_at": now,
-                    "updated_at": now,
-                },
-            )
+        owner_id = BENCHMARK_RETRIEVAL_USER_ID
+        conn.execute(
+            text(
+                """
+                INSERT INTO users (id, email, name, is_active, created_at, updated_at)
+                VALUES (:id, :email, :name, TRUE, :created_at, :updated_at)
+                ON CONFLICT (id) DO UPDATE SET
+                email = EXCLUDED.email,
+                name = EXCLUDED.name,
+                is_active = EXCLUDED.is_active,
+                updated_at = EXCLUDED.updated_at
+                """
+            ),
+            {
+                "id": owner_id,
+                "email": "benchmark-seed@example.com",
+                "name": "Benchmark Seed",
+                "created_at": now,
+                "updated_at": now,
+            },
+        )
 
     for document_id, filename, page_number, chunk_id, doc_type, body, entities in DOCS:
         vectors.delete_document(document_id)
@@ -169,6 +168,8 @@ def main() -> None:
             page_number=page_number,
             chunk_id=chunk_id,
             ingestion_timestamp=now,
+            owner_user_id=owner_id,
+            workspace_id=owner_id,
             doc_type=doc_type,
             section_path="benchmark_seed",
             heading="benchmark_seed",

@@ -52,7 +52,13 @@ class RagOrchestrator:
                 warnings.append(f"Low evidence support for claim: {claim[:120]}")
         return supported / len(claims), warnings
 
-    def answer(self, req: QueryRequest, plan: QueryPlan | None = None) -> QueryResponse:
+    def answer(
+        self,
+        req: QueryRequest,
+        plan: QueryPlan | None = None,
+        user_scope: str | None = None,
+        workspace_scope: str | None = None,
+    ) -> QueryResponse:
         started = time.perf_counter()
         top_k = req.top_k or self.top_k_default
         effective_plan = plan or build_query_plan(
@@ -70,6 +76,8 @@ class RagOrchestrator:
                     document_filter=effective_plan.document_filter,
                     retrieval_profile=req.retrieval_profile,
                     answer_mode=effective_plan.answer_mode,
+                    user_scope=user_scope,
+                    workspace_scope=workspace_scope,
                 )
             coherence = self.coherence_filter.filter(
                 chunks,
@@ -167,6 +175,10 @@ class RagOrchestrator:
             {
                 "original_query": req.query,
                 "rewritten_query": retrieval_query,
+                "user_scope": user_scope,
+                "workspace_scope": workspace_scope or user_scope,
+                "resolved_document": effective_plan.resolved_document,
+                "document_resolution_confidence": effective_plan.document_resolution_confidence,
                 "answer_mode": effective_plan.answer_mode,
                 "retrieval_mode": effective_plan.retrieval_mode,
                 "active_document": effective_plan.active_document_id,
@@ -201,6 +213,8 @@ class RagOrchestrator:
                 "retrieval_mode": effective_plan.retrieval_mode,
                 "answer_mode": effective_plan.answer_mode,
                 "active_document": effective_plan.active_document_id,
+                "resolved_document": effective_plan.resolved_document,
+                "document_resolution_confidence": effective_plan.document_resolution_confidence,
                 "document_distribution": coherence.document_distribution,
                 "document_scores": coherence.document_scores,
                 "chunk_distribution": coherence.chunk_distribution,

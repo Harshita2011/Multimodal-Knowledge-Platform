@@ -26,14 +26,29 @@ class ChromaVectorRepository(VectorRepository):
         for c in chunks:
             md = c.metadata.model_dump(mode="json")
             md["entities"] = ",".join(c.metadata.entities)
+            md["owner_user_id"] = c.metadata.owner_user_id
+            md["workspace_id"] = c.metadata.workspace_id or c.metadata.owner_user_id
             metas.append(md)
         self.collection.upsert(ids=ids, documents=docs, embeddings=embeddings, metadatas=metas)
 
-    def search_similar(self, query_embedding: list[float], top_k: int, document_filter: str | None = None) -> list[RetrievedChunk]:
+    def search_similar(
+        self,
+        query_embedding: list[float],
+        top_k: int,
+        document_filter: str | None = None,
+        user_scope: str | None = None,
+        workspace_scope: str | None = None,
+    ) -> list[RetrievedChunk]:
         if self.collection is None:
             self.initialize_collection()
 
-        where = {"document_id": document_filter} if document_filter else None
+        if user_scope is None:
+            raise AppError("missing_retrieval_scope", "User scope is required for retrieval", 500)
+        workspace_scope = workspace_scope or user_scope
+        filters: list[dict] = [{"owner_user_id": user_scope}, {"workspace_id": workspace_scope}]
+        if document_filter:
+            filters.append({"document_id": document_filter})
+        where = {"$and": filters} if len(filters) > 1 else filters[0]
         result = self.collection.query(query_embeddings=[query_embedding], n_results=top_k, where=where)
 
         ids = result.get("ids", [[]])[0]
@@ -48,12 +63,18 @@ class ChromaVectorRepository(VectorRepository):
             md = metas[idx]
             if not md:
                 raise AppError("invalid_metadata", "Retrieved chunk metadata missing", 500)
+            owner_user_id = md.get("owner_user_id")
+            workspace_id = md.get("workspace_id") or owner_user_id
+            if owner_user_id is None or workspace_id is None:
+                raise AppError("invalid_metadata", "Retrieved chunk metadata missing ownership scope", 500)
             metadata = ChunkMetadata(
                 document_id=md["document_id"],
                 filename=md["filename"],
                 page_number=int(md["page_number"]),
                 chunk_id=md["chunk_id"],
                 ingestion_timestamp=datetime.fromisoformat(md["ingestion_timestamp"]),
+                owner_user_id=owner_user_id,
+                workspace_id=workspace_id,
                 source_type=md.get("source_type", "pdf"),
                 modality=md.get("modality", "text"),
                 doc_type=md.get("doc_type", "general"),

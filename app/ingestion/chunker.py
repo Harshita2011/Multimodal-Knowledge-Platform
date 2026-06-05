@@ -49,7 +49,14 @@ class PDFChunker:
                 sections.append(section)
         return sections or [text]
 
-    def chunk_pages(self, document_id: str, filename: str, pages: list[ParsedPage]) -> list[DocumentChunk]:
+    def chunk_pages(
+        self,
+        document_id: str,
+        filename: str,
+        pages: list[ParsedPage],
+        owner_user_id: str | None = None,
+        workspace_id: str | None = None,
+    ) -> list[DocumentChunk]:
         ts = utc_now()
         chunks: list[DocumentChunk] = []
         source_type = self._source_type(filename)
@@ -71,6 +78,8 @@ class PDFChunker:
                     page_number=page.page_number,
                     chunk_id=chunk_id,
                     ingestion_timestamp=ts,
+                    owner_user_id=owner_user_id,
+                    workspace_id=workspace_id or owner_user_id,
                     source_type=source_type,  # type: ignore[arg-type]
                     modality="text",
                     doc_type=doc_type,  # type: ignore[arg-type]

@@ -10,6 +10,8 @@ class ChunkMetadata(BaseModel):
     page_number: int
     chunk_id: str
     ingestion_timestamp: datetime
+    owner_user_id: str | None = None
+    workspace_id: str | None = None
     source_type: Literal["pdf", "docx", "pptx"] = "pdf"
     modality: Literal["text"] = "text"
     doc_type: Literal["research_paper", "contract", "technical_doc", "meeting_notes", "presentation", "resume", "policy", "manual", "wiki", "general"] = "general"

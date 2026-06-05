@@ -6,6 +6,7 @@ from app.rag.query_strategy import (
     expand_queries,
     normalize_answer_mode,
     pick_profile,
+    resolve_document_reference,
 )
 
 
@@ -49,3 +50,27 @@ def test_normalize_answer_mode_and_multi_doc_detection():
     plan = build_query_plan("compare these documents", memory=None)
     assert plan.retrieval_mode == "MULTI_DOCUMENT_MODE"
     assert plan.answer_mode == "COMPARISON"
+
+
+def test_resolve_document_reference_matches_inventory_filename():
+    docs = [
+        {"id": "completion_doc", "filename": "Completion.pdf"},
+        {"id": "distributed_doc", "filename": "Distributed (1).pdf"},
+        {"id": "resume_doc", "filename": "Resume.pdf"},
+    ]
+    resolved = resolve_document_reference("Explain my distributed paper", docs)
+    assert resolved is not None
+    assert resolved.resolved_document_id == "distributed_doc"
+    assert resolved.resolved_document_name == "Distributed (1).pdf"
+    assert resolved.confidence >= 0.65
+
+
+def test_build_query_plan_forces_document_mode_when_resolution_is_confident():
+    from app.rag.query_strategy import DocumentResolution
+
+    resolved = DocumentResolution(resolved_document_id="distributed_doc", resolved_document_name="Distributed (1).pdf", confidence=0.9)
+    plan = build_query_plan("Explain my distributed paper", resolved_document=resolved)
+    assert plan.retrieval_mode == "DOCUMENT_MODE"
+    assert plan.document_filter == "distributed_doc"
+    assert plan.resolved_document == "Distributed (1).pdf"
+    assert plan.document_resolution_confidence == 0.9

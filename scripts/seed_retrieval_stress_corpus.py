@@ -5,6 +5,7 @@ from sqlalchemy import text
 
 from app.api.dependencies import get_embedding_service, get_lexical_repository, get_vector_repository
 from app.models.domain.entities import ChunkMetadata, DocumentChunk
+from app.rag.scopes import BENCHMARK_RETRIEVAL_USER_ID
 from app.utils.time import utc_now
 
 
@@ -14,10 +15,7 @@ def _load_manifest(path: Path) -> dict:
 
 def _ensure_owner(engine, now) -> str:
     with engine.begin() as conn:
-        owner_id = conn.execute(text("SELECT id FROM users ORDER BY created_at ASC LIMIT 1")).scalar()
-        if owner_id is not None:
-            return owner_id
-        owner_id = "00000000-0000-0000-0000-000000000001"
+        owner_id = BENCHMARK_RETRIEVAL_USER_ID
         conn.execute(
             text(
                 """
@@ -71,7 +69,7 @@ def _upsert_document(conn, owner_id: str, document: dict, chunk_count: int, now)
     )
 
 
-def _to_domain_chunks(document: dict, now) -> list[DocumentChunk]:
+def _to_domain_chunks(document: dict, owner_id: str, now) -> list[DocumentChunk]:
     chunks: list[DocumentChunk] = []
     for raw in document["chunks"]:
         metadata = ChunkMetadata(
@@ -80,6 +78,8 @@ def _to_domain_chunks(document: dict, now) -> list[DocumentChunk]:
             page_number=int(raw["page_number"]),
             chunk_id=raw["chunk_id"],
             ingestion_timestamp=now,
+            owner_user_id=owner_id,
+            workspace_id=owner_id,
             doc_type=document["doc_type"],
             heading=raw.get("heading", ""),
             section_path=raw.get("section_path", raw.get("heading", "")),
@@ -112,7 +112,7 @@ def main() -> None:
         lexical.delete_document(document["document_id"])
         with engine.begin() as conn:
             _upsert_document(conn, owner_id, document, len(document["chunks"]), now)
-        all_chunks.extend(_to_domain_chunks(document, now))
+        all_chunks.extend(_to_domain_chunks(document, owner_id, now))
 
     lexical.upsert_chunks(all_chunks)
     vector_embeddings = embeddings.embed_texts([chunk.text for chunk in all_chunks])

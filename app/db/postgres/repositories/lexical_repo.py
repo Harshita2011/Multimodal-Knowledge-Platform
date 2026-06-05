@@ -87,30 +87,72 @@ class LexicalPgRepository:
             conn.execute(text("DELETE FROM chunk_entities WHERE chunk_id_ref IN (SELECT id FROM chunks WHERE document_id = :doc_id)"), {"doc_id": document_id})
             conn.execute(text("DELETE FROM chunks WHERE document_id = :doc_id"), {"doc_id": document_id})
 
-    def search_bm25(self, query: str, top_k: int, document_filter: str | None = None) -> list[RetrievedChunk]:
+    def search_bm25(
+        self,
+        query: str,
+        top_k: int,
+        document_filter: str | None = None,
+        user_scope: str | None = None,
+        workspace_scope: str | None = None,
+    ) -> list[RetrievedChunk]:
+        if user_scope is None:
+            raise ValueError("user_scope is required for BM25 retrieval")
+        workspace_scope = workspace_scope or user_scope
         q = normalize_query_text(query)
         stmt = """
-            SELECT chunk_id, document_id, filename, page_number, text, metadata_json,
+            SELECT c.chunk_id, c.document_id, c.filename, c.page_number, c.text, c.metadata_json,
                    ts_rank_cd(
-                     to_tsvector('english', coalesce(text,'') || ' ' || coalesce(heading,'') || ' ' || coalesce(section_path,'') || ' ' || coalesce(entities_text,'')),
+                     to_tsvector('english', coalesce(c.text,'') || ' ' || coalesce(c.heading,'') || ' ' || coalesce(c.section_path,'') || ' ' || coalesce(c.entities_text,'')),
                      websearch_to_tsquery('english', :q)
                    ) as score
-            FROM chunks
-            WHERE (:doc_id IS NULL OR document_id = :doc_id)
+            FROM chunks c
+            JOIN documents d ON d.id = c.document_id
+            WHERE d.user_id = :user_id
+              AND coalesce(c.metadata_json->>'workspace_id', d.user_id) = :workspace_id
+              AND (:doc_id IS NULL OR c.document_id = :doc_id)
               AND (
-                to_tsvector('english', coalesce(text,'') || ' ' || coalesce(heading,'') || ' ' || coalesce(section_path,'') || ' ' || coalesce(entities_text,''))
+                to_tsvector('english', coalesce(c.text,'') || ' ' || coalesce(c.heading,'') || ' ' || coalesce(c.section_path,'') || ' ' || coalesce(c.entities_text,''))
                 @@ websearch_to_tsquery('english', :q)
-                OR similarity(text, :q) > 0.2
-                OR similarity(heading, :q) > 0.2
+                OR similarity(c.text, :q) > 0.2
+                OR similarity(c.heading, :q) > 0.2
               )
             ORDER BY score DESC
             LIMIT :k
         """
         with self.engine.begin() as conn:
-            rows = conn.execute(text(stmt), {"q": q, "doc_id": document_filter, "k": top_k}).mappings().all()
+            rows = conn.execute(
+                text(stmt),
+                {"q": q, "doc_id": document_filter, "k": top_k, "user_id": user_scope, "workspace_id": workspace_scope},
+            ).mappings().all()
+            if not rows and document_filter is not None:
+                rows = conn.execute(
+                    text(
+                        """
+                        SELECT c.chunk_id, c.document_id, c.filename, c.page_number, c.text, c.metadata_json,
+                               0.05 AS score
+                        FROM chunks c
+                        JOIN documents d ON d.id = c.document_id
+                        WHERE d.user_id = :user_id
+                          AND c.document_id = :doc_id
+                        ORDER BY c.page_number ASC, c.chunk_id ASC
+                        LIMIT :k
+                        """
+                    ),
+                    {"doc_id": document_filter, "k": top_k, "user_id": user_scope},
+                ).mappings().all()
         return [_row_to_chunk(r, "bm25") for r in rows]
 
-    def search_entities(self, query: str, top_k: int, document_filter: str | None = None) -> tuple[list[RetrievedChunk], list[str]]:
+    def search_entities(
+        self,
+        query: str,
+        top_k: int,
+        document_filter: str | None = None,
+        user_scope: str | None = None,
+        workspace_scope: str | None = None,
+    ) -> tuple[list[RetrievedChunk], list[str]]:
+        if user_scope is None:
+            raise ValueError("user_scope is required for entity retrieval")
+        workspace_scope = workspace_scope or user_scope
         norm = normalize_query_text(query)
         toks = [simple_stem(t) for t in norm.split() if len(t) >= 2]
         expanded = expand_aliases(toks)
@@ -125,15 +167,34 @@ class LexicalPgRepository:
                     FROM entities e
                     JOIN chunk_entities ce ON ce.entity_id = e.id
                     JOIN chunks c ON c.id = ce.chunk_id_ref
-                    WHERE (:doc_id IS NULL OR c.document_id = :doc_id)
+                    JOIN documents d ON d.id = c.document_id
+                    WHERE d.user_id = :user_id
+                      AND coalesce(c.metadata_json->>'workspace_id', d.user_id) = :workspace_id
+                      AND (:doc_id IS NULL OR c.document_id = :doc_id)
                       AND e.normalized_value = ANY(:terms)
                     GROUP BY c.chunk_id, c.document_id, c.filename, c.page_number, c.text, c.metadata_json
                     ORDER BY score DESC
                     LIMIT :k
                     """
                 ),
-                {"terms": expanded, "k": top_k, "doc_id": document_filter},
+                {"terms": expanded, "k": top_k, "doc_id": document_filter, "user_id": user_scope, "workspace_id": workspace_scope},
             ).mappings().all()
+            if not rows and document_filter is not None:
+                rows = conn.execute(
+                    text(
+                        """
+                        SELECT c.chunk_id, c.document_id, c.filename, c.page_number, c.text, c.metadata_json,
+                               0.05 AS score
+                        FROM chunks c
+                        JOIN documents d ON d.id = c.document_id
+                        WHERE d.user_id = :user_id
+                          AND c.document_id = :doc_id
+                        ORDER BY c.page_number ASC, c.chunk_id ASC
+                        LIMIT :k
+                        """
+                    ),
+                    {"doc_id": document_filter, "k": top_k, "user_id": user_scope},
+                ).mappings().all()
         return ([_row_to_chunk(r, "entity") for r in rows], expanded)
 
 
@@ -146,6 +207,8 @@ def _row_to_chunk(row: Any, source: str) -> RetrievedChunk:
         page_number=int(row["page_number"]),
         chunk_id=chunk_id,
         ingestion_timestamp=datetime.fromisoformat(md.get("ingestion_timestamp")) if md.get("ingestion_timestamp") else datetime.utcnow(),
+        owner_user_id=md.get("owner_user_id"),
+        workspace_id=md.get("workspace_id") or md.get("owner_user_id"),
         source_type=md.get("source_type", "pdf"),
         modality=md.get("modality", "text"),
         doc_type=md.get("doc_type", "general"),

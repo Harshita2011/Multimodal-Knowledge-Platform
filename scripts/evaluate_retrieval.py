@@ -8,6 +8,7 @@ from app.api.dependencies import get_embedding_service, get_vector_repository
 from app.core.settings import get_settings
 from app.rag.citation_mapper import CitationMapper
 from app.rag.evaluation import citation_coverage, mean_reciprocal_rank, ndcg_at_k, precision_at_k, recall_at_k
+from app.rag.scopes import BENCHMARK_RETRIEVAL_USER_ID
 from app.rag.retriever import Retriever
 
 
@@ -41,7 +42,13 @@ def evaluate(cases: list[dict], k_override: int | None = None) -> dict:
     for case in cases:
         k = k_override or int(case.get("k", 5))
         started = time.perf_counter()
-        chunks = retriever.retrieve(case["query"], top_k=k, document_filter=case.get("document_filter"))
+        chunks = retriever.retrieve(
+            case["query"],
+            top_k=k,
+            document_filter=case.get("document_filter"),
+            user_scope=BENCHMARK_RETRIEVAL_USER_ID,
+            workspace_scope=BENCHMARK_RETRIEVAL_USER_ID,
+        )
         latency_ms.append((time.perf_counter() - started) * 1000.0)
         expected_ids = set(case.get("expected_chunk_ids", []))
         expected_pages = set(case.get("expected_pages", []))

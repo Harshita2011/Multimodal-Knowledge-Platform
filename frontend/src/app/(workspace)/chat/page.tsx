@@ -76,16 +76,20 @@ function ChatContent() {
         if (typeof response.retrieval_trace.answer_mode === "string") nextState.last_answer_mode = response.retrieval_trace.answer_mode;
         updateConversationState(nextState);
       }
-      setLocalMessages((current) => [
-        ...current.filter((message) => !message.pending),
-        {
-          id: crypto.randomUUID(),
-          role: "assistant",
-          content: response.answer,
-          citations: response.citations,
-          created_at: new Date().toISOString()
-        }
-      ]);
+      if (activeId) {
+        setLocalMessages([]);
+      } else {
+        setLocalMessages((current) => [
+          ...current.filter((message) => !message.pending),
+          {
+            id: crypto.randomUUID(),
+            role: "assistant",
+            content: response.answer,
+            citations: response.citations,
+            created_at: new Date().toISOString()
+          }
+        ]);
+      }
       queryClient.invalidateQueries({ queryKey: ["conversations"] });
       if (activeId) queryClient.invalidateQueries({ queryKey: ["conversation", activeId] });
     }

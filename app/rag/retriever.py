@@ -75,8 +75,18 @@ class Retriever:
         return min(0.25, 0.02 * term_hits + 0.05 * entity_hits)
 
     def retrieve_with_stats(
-        self, query: str, top_k: int, document_filter: str | None, retrieval_profile: str | None = None, answer_mode: str | None = None
+        self,
+        query: str,
+        top_k: int,
+        document_filter: str | None,
+        retrieval_profile: str | None = None,
+        answer_mode: str | None = None,
+        user_scope: str | None = None,
+        workspace_scope: str | None = None,
     ) -> tuple[list[RetrievedChunk], RetrievalStats]:
+        if user_scope is None:
+            raise ValueError("user_scope is required for retrieval")
+        workspace_scope = workspace_scope or user_scope
         intent = classify_query_intent(query)
         doc_type = None
         profile = PROFILES.get((retrieval_profile or "").upper(), None) if retrieval_profile else None
@@ -84,7 +94,7 @@ class Retriever:
             profile = pick_profile(intent=intent, answer_mode=answer_mode, doc_type=doc_type)
         queries = expand_queries(query)
         cache_key = (
-            f"q={normalize_query_text(query)}|doc={document_filter or '*'}|profile={profile.name}|mode={answer_mode or 'direct'}|"
+            f"q={normalize_query_text(query)}|doc={document_filter or '*'}|user={user_scope}|ws={workspace_scope}|profile={profile.name}|mode={answer_mode or 'direct'}|"
             f"vec={profile.vector_top_k}|bm25={profile.bm25_top_k}|ent={profile.entity_top_k}"
         )
         cached = self.cache.get(cache_key)
@@ -101,15 +111,33 @@ class Retriever:
             vector_chunks: list[RetrievedChunk] = []
             for q in queries:
                 query_embedding = self.embeddings.embed_query(q)
-                got = self.vectors.search_similar(query_embedding, top_k=profile.vector_top_k, document_filter=document_filter)
+                got = self.vectors.search_similar(
+                    query_embedding,
+                    top_k=profile.vector_top_k,
+                    document_filter=document_filter,
+                    user_scope=user_scope,
+                    workspace_scope=workspace_scope,
+                )
                 per_query_counts[q] = len(got)
                 vector_chunks.extend(got)
             bm25_chunks: list[RetrievedChunk] = []
             entity_chunks: list[RetrievedChunk] = []
             if self.enable_bm25 and self.bm25 is not None:
-                bm25_chunks = self.bm25.retrieve(query=query, top_k=profile.bm25_top_k, document_filter=document_filter)
+                bm25_chunks = self.bm25.retrieve(
+                    query=query,
+                    top_k=profile.bm25_top_k,
+                    document_filter=document_filter,
+                    user_scope=user_scope,
+                    workspace_scope=workspace_scope,
+                )
             if self.enable_entity and self.entity is not None:
-                entity_chunks, entity_terms = self.entity.retrieve(query=query, top_k=profile.entity_top_k, document_filter=document_filter)
+                entity_chunks, entity_terms = self.entity.retrieve(
+                    query=query,
+                    top_k=profile.entity_top_k,
+                    document_filter=document_filter,
+                    user_scope=user_scope,
+                    workspace_scope=workspace_scope,
+                )
             if self.enable_rrf:
                 merged, rrf_trace = self.rrf.merge({"vector": vector_chunks, "bm25": bm25_chunks, "entity": entity_chunks})
                 raw_chunks = merged
@@ -187,15 +215,30 @@ class Retriever:
                 "bm25_top_k": profile.bm25_top_k,
                 "entity_top_k": profile.entity_top_k,
                 "rerank_top_k": profile.rerank_top_k,
+                "user_scope": user_scope,
+                "workspace_scope": workspace_scope,
                 "explainability": explainability,
             },
         )
         return out, stats
 
     def retrieve(
-        self, query: str, top_k: int, document_filter: str | None, retrieval_profile: str | None = None, answer_mode: str | None = None
+        self,
+        query: str,
+        top_k: int,
+        document_filter: str | None,
+        retrieval_profile: str | None = None,
+        answer_mode: str | None = None,
+        user_scope: str | None = None,
+        workspace_scope: str | None = None,
     ) -> list[RetrievedChunk]:
         chunks, _ = self.retrieve_with_stats(
-            query, top_k=top_k, document_filter=document_filter, retrieval_profile=retrieval_profile, answer_mode=answer_mode
+            query,
+            top_k=top_k,
+            document_filter=document_filter,
+            retrieval_profile=retrieval_profile,
+            answer_mode=answer_mode,
+            user_scope=user_scope,
+            workspace_scope=workspace_scope,
         )
         return chunks

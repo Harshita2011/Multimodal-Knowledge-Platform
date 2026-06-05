@@ -35,7 +35,13 @@ class IngestionOrchestrator:
         self.lexical_repository = lexical_repository
         self.retrieval_cache = retrieval_cache
 
-    async def ingest_pdf(self, file, document_id: str | None = None) -> UploadResponse:
+    async def ingest_pdf(
+        self,
+        file,
+        document_id: str | None = None,
+        owner_user_id: str | None = None,
+        workspace_id: str | None = None,
+    ) -> UploadResponse:
         started = time.perf_counter()
         payload = await file.read()
         validate_upload(file, self.max_file_size_mb, len(payload))
@@ -55,7 +61,7 @@ class IngestionOrchestrator:
                 raise AppError("empty_pdf", "No extractable text found in PDF", 422)
 
             with StageTimer("ingestion.chunk", document_id=doc_id):
-                chunks = self.chunker.chunk_pages(doc_id, file.filename, pages)
+                chunks = self.chunker.chunk_pages(doc_id, file.filename, pages, owner_user_id=owner_user_id, workspace_id=workspace_id)
             with StageTimer("ingestion.embed", document_id=doc_id, chunk_count=len(chunks)):
                 embeddings = self.embedding_service.embed_texts([c.text for c in chunks])
             with StageTimer("ingestion.vector_upsert", document_id=doc_id, chunk_count=len(chunks)):

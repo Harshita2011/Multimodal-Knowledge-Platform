@@ -22,6 +22,8 @@ class VectorRepository(ABC):
         query_embedding: list[float],
         top_k: int,
         document_filter: str | None = None,
+        user_scope: str | None = None,
+        workspace_scope: str | None = None,
     ) -> list[RetrievedChunk]:
         raise NotImplementedError
 

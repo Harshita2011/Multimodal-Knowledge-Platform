@@ -6,6 +6,7 @@ from pathlib import Path
 import pytest
 
 from app.models.domain.entities import ChunkMetadata, RetrievedChunk
+from app.rag.scopes import BENCHMARK_RETRIEVAL_USER_ID
 from app.rag.citation_mapper import CitationMapper
 from app.rag.evaluation import citation_coverage, precision_at_k
 from app.rag.retriever import Retriever
@@ -26,9 +27,16 @@ class FixtureVectorRepository:
         self._chunks = chunks
         self.latency_ms = latency_ms
 
-    def search_similar(self, query_embedding: list[float], top_k: int, document_filter: str | None = None) -> list[RetrievedChunk]:
+    def search_similar(
+        self,
+        query_embedding: list[float],
+        top_k: int,
+        document_filter: str | None = None,
+        user_scope: str | None = None,
+        workspace_scope: str | None = None,
+    ) -> list[RetrievedChunk]:
         _ = query_embedding
-        _ = document_filter
+        _ = document_filter, user_scope, workspace_scope
         time.sleep(self.latency_ms / 1000)
         return sorted(self._chunks, key=lambda c: (-c.score, c.chunk_id))[:top_k]
 
@@ -40,6 +48,8 @@ def _to_chunk(item: dict) -> RetrievedChunk:
         page_number=item["page_number"],
         chunk_id=item["chunk_id"],
         ingestion_timestamp=datetime.now(timezone.utc),
+        owner_user_id=BENCHMARK_RETRIEVAL_USER_ID,
+        workspace_id=BENCHMARK_RETRIEVAL_USER_ID,
     )
     return RetrievedChunk(
         chunk_id=item["chunk_id"],
@@ -68,7 +78,13 @@ def test_retriever_e2e_regression_benchmark(case: dict):
     )
 
     started = time.perf_counter()
-    ranked = retriever.retrieve(case["query"], top_k=case["top_k"], document_filter=case.get("document_filter"))
+    ranked = retriever.retrieve(
+        case["query"],
+        top_k=case["top_k"],
+        document_filter=case.get("document_filter"),
+        user_scope=BENCHMARK_RETRIEVAL_USER_ID,
+        workspace_scope=BENCHMARK_RETRIEVAL_USER_ID,
+    )
     citations = CitationMapper().map(ranked)
     elapsed_ms = int((time.perf_counter() - started) * 1000)
 
