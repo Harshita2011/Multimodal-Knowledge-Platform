@@ -2,7 +2,6 @@ import re
 
 from app.utils.tokenizer import HeuristicTokenizer
 
-
 _TOKEN_PATTERN = re.compile(r"\w+|[^\w\s]", re.UNICODE)
 _SENTENCE_SPLIT = re.compile(r"(?<=[.!?])\s+")
 _heuristic = HeuristicTokenizer()

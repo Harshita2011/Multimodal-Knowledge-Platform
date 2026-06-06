@@ -36,7 +36,7 @@ class SemanticReranker(Reranker):
         elapsed_ms = int((time.perf_counter() - started) * 1000)
         if elapsed_ms > self.timeout_ms:
             return chunks
-        rescored = [(float(score), chunk) for score, chunk in zip(scores, candidates)]
+        rescored = [(float(score), chunk) for score, chunk in zip(scores, candidates, strict=False)]
         rescored.sort(key=lambda x: (-x[0], x[1].chunk_id))
         reranked = [c.model_copy(update={"score": score}) for score, c in rescored]
         return reranked + chunks[self.top_n :]

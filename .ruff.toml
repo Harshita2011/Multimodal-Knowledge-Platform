@@ -11,7 +11,8 @@ select = [
   "UP",
 ]
 ignore = [
-  "E501"
+  "E501",
+  "B008"
 ]
 
 [format]

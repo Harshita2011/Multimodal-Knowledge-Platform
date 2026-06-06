@@ -1,4 +1,4 @@
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 
 from app.models.domain.entities import ChunkMetadata, RetrievedChunk
 from app.rag.deduplicator import ChunkDeduplicator
@@ -6,7 +6,7 @@ from app.rag.deduplicator import ChunkDeduplicator
 
 def _chunk(cid: str, txt: str) -> RetrievedChunk:
     md = ChunkMetadata(
-        document_id="d1", filename="f.pdf", page_number=1, chunk_id=cid, ingestion_timestamp=datetime.now(timezone.utc)
+        document_id="d1", filename="f.pdf", page_number=1, chunk_id=cid, ingestion_timestamp=datetime.now(UTC)
     )
     return RetrievedChunk(chunk_id=cid, score=0.9, metadata=md, text=txt)
 

@@ -11,7 +11,6 @@ from app.db.repositories.chroma_repository import ChromaVectorRepository
 from app.ingestion.chunker import PDFChunker
 from app.ingestion.orchestrator import IngestionOrchestrator
 from app.ingestion.parser import PDFParser
-from app.models.domain.entities import ChunkMetadata, RetrievedChunk
 from app.rag.retriever import Retriever
 from app.rag.scopes import BENCHMARK_RETRIEVAL_USER_ID
 from app.services.storage_service import LocalFileStorage

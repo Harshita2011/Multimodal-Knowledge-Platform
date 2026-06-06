@@ -2,15 +2,15 @@ import argparse
 import json
 import statistics
 import time
+from datetime import UTC
 from pathlib import Path
 
 from app.api.dependencies import get_embedding_service, get_lexical_repository, get_vector_repository
 from app.core.settings import get_settings
 from app.models.domain.entities import ChunkMetadata, RetrievedChunk
-from app.rag.scopes import BENCHMARK_RETRIEVAL_USER_ID
 from app.rag.evaluation import mean_reciprocal_rank, ndcg_at_k, recall_at_k
 from app.rag.retriever import Retriever
-
+from app.rag.scopes import BENCHMARK_RETRIEVAL_USER_ID
 
 ABLATIONS = [
     ("vector_only", {"enable_bm25": False, "enable_entity": False, "enable_rrf": False}),
@@ -54,14 +54,14 @@ def _build_retriever(config: dict) -> tuple[Retriever | None, str]:
 
 
 def _sim_retrieve(mode: str, query: str, expected_chunk_id: str) -> tuple[list[RetrievedChunk], dict]:
-    from datetime import datetime, timezone
+    from datetime import datetime
 
     md = ChunkMetadata(
         document_id="sim_doc",
         filename="sim.pdf",
         page_number=1,
         chunk_id=expected_chunk_id,
-        ingestion_timestamp=datetime.now(timezone.utc),
+        ingestion_timestamp=datetime.now(UTC),
     )
     noise_id = f"noise_{abs(hash(mode + query)) % 999999}"
     noise = RetrievedChunk(chunk_id=noise_id, score=0.61, metadata=md.model_copy(update={"chunk_id": noise_id}), text="noise")

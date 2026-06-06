@@ -9,17 +9,14 @@ from typing import Any
 from sqlalchemy import create_engine, text
 
 from app.api.dependencies import (
-    get_embedding_service,
-    get_lexical_repository,
-    get_retrieval_cache,
     get_vector_repository,
 )
 from app.core.settings import get_settings
 from app.db.postgres.repositories.auth_repo import UserPgRepository
+from app.db.postgres.session import normalize_sync_database_url
 from app.ingestion.chunker import PDFChunker
 from app.ingestion.parser import PDFParser
 from app.rag.retrieval_cache import RetrievalCache
-from app.db.postgres.session import normalize_sync_database_url
 
 
 @dataclass(slots=True)

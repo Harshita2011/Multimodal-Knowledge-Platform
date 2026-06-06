@@ -75,7 +75,7 @@ def emit_otel_event(name: str, status: str, duration_ms: int | None, attrs: dict
     if _event_counter is None or _latency_hist is None:
         return
     allowed_tags = {"endpoint", "status", "document_filter_present", "reranking_enabled", "event"}
-    tags = {"event": name, "status": status}
+    tags: dict[str, Any] = {"event": name, "status": status}
     for key, value in attrs.items():
         if key in allowed_tags and isinstance(value, (str, int, float, bool)):
             tags[key] = value

@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 
 from app.models.domain.entities import ChunkMetadata, RetrievedChunk
 from app.rag.retriever import Retriever
@@ -31,7 +31,7 @@ class RecordingVectorRepo:
             filename="user.pdf",
             page_number=1,
             chunk_id="vector_c1",
-            ingestion_timestamp=datetime.now(timezone.utc),
+            ingestion_timestamp=datetime.now(UTC),
             owner_user_id=user_scope,
             workspace_id=workspace_scope,
         )
@@ -58,7 +58,7 @@ class RecordingLexicalRepo:
             filename="user.pdf",
             page_number=1,
             chunk_id="bm25_c1",
-            ingestion_timestamp=datetime.now(timezone.utc),
+            ingestion_timestamp=datetime.now(UTC),
             owner_user_id=user_scope,
             workspace_id=workspace_scope,
         )
@@ -79,7 +79,7 @@ class RecordingLexicalRepo:
             filename="user.pdf",
             page_number=1,
             chunk_id="entity_c1",
-            ingestion_timestamp=datetime.now(timezone.utc),
+            ingestion_timestamp=datetime.now(UTC),
             owner_user_id=user_scope,
             workspace_id=workspace_scope,
         )

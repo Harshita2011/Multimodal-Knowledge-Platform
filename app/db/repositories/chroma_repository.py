@@ -1,4 +1,5 @@
 from datetime import datetime
+from typing import Any
 
 from app.core.exceptions import AppError
 from app.db.repositories.vector_repository import VectorRepository
@@ -9,7 +10,7 @@ class ChromaVectorRepository(VectorRepository):
     def __init__(self, client, collection_name: str):
         self.client = client
         self.collection_name = collection_name
-        self.collection = None
+        self.collection: Any = None
 
     def initialize_collection(self) -> None:
         self.collection = self.client.get_or_create_collection(name=self.collection_name, metadata={"hnsw:space": "cosine"})

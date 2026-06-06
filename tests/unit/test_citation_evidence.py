@@ -1,11 +1,11 @@
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 
 from app.models.domain.entities import ChunkMetadata, RetrievedChunk
 from app.rag.citation_mapper import CitationMapper
 
 
 def test_citation_mapper_prefers_query_relevant_sentence():
-    md = ChunkMetadata(document_id="d1", filename="f.pdf", page_number=1, chunk_id="c1", ingestion_timestamp=datetime.now(timezone.utc))
+    md = ChunkMetadata(document_id="d1", filename="f.pdf", page_number=1, chunk_id="c1", ingestion_timestamp=datetime.now(UTC))
     chunk = RetrievedChunk(
         chunk_id="c1",
         score=0.8,

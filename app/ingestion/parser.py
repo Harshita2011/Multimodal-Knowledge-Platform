@@ -1,7 +1,7 @@
-from pathlib import Path
 import re
 import xml.etree.ElementTree as ET
 import zipfile
+from pathlib import Path
 
 import fitz
 

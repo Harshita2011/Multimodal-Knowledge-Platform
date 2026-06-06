@@ -1,5 +1,5 @@
-from dataclasses import dataclass
 from collections import defaultdict
+from dataclasses import dataclass
 
 from app.models.domain.entities import RetrievedChunk
 from app.rag.query_strategy import AnswerMode, RetrievalMode

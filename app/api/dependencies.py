@@ -1,11 +1,12 @@
 from functools import lru_cache
+
 from sqlalchemy import create_engine
 
 from app.core.resilience import RetryPolicy
 from app.core.settings import get_settings
+from app.db.chroma_client import build_chroma_client
 from app.db.postgres.repositories.lexical_repo import LexicalPgRepository
 from app.db.postgres.session import normalize_sync_database_url
-from app.db.chroma_client import build_chroma_client
 from app.db.repositories.chroma_repository import ChromaVectorRepository
 from app.ingestion.chunker import PDFChunker
 from app.ingestion.orchestrator import IngestionOrchestrator

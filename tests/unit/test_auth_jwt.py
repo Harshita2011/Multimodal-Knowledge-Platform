@@ -1,4 +1,3 @@
-import pytest
 
 from app.auth.jwt import create_token, decode_token
 

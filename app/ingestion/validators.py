@@ -3,7 +3,6 @@ from fastapi import UploadFile
 from app.core.exceptions import AppError
 from app.utils.files import sanitize_filename
 
-
 ALLOWED_TYPES = {
     "application/pdf",
     "application/vnd.openxmlformats-officedocument.wordprocessingml.document",

@@ -7,10 +7,9 @@ from pathlib import Path
 
 from app.api.dependencies import get_embedding_service, get_lexical_repository, get_vector_repository
 from app.core.settings import get_settings
-from app.rag.scopes import BENCHMARK_RETRIEVAL_USER_ID
 from app.rag.evaluation import mean_reciprocal_rank, ndcg_at_k, recall_at_k
 from app.rag.retriever import Retriever
-
+from app.rag.scopes import BENCHMARK_RETRIEVAL_USER_ID
 
 ABLATIONS = [
     ("vector_only", {"enable_bm25": False, "enable_entity": False, "enable_rrf": False}),
@@ -234,7 +233,7 @@ def _benchmark_similarity_flag(overall_contrib: dict, category_breakdown: dict) 
         for metric in ("recall_at_10", "mrr", "ndcg")
     )
     max_category_delta = 0.0
-    for category, mode_metrics in category_breakdown.items():
+    for _category, mode_metrics in category_breakdown.items():
         base = mode_metrics["vector_only"]
         for mode, metrics in mode_metrics.items():
             if mode == "vector_only":

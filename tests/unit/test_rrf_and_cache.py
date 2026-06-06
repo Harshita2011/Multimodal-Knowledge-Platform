@@ -1,4 +1,4 @@
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 
 from app.models.domain.entities import ChunkMetadata, RetrievedChunk
 from app.rag.retrieval_cache import RetrievalCache
@@ -7,7 +7,7 @@ from app.rag.text_normalizer import expand_aliases, normalize_query_text, simple
 
 
 def _chunk(cid: str, score: float) -> RetrievedChunk:
-    md = ChunkMetadata(document_id="d1", filename="f.pdf", page_number=1, chunk_id=cid, ingestion_timestamp=datetime.now(timezone.utc))
+    md = ChunkMetadata(document_id="d1", filename="f.pdf", page_number=1, chunk_id=cid, ingestion_timestamp=datetime.now(UTC))
     return RetrievedChunk(chunk_id=cid, score=score, metadata=md, text=f"text {cid}")
 
 

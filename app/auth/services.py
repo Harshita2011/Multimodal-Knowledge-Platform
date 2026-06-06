@@ -1,5 +1,5 @@
 import secrets
-from datetime import datetime, timedelta, timezone
+from datetime import UTC, datetime, timedelta
 
 from app.auth.jwt import create_token
 from app.auth.passwords import hash_password, verify_password
@@ -52,7 +52,7 @@ class AuthService:
         self._ensure_oauth_configured(provider)
         state = secrets.token_urlsafe(32)
         nonce = secrets.token_urlsafe(32)
-        expires_at = datetime.now(timezone.utc) + timedelta(minutes=self.settings.oauth_state_ttl_minutes)
+        expires_at = datetime.now(UTC) + timedelta(minutes=self.settings.oauth_state_ttl_minutes)
         await self.oauth_state_repo.create(provider=provider, state=state, nonce=nonce, expires_at=expires_at)
         auth_url = get_provider(provider).authorization_url(state=state, nonce=nonce, redirect_uri=redirect_uri)
         return {"provider": provider, "authorization_url": auth_url, "state": state}
@@ -188,7 +188,7 @@ class AuthService:
         await self.session_repo.create(
             user_id=user_id,
             refresh_token=refresh,
-            expires_at=datetime.now(timezone.utc) + timedelta(minutes=self.settings.jwt_refresh_token_minutes),
+            expires_at=datetime.now(UTC) + timedelta(minutes=self.settings.jwt_refresh_token_minutes),
             user_agent=user_agent,
             ip_address=ip_address,
             device_name=device_name,

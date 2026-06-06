@@ -5,8 +5,8 @@ Revises: 0002_security_hardening
 Create Date: 2026-06-01
 """
 
+
 from alembic import op
-import sqlalchemy as sa
 
 revision = "0003_fts_entities_chunks"
 down_revision = "0002_security_hardening"

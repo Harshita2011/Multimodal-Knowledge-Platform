@@ -1,5 +1,6 @@
-import httpx
 from urllib.parse import urlencode
+
+import httpx
 
 from app.auth.providers.base import OAuthProvider
 from app.core.settings import get_settings
@@ -39,7 +40,7 @@ class GoogleOAuthProvider(OAuthProvider):
                 },
             )
             resp.raise_for_status()
-            data = resp.json()
+            data = dict(resp.json())
             data["nonce"] = nonce
             return data
 

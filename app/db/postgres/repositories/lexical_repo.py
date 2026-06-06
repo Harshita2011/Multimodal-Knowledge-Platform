@@ -206,7 +206,7 @@ def _row_to_chunk(row: Any, source: str) -> RetrievedChunk:
         filename=row["filename"],
         page_number=int(row["page_number"]),
         chunk_id=chunk_id,
-        ingestion_timestamp=datetime.fromisoformat(md.get("ingestion_timestamp")) if md.get("ingestion_timestamp") else datetime.utcnow(),
+        ingestion_timestamp=datetime.fromisoformat(str(md.get("ingestion_timestamp"))) if md.get("ingestion_timestamp") else datetime.utcnow(),
         owner_user_id=md.get("owner_user_id"),
         workspace_id=md.get("workspace_id") or md.get("owner_user_id"),
         source_type=md.get("source_type", "pdf"),

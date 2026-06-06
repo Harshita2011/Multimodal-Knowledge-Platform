@@ -1,7 +1,6 @@
-from dataclasses import dataclass
 import re
+from dataclasses import dataclass
 from typing import Literal
-
 
 RetrievalProfileName = Literal["FAST", "BALANCED", "DEEP"]
 RetrievalMode = Literal["DOCUMENT_MODE", "MULTI_DOCUMENT_MODE", "GLOBAL_MODE"]
@@ -205,6 +204,7 @@ def build_query_plan(
     memory_document_id = None
     if memory:
         memory_document_id = memory.active_document_id or (memory.last_clicked_citation or {}).get("document_id")
+    document_filter: str | None = None
     if explicit_document_filter is not None:
         document_filter = explicit_document_filter
     elif resolved_document is not None and resolved_document.confidence >= 0.65:

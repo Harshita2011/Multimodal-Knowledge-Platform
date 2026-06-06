@@ -4,14 +4,14 @@ import uuid
 from app.core.exceptions import AppError
 from app.core.telemetry import StageTimer
 from app.db.postgres.repositories.lexical_repo import LexicalPgRepository
+from app.db.repositories.vector_repository import VectorRepository
 from app.ingestion.chunker import PDFChunker
 from app.ingestion.parser import PDFParser
+from app.ingestion.validators import validate_upload
 from app.models.responses.rag import UploadResponse
 from app.rag.retrieval_cache import RetrievalCache
 from app.services.embedding_service import EmbeddingService
 from app.services.storage_service import DocumentStorage
-from app.db.repositories.vector_repository import VectorRepository
-from app.ingestion.validators import validate_upload
 
 
 class IngestionOrchestrator:

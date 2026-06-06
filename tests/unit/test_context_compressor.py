@@ -1,4 +1,4 @@
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 
 from app.models.domain.entities import ChunkMetadata, RetrievedChunk
 from app.rag.context_compressor import ContextCompressor
@@ -10,7 +10,7 @@ def _chunk(cid: str, text: str) -> RetrievedChunk:
         filename="f.pdf",
         page_number=1,
         chunk_id=cid,
-        ingestion_timestamp=datetime.now(timezone.utc),
+        ingestion_timestamp=datetime.now(UTC),
     )
     return RetrievedChunk(chunk_id=cid, score=0.9, metadata=md, text=text)
 

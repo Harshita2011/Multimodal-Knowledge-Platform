@@ -1,4 +1,4 @@
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 
 from app.models.domain.entities import ChunkMetadata, RetrievedChunk
 from app.rag.citation_mapper import CitationMapper
@@ -10,7 +10,7 @@ def test_citation_mapper_returns_required_fields():
         filename="file.pdf",
         page_number=3,
         chunk_id="doc1_p3_c0",
-        ingestion_timestamp=datetime.now(timezone.utc),
+        ingestion_timestamp=datetime.now(UTC),
         source_type="pdf",
         modality="text",
     )

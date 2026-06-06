@@ -1,4 +1,5 @@
 import pytest
+from pydantic import ValidationError
 
 from app.core.settings import Settings
 
@@ -14,5 +15,5 @@ def test_token_budget_fallback_uses_prompt_minus_reserved():
 
 
 def test_token_budget_validation_fails_when_missing_configs():
-    with pytest.raises(Exception):
+    with pytest.raises(ValidationError):
         Settings(MAX_CONTEXT_TOKENS=None, MAX_PROMPT_TOKENS=None, RESERVED_RESPONSE_TOKENS=None)

@@ -1,15 +1,15 @@
 import json
 import time
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 
 import pytest
 
 from app.models.domain.entities import ChunkMetadata, RetrievedChunk
-from app.rag.scopes import BENCHMARK_RETRIEVAL_USER_ID
 from app.rag.citation_mapper import CitationMapper
 from app.rag.evaluation import citation_coverage, precision_at_k
 from app.rag.retriever import Retriever
+from app.rag.scopes import BENCHMARK_RETRIEVAL_USER_ID
 
 
 class FixtureEmbeddingService:
@@ -47,7 +47,7 @@ def _to_chunk(item: dict) -> RetrievedChunk:
         filename="fixture.pdf",
         page_number=item["page_number"],
         chunk_id=item["chunk_id"],
-        ingestion_timestamp=datetime.now(timezone.utc),
+        ingestion_timestamp=datetime.now(UTC),
         owner_user_id=BENCHMARK_RETRIEVAL_USER_ID,
         workspace_id=BENCHMARK_RETRIEVAL_USER_ID,
     )

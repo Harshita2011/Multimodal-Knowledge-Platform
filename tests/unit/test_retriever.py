@@ -1,8 +1,8 @@
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 
 from app.models.domain.entities import ChunkMetadata, RetrievedChunk
-from app.rag.scopes import BENCHMARK_RETRIEVAL_USER_ID
 from app.rag.retriever import Retriever
+from app.rag.scopes import BENCHMARK_RETRIEVAL_USER_ID
 
 
 class DummyEmbedding:
@@ -28,7 +28,7 @@ class DummyRepo:
             filename="f.pdf",
             page_number=1,
             chunk_id="d1_p1_c0",
-            ingestion_timestamp=datetime.now(timezone.utc),
+            ingestion_timestamp=datetime.now(UTC),
             owner_user_id=BENCHMARK_RETRIEVAL_USER_ID,
             workspace_id=BENCHMARK_RETRIEVAL_USER_ID,
             source_type="pdf",

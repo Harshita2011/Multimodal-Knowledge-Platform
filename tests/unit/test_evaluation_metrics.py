@@ -1,4 +1,4 @@
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 
 from app.models.domain.entities import ChunkMetadata, RetrievedChunk
 from app.rag.evaluation import mean_reciprocal_rank, recall_at_k
@@ -10,7 +10,7 @@ def _chunk(chunk_id: str) -> RetrievedChunk:
         filename="f.pdf",
         page_number=1,
         chunk_id=chunk_id,
-        ingestion_timestamp=datetime.now(timezone.utc),
+        ingestion_timestamp=datetime.now(UTC),
     )
     return RetrievedChunk(chunk_id=chunk_id, score=0.5, metadata=md, text="x")
 

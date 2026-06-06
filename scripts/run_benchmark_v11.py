@@ -1,13 +1,14 @@
 import json
 import statistics
 import time
+from datetime import UTC
 from pathlib import Path
 
 from app.api.dependencies import get_embedding_service, get_lexical_repository, get_vector_repository
 from app.core.settings import get_settings
 from app.rag.evaluation import mean_reciprocal_rank, ndcg_at_k, recall_at_k
-from app.rag.scopes import BENCHMARK_RETRIEVAL_USER_ID
 from app.rag.retriever import Retriever
+from app.rag.scopes import BENCHMARK_RETRIEVAL_USER_ID
 
 
 def _load_base_cases() -> list[dict]:
@@ -156,7 +157,7 @@ def _evaluate_mode(mode: str, cases: list[dict]) -> dict:
 
 
 def _simulate_retrieval(mode: str, case: dict):
-    from datetime import datetime, timezone
+    from datetime import datetime
     from types import SimpleNamespace
 
     from app.models.domain.entities import ChunkMetadata, RetrievedChunk
@@ -168,7 +169,7 @@ def _simulate_retrieval(mode: str, case: dict):
         filename=case.get("source_doc", "doc.pdf"),
         page_number=(case.get("expected_pages") or [1])[0],
         chunk_id=expected,
-        ingestion_timestamp=datetime.now(timezone.utc),
+        ingestion_timestamp=datetime.now(UTC),
     )
     other = RetrievedChunk(chunk_id=f"noise_{abs(hash(case['query']))%9999}", score=0.62, metadata=md.model_copy(update={"chunk_id": f"noise_{abs(hash(case['query']))%9999}"}), text="noise")
     good = RetrievedChunk(chunk_id=expected, score=0.91 if mode == "v11" else 0.79, metadata=md, text="expected")

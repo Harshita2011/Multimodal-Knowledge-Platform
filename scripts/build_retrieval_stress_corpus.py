@@ -1,7 +1,6 @@
 import json
 from pathlib import Path
 
-
 DOC_TYPES = [
     "policy",
     "manual",
@@ -410,7 +409,6 @@ def _ambiguous_documents() -> tuple[list[dict], list[dict]]:
     for i in range(8):
         version_a = f"2026.{i + 1}"
         version_b = f"2027.{i + 1}"
-        topic = f"grace window {14 + i} minutes"
         doc_a = f"ambiguous_left_{i:02d}"
         doc_b = f"ambiguous_right_{i:02d}"
         chunk_a = _chunk(
@@ -491,12 +489,12 @@ def _long_context_documents() -> tuple[list[dict], list[dict]]:
         prompts = [
             f"Where is {needle} used before promoting standby writers?",
             f"Find the deep answer for {needle}.",
-            f"Which checkpoint verifies delayed escrow recovery before standby promotion?",
+            "Which checkpoint verifies delayed escrow recovery before standby promotion?",
             f"{needle} standby writer promotion rule",
             f"Locate the answer hidden deep in the document about {needle}.",
-            f"How is delayed escrow recovery verified before promotion?",
-            f"Which deep checkpoint appears near the end of the playbook?",
-            f"What is the escrow recovery checkpoint before standby writers are promoted?",
+            "How is delayed escrow recovery verified before promotion?",
+            "Which deep checkpoint appears near the end of the playbook?",
+            "What is the escrow recovery checkpoint before standby writers are promoted?",
         ]
         gold_chunk = _chunk_id(document_id, 9, 0)
         for j, prompt in enumerate(prompts):

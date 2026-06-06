@@ -7,8 +7,8 @@ import pytest
 from fastapi.testclient import TestClient
 
 from app.api.dependencies import get_ingestion_orchestrator, get_rag_orchestrator
-from app.core.telemetry import _analytics_state, reset_query_analytics_state
 from app.core.settings import get_settings
+from app.core.telemetry import _analytics_state, reset_query_analytics_state
 from app.db.chroma_client import build_chroma_client
 from app.db.repositories.chroma_repository import ChromaVectorRepository
 from app.ingestion.chunker import PDFChunker

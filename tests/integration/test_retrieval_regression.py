@@ -1,6 +1,6 @@
 import json
 import time
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 
 import pytest
@@ -16,7 +16,7 @@ def _to_chunk(item: dict) -> RetrievedChunk:
         filename="fixture.pdf",
         page_number=item["page_number"],
         chunk_id=item["chunk_id"],
-        ingestion_timestamp=datetime.now(timezone.utc),
+        ingestion_timestamp=datetime.now(UTC),
     )
     return RetrievedChunk(
         chunk_id=item["chunk_id"],

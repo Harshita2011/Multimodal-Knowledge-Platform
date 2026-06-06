@@ -16,7 +16,7 @@ class UserContext:
 
 async def get_current_user(
     authorization: str = Header(default=""),
-    session: AsyncSession = Depends(get_db_session),
+    session: AsyncSession | None = Depends(get_db_session),
 ) -> UserContext:
     if not authorization.startswith("Bearer "):
         raise AppError("unauthorized", "Missing bearer token", 401)
@@ -43,7 +43,7 @@ async def get_current_user(
 
 async def get_optional_current_user(
     authorization: str = Header(default=""),
-    session: AsyncSession = Depends(get_db_session),
+    session: AsyncSession | None = Depends(get_db_session),
 ) -> UserContext | None:
     if session is None:
         return None

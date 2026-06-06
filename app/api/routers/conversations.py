@@ -6,6 +6,7 @@ from app.core.exceptions import AppError
 from app.db.postgres.repositories.conversation_repo import ConversationPgRepository
 from app.db.postgres.repositories.conversation_state_repo import ConversationStatePgRepository
 from app.db.postgres.session import get_db_session, get_db_unavailable_message
+from app.models.domain.entities import Citation
 from app.models.requests.conversation import ConversationCreateRequest, ConversationStateUpdateRequest
 from app.models.responses.conversation import ConversationDetailResponse, ConversationResponse, ConversationStateResponse, MessageResponse
 
@@ -68,7 +69,7 @@ async def get_conversation(conversation_id: str, user: UserContext = Depends(get
         state=ConversationStateResponse(
             active_document_id=state.active_document_id,
             active_chunk_id=state.active_chunk_id,
-            last_clicked_citation=state.last_clicked_citation,
+            last_clicked_citation=Citation(**state.last_clicked_citation) if state.last_clicked_citation else None,
             last_source_document=state.last_source_document,
             last_retrieval_mode=state.last_retrieval_mode,
             last_answer_mode=state.last_answer_mode,
@@ -90,7 +91,7 @@ async def get_conversation_state(conversation_id: str, user: UserContext = Depen
     return ConversationStateResponse(
         active_document_id=state.active_document_id,
         active_chunk_id=state.active_chunk_id,
-        last_clicked_citation=state.last_clicked_citation,
+        last_clicked_citation=Citation(**state.last_clicked_citation) if state.last_clicked_citation else None,
         last_source_document=state.last_source_document,
         last_retrieval_mode=state.last_retrieval_mode,
         last_answer_mode=state.last_answer_mode,
@@ -124,7 +125,7 @@ async def patch_conversation_state(
     return ConversationStateResponse(
         active_document_id=state.active_document_id,
         active_chunk_id=state.active_chunk_id,
-        last_clicked_citation=state.last_clicked_citation,
+        last_clicked_citation=Citation(**state.last_clicked_citation) if state.last_clicked_citation else None,
         last_source_document=state.last_source_document,
         last_retrieval_mode=state.last_retrieval_mode,
         last_answer_mode=state.last_answer_mode,

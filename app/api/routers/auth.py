@@ -1,4 +1,7 @@
+from urllib.parse import quote
+
 from fastapi import APIRouter, Depends, Header, Request
+from fastapi.responses import RedirectResponse
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.auth.dependencies import UserContext, get_current_user
@@ -9,10 +12,6 @@ from app.core.settings import get_settings
 from app.db.postgres.repositories.auth_repo import OAuthStateRepository, SessionPgRepository, UserPgRepository
 from app.db.postgres.session import get_db_session, get_db_unavailable_message
 from app.security.rate_limiter import limiter
-from fastapi.responses import RedirectResponse
-from urllib.parse import quote
-
-
 
 router = APIRouter(prefix="/auth", tags=["auth"])
 

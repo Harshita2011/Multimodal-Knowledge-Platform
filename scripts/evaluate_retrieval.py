@@ -1,15 +1,15 @@
 import argparse
 import json
 import time
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 
 from app.api.dependencies import get_embedding_service, get_vector_repository
 from app.core.settings import get_settings
 from app.rag.citation_mapper import CitationMapper
 from app.rag.evaluation import citation_coverage, mean_reciprocal_rank, ndcg_at_k, precision_at_k, recall_at_k
-from app.rag.scopes import BENCHMARK_RETRIEVAL_USER_ID
 from app.rag.retriever import Retriever
+from app.rag.scopes import BENCHMARK_RETRIEVAL_USER_ID
 
 
 def load_dataset(path: Path) -> list[dict]:
@@ -56,7 +56,6 @@ def evaluate(cases: list[dict], k_override: int | None = None) -> dict:
         cited_chunk_ids = {c.chunk_id for c in citations}
 
         retrieved_ids = {c.chunk_id for c in chunks}
-        page_hits = {c.metadata.page_number for c in chunks}
         if expected_pages and not expected_ids:
             # fall back to page-based relevance when chunk ids are not provided
             expected_ids = {c.chunk_id for c in chunks if c.metadata.page_number in expected_pages}
@@ -72,7 +71,7 @@ def evaluate(cases: list[dict], k_override: int | None = None) -> dict:
     count = max(1, len(cases))
     return {
         "metadata": {
-            "timestamp": datetime.now(timezone.utc).isoformat(),
+            "timestamp": datetime.now(UTC).isoformat(),
             "embedding_model": settings.embedding_model,
             "reranking_enabled": settings.enable_reranking,
             "retrieval_threshold": settings.min_retrieval_score,

@@ -1,7 +1,6 @@
 import json
 from pathlib import Path
 
-
 SCENARIOS = [
     "synonym",
     "acronym",
@@ -101,7 +100,7 @@ def build_corpus(min_queries: int = 300) -> list[dict]:
     rows: list[dict] = []
     qid = 0
     while len(rows) < min_queries:
-        for doc_idx, doc in enumerate(DOCS):
+        for doc_idx, _doc in enumerate(DOCS):
             for scenario in SCENARIOS:
                 for template in TEMPLATES[scenario]:
                     src_doc, page, chunk_id = _expected_for(doc_idx, scenario)

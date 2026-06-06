@@ -1,4 +1,5 @@
-from pathlib import Path
+
+from datetime import UTC
 
 from scripts.generate_retrieval_report import generate_report
 
@@ -6,7 +7,8 @@ from scripts.generate_retrieval_report import generate_report
 def test_generate_report_shape(monkeypatch):
     class DummyRetriever:
         def retrieve_with_stats(self, query, top_k, document_filter, user_scope=None, workspace_scope=None):
-            from datetime import datetime, timezone
+            from datetime import datetime
+
             from app.models.domain.entities import ChunkMetadata, RetrievedChunk
             from app.rag.retriever import RetrievalStats
             from app.rag.scopes import BENCHMARK_RETRIEVAL_USER_ID
@@ -16,7 +18,7 @@ def test_generate_report_shape(monkeypatch):
                 filename="f.pdf",
                 page_number=1,
                 chunk_id="c1",
-                ingestion_timestamp=datetime.now(timezone.utc),
+                ingestion_timestamp=datetime.now(UTC),
                 owner_user_id=BENCHMARK_RETRIEVAL_USER_ID,
                 workspace_id=BENCHMARK_RETRIEVAL_USER_ID,
             )

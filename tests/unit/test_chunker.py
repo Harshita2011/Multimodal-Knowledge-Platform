@@ -1,5 +1,5 @@
-from app.models.domain.entities import ParsedPage
 from app.ingestion.chunker import PDFChunker
+from app.models.domain.entities import ParsedPage
 
 
 def test_chunker_generates_stable_ids():

@@ -1,9 +1,9 @@
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 
 from app.models.domain.entities import ChunkMetadata, RetrievedChunk
-from app.rag.scopes import BENCHMARK_RETRIEVAL_USER_ID
-from app.rag.retriever import Retriever
 from app.rag.reranker import suppress_near_duplicates
+from app.rag.retriever import Retriever
+from app.rag.scopes import BENCHMARK_RETRIEVAL_USER_ID
 
 
 def _chunk(chunk_id: str, text: str, score: float = 0.8) -> RetrievedChunk:
@@ -12,7 +12,7 @@ def _chunk(chunk_id: str, text: str, score: float = 0.8) -> RetrievedChunk:
         filename="f.pdf",
         page_number=1,
         chunk_id=chunk_id,
-        ingestion_timestamp=datetime.now(timezone.utc),
+        ingestion_timestamp=datetime.now(UTC),
         owner_user_id=BENCHMARK_RETRIEVAL_USER_ID,
         workspace_id=BENCHMARK_RETRIEVAL_USER_ID,
     )

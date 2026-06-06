@@ -1,4 +1,4 @@
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 
 from app.models.domain.entities import ChunkMetadata, RetrievedChunk
 from app.rag.document_coherence import DocumentCoherenceFilter
@@ -10,7 +10,7 @@ def _chunk(document_id: str, filename: str, chunk_id: str, score: float, page: i
         filename=filename,
         page_number=page,
         chunk_id=chunk_id,
-        ingestion_timestamp=datetime.now(timezone.utc),
+        ingestion_timestamp=datetime.now(UTC),
     )
     return RetrievedChunk(chunk_id=chunk_id, score=score, metadata=md, text=f"{filename} {chunk_id}")
 

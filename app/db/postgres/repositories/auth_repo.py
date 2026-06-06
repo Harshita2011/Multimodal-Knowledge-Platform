@@ -1,6 +1,6 @@
 import hashlib
 import uuid
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 
 from sqlalchemy import and_, select
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -88,7 +88,7 @@ class OAuthStateRepository:
         return row
 
     async def consume_valid(self, provider: str, state: str) -> OAuthStateModel | None:
-        now = datetime.now(timezone.utc)
+        now = datetime.now(UTC)
         stmt = select(OAuthStateModel).where(
             and_(
                 OAuthStateModel.provider == provider,
@@ -150,7 +150,7 @@ class SessionPgRepository:
         row = await self.get_any_by_token(refresh_token)
         if row is None:
             return None
-        now = datetime.now(timezone.utc)
+        now = datetime.now(UTC)
         if row.revoked or row.expires_at <= now:
             return None
         return row
@@ -172,7 +172,7 @@ class SessionPgRepository:
         return len(rows)
 
     async def active_count_for_user(self, user_id: str) -> int:
-        now = datetime.now(timezone.utc)
+        now = datetime.now(UTC)
         stmt = select(SessionModel).where(
             and_(SessionModel.user_id == user_id, SessionModel.revoked.is_(False), SessionModel.expires_at > now)
         )

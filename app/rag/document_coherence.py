@@ -1,5 +1,5 @@
-from dataclasses import dataclass
 from collections import defaultdict
+from dataclasses import dataclass
 
 from app.models.domain.entities import RetrievedChunk
 from app.rag.query_strategy import RetrievalMode
@@ -73,7 +73,7 @@ class DocumentCoherenceFilter:
 
         kept: list[RetrievedChunk] = []
         dropped_chunks: list[str] = []
-        
+
         # Determine minimum chunks to preserve based on query type
         keep_min_chunks = 1
         if answer_mode == "DETAILED_EXPLANATION":
@@ -88,11 +88,11 @@ class DocumentCoherenceFilter:
             top_score = float(doc_chunks[0].score)
             cutoff = max(0.25, top_score * self.within_doc_keep_ratio)
             retained = [chunk for chunk in doc_chunks if float(chunk.score) >= cutoff]
-            
+
             # Enforce minimum chunk counts
             if len(retained) < keep_min_chunks:
                 retained = doc_chunks[:keep_min_chunks]
-                
+
             if not retained:
                 retained = [doc_chunks[0]]
             kept.extend(retained)

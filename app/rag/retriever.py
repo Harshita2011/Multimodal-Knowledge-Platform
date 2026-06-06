@@ -7,8 +7,8 @@ from app.rag.channels import BM25Retriever, EntityRetriever
 from app.rag.deduplicator import ChunkDeduplicator
 from app.rag.diversifier import ChunkDiversifier
 from app.rag.query_strategy import PROFILES, classify_query_intent, expand_queries, heading_bias_score, pick_profile
-from app.rag.retrieval_cache import RetrievalCache
 from app.rag.reranker import Reranker, SemanticReranker, suppress_near_duplicates
+from app.rag.retrieval_cache import RetrievalCache
 from app.rag.rrf import RRFMerger
 from app.rag.text_normalizer import normalize_query_text
 from app.services.embedding_service import EmbeddingService

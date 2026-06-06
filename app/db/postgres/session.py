@@ -1,6 +1,8 @@
 import asyncio
-from collections.abc import AsyncIterator
 import logging
+from collections.abc import AsyncIterator
+
+from typing import Any
 
 from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_async_engine
 
@@ -9,9 +11,9 @@ from app.core.settings import get_settings
 logger = logging.getLogger(__name__)
 
 _settings = get_settings()
-_engine = None
-SessionLocal = None
-_engine_loop = None
+_engine: Any = None
+SessionLocal: Any = None
+_engine_loop: Any = None
 db_init_error: str | None = None
 
 
@@ -71,7 +73,7 @@ except Exception:
     pass
 
 
-async def get_db_session() -> AsyncIterator[AsyncSession]:
+async def get_db_session() -> AsyncIterator[AsyncSession | None]:
     _init_db_factory()
     if SessionLocal is None:
         yield None

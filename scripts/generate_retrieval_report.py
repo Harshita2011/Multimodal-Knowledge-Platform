@@ -3,13 +3,13 @@ import json
 import time
 from pathlib import Path
 
+from app.api.dependencies import get_embedding_service, get_vector_repository
 from app.core.settings import get_settings
 from app.rag.citation_mapper import CitationMapper
 from app.rag.evaluation import citation_coverage, mean_reciprocal_rank, precision_at_k, recall_at_k
+from app.rag.retriever import Retriever
 from app.rag.scopes import BENCHMARK_RETRIEVAL_USER_ID
 from scripts.evaluate_retrieval import load_dataset
-from app.api.dependencies import get_embedding_service, get_vector_repository
-from app.rag.retriever import Retriever
 
 
 def generate_report(cases: list[dict], k_override: int | None = None) -> dict:

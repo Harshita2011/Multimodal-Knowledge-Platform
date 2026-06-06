@@ -5,7 +5,6 @@ from app.models.domain.entities import ChunkMetadata, DocumentChunk
 from app.rag.scopes import BENCHMARK_RETRIEVAL_USER_ID
 from app.utils.time import utc_now
 
-
 DOCS = [
     (
         "security_policy_v2",

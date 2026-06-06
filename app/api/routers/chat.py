@@ -3,14 +3,14 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.api.dependencies import get_rag_orchestrator
 from app.auth.dependencies import UserContext, get_optional_current_user
-from app.db.postgres.repositories.conversation_repo import ConversationPgRepository
-from app.db.postgres.repositories.conversation_state_repo import ConversationStatePgRepository
-from app.db.postgres.repositories.document_repo import DocumentPgRepository
-from app.db.postgres.repositories.auth_repo import UserPgRepository
-from app.db.postgres.session import get_db_session
 from app.core.exceptions import AppError
 from app.core.settings import get_settings
 from app.core.telemetry import TelemetryEvent, emit
+from app.db.postgres.repositories.auth_repo import UserPgRepository
+from app.db.postgres.repositories.conversation_repo import ConversationPgRepository
+from app.db.postgres.repositories.conversation_state_repo import ConversationStatePgRepository
+from app.db.postgres.repositories.document_repo import DocumentPgRepository
+from app.db.postgres.session import get_db_session
 from app.models.requests.query import QueryRequest
 from app.models.responses.error import ErrorResponse
 from app.models.responses.rag import QueryResponse

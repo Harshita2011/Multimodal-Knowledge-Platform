@@ -4,11 +4,11 @@ from app.core.telemetry import QueryAnalyticsInput, StageTimer, TelemetryEvent, 
 from app.models.requests.query import QueryRequest
 from app.models.responses.rag import QueryResponse
 from app.rag.citation_mapper import CitationMapper
-from app.rag.document_coherence import DocumentCoherenceFilter
 from app.rag.context_compressor import ContextCompressor
+from app.rag.document_coherence import DocumentCoherenceFilter
 from app.rag.prompt_builder import PromptBuilder
-from app.rag.retriever import Retriever
 from app.rag.query_strategy import QueryPlan, build_query_plan
+from app.rag.retriever import Retriever
 from app.services.llm_service import LLMService, compose_llm_prompt
 
 

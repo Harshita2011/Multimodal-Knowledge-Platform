@@ -1,4 +1,4 @@
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 
 from app.models.domain.entities import ChunkMetadata, RetrievedChunk
 from app.rag.prompt_builder import PromptBuilder
@@ -12,7 +12,7 @@ def _chunk(chunk_id: str, score: float, text: str) -> RetrievedChunk:
         filename="f.pdf",
         page_number=1,
         chunk_id=chunk_id,
-        ingestion_timestamp=datetime.now(timezone.utc),
+        ingestion_timestamp=datetime.now(UTC),
     )
     return RetrievedChunk(chunk_id=chunk_id, score=score, metadata=md, text=text)
 

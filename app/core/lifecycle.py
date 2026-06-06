@@ -6,9 +6,9 @@ from sqlalchemy import text
 
 from app.api.dependencies import get_embedding_service, get_vector_repository
 from app.core.settings import get_settings
+from app.db.postgres import models as _pg_models  # noqa: F401
 from app.db.postgres.base import Base
 from app.db.postgres.session import _engine
-from app.db.postgres import models as _pg_models  # noqa: F401
 from app.utils.tokenizer import build_tokenizer
 
 

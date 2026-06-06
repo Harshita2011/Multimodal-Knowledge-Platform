@@ -58,7 +58,7 @@ class TiktokenTokenizer(Tokenizer):
         toks = self._enc.encode(pre)
         if len(toks) <= max_tokens:
             return pre
-        return self._enc.decode(toks[:max_tokens]).strip()
+        return str(self._enc.decode(toks[:max_tokens]).strip())
 
 
 def build_tokenizer(strict: bool = False) -> Tokenizer:
