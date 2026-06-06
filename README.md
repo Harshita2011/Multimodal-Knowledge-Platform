@@ -1,6 +1,6 @@
-# Multimodal RAG Backend
+# Multimodal Knowledge Platform
 
-Production-oriented PDF Retrieval-Augmented Generation backend built with FastAPI, ChromaDB, SentenceTransformers, and Gemini.
+Production-oriented PDF Retrieval-Augmented Generation system built with FastAPI, ChromaDB, SentenceTransformers, and Gemini.
 
 ## Architecture
 
@@ -61,10 +61,10 @@ Then open:
 ### Windows Full-Stack Development
 From PowerShell:
 ```powershell
-# Run backend + frontend
+# Run platform services (API + UI)
 powershell -ExecutionPolicy Bypass -File scripts/dev.ps1
 
-# Restart backend/frontend processes
+# Restart platform processes
 powershell -ExecutionPolicy Bypass -File scripts/dev.ps1 -Restart
 
 # Inspect active preview ports
