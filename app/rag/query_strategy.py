@@ -162,8 +162,7 @@ def detect_retrieval_mode(query: str, answer_mode: AnswerMode, memory: Conversat
     if any(k in q for k in ("explain this", "explain detailed", "what does this mean", "summarize this", "go deeper", "this section", "this paper", "this document")):
         return "DOCUMENT_MODE"
     if memory and (memory.active_document_id or memory.last_clicked_citation or memory.last_source_document):
-        if any(k in q for k in ("explain", "summarize", "detail", "deeper", "this", "that section", "the section", "it")):
-            return "DOCUMENT_MODE"
+        return "DOCUMENT_MODE"
     return "GLOBAL_MODE"
 
 
@@ -199,6 +198,8 @@ def build_query_plan(
 ) -> QueryPlan:
     answer_mode = normalize_answer_mode(explicit_answer_mode, query=query)
     retrieval_mode = detect_retrieval_mode(query, answer_mode, memory=memory)
+    if (explicit_document_filter is not None or resolved_document is not None) and retrieval_mode == "GLOBAL_MODE":
+        retrieval_mode = "DOCUMENT_MODE"
     if resolved_document is not None and explicit_document_filter is None:
         retrieval_mode = "DOCUMENT_MODE"
     memory_document_id = None

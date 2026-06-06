@@ -37,6 +37,7 @@ class AsyncFile:
     def __init__(self, path: Path, filename: str):
         self._path = path
         self.filename = filename
+        self.content_type = "application/pdf"
 
     async def read(self) -> bytes:
         return self._path.read_bytes()

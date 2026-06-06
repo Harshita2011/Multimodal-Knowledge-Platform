@@ -85,6 +85,7 @@ class RagOrchestrator:
                 active_document_id=effective_plan.active_document_id,
                 explicit_document_filter=effective_plan.document_filter,
                 top_k=top_k,
+                answer_mode=effective_plan.answer_mode,
             )
             chunks = coherence.chunks
             with StageTimer("compression.stage", chunk_count=len(chunks)):

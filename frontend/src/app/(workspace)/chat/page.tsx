@@ -26,6 +26,11 @@ function ChatContent() {
   const draft = useChatStore((state) => state.draft);
   const setDraft = useChatStore((state) => state.setDraft);
   const [localMessages, setLocalMessages] = useState<LocalMessage[]>([]);
+  const [isSending, setIsSending] = useState(false);
+
+  useEffect(() => {
+    setLocalMessages([]);
+  }, [activeId]);
 
   useEffect(() => {
     const id = searchParams.get("conversation");
@@ -66,6 +71,7 @@ function ChatContent() {
   const queryMutation = useMutation({
     mutationFn: chatApi.query,
     onSuccess: (response) => {
+      setIsSending(false);
       setRetrievalTrace(response.retrieval_trace ?? response.retrieval_debug ?? null);
       if (response.retrieval_trace) {
         const nextState: Partial<ConversationState> = {};
@@ -92,6 +98,9 @@ function ChatContent() {
       }
       queryClient.invalidateQueries({ queryKey: ["conversations"] });
       if (activeId) queryClient.invalidateQueries({ queryKey: ["conversation", activeId] });
+    },
+    onError: () => {
+      setIsSending(false);
     }
   });
 
@@ -118,7 +127,8 @@ function ChatContent() {
 
   async function send() {
     const text = draft.trim();
-    if (!text || queryMutation.isPending) return;
+    if (!text || isSending || queryMutation.isPending) return;
+    setIsSending(true);
     setDraft("");
     setLocalMessages((current) => [
       ...current,
@@ -187,7 +197,7 @@ function ChatContent() {
                 }
               }}
             />
-            <Button className="h-12 w-12 px-0" disabled={!draft.trim() || queryMutation.isPending} onClick={send} title="Send">
+            <Button className="h-12 w-12 px-0" disabled={!draft.trim() || isSending || queryMutation.isPending} onClick={send} title="Send">
               {queryMutation.isPending ? <Loader2 className="h-4 w-4 animate-spin" /> : <SendHorizonal className="h-4 w-4" />}
             </Button>
           </div>

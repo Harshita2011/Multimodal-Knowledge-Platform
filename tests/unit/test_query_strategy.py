@@ -1,3 +1,5 @@
+import pytest
+
 from app.rag.query_strategy import (
     ConversationMemory,
     build_query_plan,
@@ -62,6 +64,24 @@ def test_resolve_document_reference_matches_inventory_filename():
     assert resolved is not None
     assert resolved.resolved_document_id == "distributed_doc"
     assert resolved.resolved_document_name == "Distributed (1).pdf"
+    assert resolved.confidence >= 0.65
+
+
+@pytest.mark.parametrize(
+    ("query", "filename"),
+    [
+        ("summarize my resume", "Resume.pdf"),
+        ("what does my certificate say", "Certificate.pdf"),
+        ("explain my research paper", "Research Paper.pdf"),
+        ("summarize my presentation", "Presentation.pptx"),
+        ("summarize my notes", "Project Notes.docx"),
+    ],
+)
+def test_resolve_document_reference_covers_common_user_documents(query: str, filename: str):
+    docs = [{"id": filename.lower().replace(" ", "_"), "filename": filename}]
+    resolved = resolve_document_reference(query, docs)
+    assert resolved is not None
+    assert resolved.resolved_document_name == filename
     assert resolved.confidence >= 0.65
 
 

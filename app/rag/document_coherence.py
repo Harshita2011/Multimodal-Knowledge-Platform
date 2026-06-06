@@ -36,6 +36,7 @@ class DocumentCoherenceFilter:
         active_document_id: str | None = None,
         explicit_document_filter: str | None = None,
         top_k: int | None = None,
+        answer_mode: str | None = None,
     ) -> DocumentCoherenceResult:
         if not chunks:
             return DocumentCoherenceResult([], {}, {}, {}, [], [], None)
@@ -72,6 +73,14 @@ class DocumentCoherenceFilter:
 
         kept: list[RetrievedChunk] = []
         dropped_chunks: list[str] = []
+        
+        # Determine minimum chunks to preserve based on query type
+        keep_min_chunks = 1
+        if answer_mode == "DETAILED_EXPLANATION":
+            keep_min_chunks = 5
+        elif answer_mode in ["SUMMARY", "EXPLANATION"]:
+            keep_min_chunks = 3
+
         for doc_id in selected_doc_ids:
             doc_chunks = sorted(grouped[doc_id], key=lambda c: (-c.score, c.chunk_id))
             if not doc_chunks:
@@ -79,6 +88,11 @@ class DocumentCoherenceFilter:
             top_score = float(doc_chunks[0].score)
             cutoff = max(0.25, top_score * self.within_doc_keep_ratio)
             retained = [chunk for chunk in doc_chunks if float(chunk.score) >= cutoff]
+            
+            # Enforce minimum chunk counts
+            if len(retained) < keep_min_chunks:
+                retained = doc_chunks[:keep_min_chunks]
+                
             if not retained:
                 retained = [doc_chunks[0]]
             kept.extend(retained)

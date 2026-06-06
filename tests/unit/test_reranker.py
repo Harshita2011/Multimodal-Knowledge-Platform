@@ -62,7 +62,7 @@ class IdentityReranker:
 
 
 def test_retriever_reranker_fail_open_behavior():
-    retriever = Retriever(embeddings=DummyEmbedding(), vectors=DummyRepo(), enable_reranking=True)
+    retriever = Retriever(embeddings=DummyEmbedding(), vectors=DummyRepo(), enable_reranking=True, enable_rrf=False)
     retriever.reranker = RaisingReranker()
     chunks = retriever.retrieve(
         "q",
@@ -75,7 +75,7 @@ def test_retriever_reranker_fail_open_behavior():
 
 
 def test_retriever_keeps_deterministic_order_on_score_tie():
-    retriever = Retriever(embeddings=DummyEmbedding(), vectors=DummyRepo(), enable_reranking=True)
+    retriever = Retriever(embeddings=DummyEmbedding(), vectors=DummyRepo(), enable_reranking=True, enable_rrf=False)
     retriever.reranker = IdentityReranker()
     chunks = retriever.retrieve(
         "q",

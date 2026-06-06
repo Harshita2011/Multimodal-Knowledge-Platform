@@ -1,3 +1,4 @@
+import asyncio
 from collections.abc import AsyncIterator
 import logging
 
@@ -10,6 +11,7 @@ logger = logging.getLogger(__name__)
 _settings = get_settings()
 _engine = None
 SessionLocal = None
+_engine_loop = None
 db_init_error: str | None = None
 
 
@@ -35,18 +37,42 @@ def normalize_sync_database_url(url: str) -> str:
     return url
 
 
+def _init_db_factory() -> None:
+    global _engine, SessionLocal, _engine_loop, db_init_error
+    try:
+        current_loop = asyncio.get_running_loop()
+    except RuntimeError:
+        current_loop = None
+
+    if _engine is None or (current_loop is not None and _engine_loop is not current_loop):
+        if _engine is not None:
+            try:
+                _engine.sync_engine.dispose()
+            except Exception:
+                pass
+        try:
+            normalized_database_url = normalize_async_database_url(_settings.database_url)
+            _engine = create_async_engine(normalized_database_url, future=True, echo=False)
+            SessionLocal = async_sessionmaker(_engine, class_=AsyncSession, expire_on_commit=False)
+            _engine_loop = current_loop
+            db_init_error = None
+        except Exception as exc:
+            db_init_error = f"{exc.__class__.__name__}: {exc}"
+            logger.exception("Failed to initialize DB session factory from DATABASE_URL")
+            _engine = None
+            SessionLocal = None
+            _engine_loop = None
+
+
+# Static fallback check at import time
 try:
-    normalized_database_url = normalize_async_database_url(_settings.database_url)
-    _engine = create_async_engine(normalized_database_url, future=True, echo=False)
-    SessionLocal = async_sessionmaker(_engine, class_=AsyncSession, expire_on_commit=False)
-except Exception as exc:
-    db_init_error = f"{exc.__class__.__name__}: {exc}"
-    logger.exception("Failed to initialize DB session factory from DATABASE_URL")
-    _engine = None
-    SessionLocal = None
+    _init_db_factory()
+except Exception:
+    pass
 
 
 async def get_db_session() -> AsyncIterator[AsyncSession]:
+    _init_db_factory()
     if SessionLocal is None:
         yield None
         return
