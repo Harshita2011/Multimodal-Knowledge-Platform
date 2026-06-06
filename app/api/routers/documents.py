@@ -46,7 +46,7 @@ def _ensure_anonymous_user_row() -> None:
 @router.get("", response_model=list[DocumentSummaryResponse])
 async def list_documents(
     current_user: UserContext = Depends(get_current_user),
-    session: AsyncSession = Depends(get_db_session),
+    session: AsyncSession | None = Depends(get_db_session),
 ):
     if session is None:
         from app.core.exceptions import AppError
@@ -100,7 +100,7 @@ async def upload_pdf(
     document_id: str | None = Form(default=None),
     orchestrator: IngestionOrchestrator = Depends(get_ingestion_orchestrator),
     current_user: UserContext | None = Depends(get_optional_current_user),
-    session: AsyncSession = Depends(get_db_session),
+    session: AsyncSession | None = Depends(get_db_session),
 ):
     settings = get_settings()
     if settings.auth_required_for_core_routes and current_user is None:

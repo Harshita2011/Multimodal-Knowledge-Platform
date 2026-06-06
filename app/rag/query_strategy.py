@@ -1,6 +1,6 @@
 import re
 from dataclasses import dataclass
-from typing import Literal
+from typing import Any, Literal
 
 RetrievalProfileName = Literal["FAST", "BALANCED", "DEEP"]
 RetrievalMode = Literal["DOCUMENT_MODE", "MULTI_DOCUMENT_MODE", "GLOBAL_MODE"]
@@ -301,7 +301,7 @@ def _query_tokens(query: str) -> set[str]:
     return {t for t in re.findall(r"[a-z0-9]+", query.lower()) if len(t) >= 2 and t not in _QUERY_STOPWORDS}
 
 
-def resolve_document_reference(query: str, documents: list[object], threshold: float = 0.65) -> DocumentResolution | None:
+def resolve_document_reference(query: str, documents: list[Any], threshold: float = 0.65) -> DocumentResolution | None:
     q_tokens = _query_tokens(query)
     q_text = query.lower()
     best: DocumentResolution | None = None

@@ -37,12 +37,13 @@ class GeminiLLMService:
     def generate_answer(self, system_prompt: str, context: str, question: str) -> str:
         if self.client is None:
             raise AppError("llm_not_configured", "GEMINI_API_KEY is missing", 500)
+        client = self.client
 
         def _invoke() -> str:
             prompt = compose_llm_prompt(system_prompt, context, question)
             try:
                 completion = call_with_timeout(
-                    lambda: self.client.models.generate_content(model=self.model, contents=prompt),
+                    lambda: client.models.generate_content(model=self.model, contents=prompt),
                     timeout_seconds=self.timeout_seconds,
                     code="llm_timeout",
                     message="LLM call timed out",

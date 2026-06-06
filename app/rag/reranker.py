@@ -1,5 +1,6 @@
 import time
 from abc import ABC, abstractmethod
+from typing import Any
 
 from sentence_transformers import CrossEncoder
 
@@ -31,7 +32,7 @@ class SemanticReranker(Reranker):
             return chunks
         started = time.perf_counter()
         candidates = chunks[: self.top_n]
-        pairs = [(query, c.text) for c in candidates]
+        pairs: Any = [(query, c.text) for c in candidates]
         scores = self._get_model().predict(pairs, convert_to_numpy=True).tolist()
         elapsed_ms = int((time.perf_counter() - started) * 1000)
         if elapsed_ms > self.timeout_ms:

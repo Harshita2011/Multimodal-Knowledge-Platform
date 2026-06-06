@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+from typing import Any
 
 from app.db.postgres.repositories.lexical_repo import LexicalPgRepository
 from app.db.repositories.vector_repository import VectorRepository
@@ -89,7 +90,8 @@ class Retriever:
         workspace_scope = workspace_scope or user_scope
         intent = classify_query_intent(query)
         doc_type = None
-        profile = PROFILES.get((retrieval_profile or "").upper(), None) if retrieval_profile else None
+        profile_key: Any = retrieval_profile.upper() if retrieval_profile else None
+        profile = PROFILES.get(profile_key, None) if profile_key else None
         if profile is None:
             profile = pick_profile(intent=intent, answer_mode=answer_mode, doc_type=doc_type)
         queries = expand_queries(query)

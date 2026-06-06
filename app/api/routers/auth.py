@@ -58,6 +58,8 @@ async def logout(req: RefreshRequest, session: AsyncSession = Depends(get_db_ses
 async def me(user: UserContext = Depends(get_current_user), session: AsyncSession = Depends(get_db_session)):
     repo = UserPgRepository(session)
     row = await repo.get_by_email(user.email)
+    if row is None:
+        raise AppError("user_not_found", "User not found", 404)
     return UserMe(id=row.id, email=row.email, name=row.name, provider=row.provider, provider_account_id=row.provider_account_id)
 
 

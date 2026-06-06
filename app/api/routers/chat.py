@@ -85,7 +85,7 @@ async def query_rag(
         if owned is None:
             raise AppError("forbidden_document", "Document not found for current user", 403)
 
-    if conv_repo is not None and state_repo is not None and req.conversation_id:
+    if conv_repo is not None and state_repo is not None and req.conversation_id and current_user is not None:
         conversation = await conv_repo.get_owned(req.conversation_id, current_user.user_id)
         if conversation is None:
             raise AppError("conversation_not_found", "Conversation not found for current user", 404)
@@ -110,7 +110,7 @@ async def query_rag(
     response = orchestrator.answer(req, plan=plan, user_scope=user_scope, workspace_scope=workspace_scope)
     if current_user is not None:
         emit(TelemetryEvent(name="auth.query", attrs={"authenticated_queries": 1}))
-    if current_user is not None and session is not None and req.conversation_id:
+    if current_user is not None and session is not None and req.conversation_id and conv_repo is not None:
         conv = await conv_repo.get_owned(req.conversation_id, current_user.user_id)
         if conv is None:
             raise AppError("conversation_not_found", "Conversation not found for current user", 404)

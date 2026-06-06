@@ -73,7 +73,7 @@ class SentenceTransformerEmbeddingService:
                 raise AppError("embedding_failed", "Embedding request failed", 502) from exc
 
         vec = with_retries(_invoke, policy=self.retry_policy, is_retryable=self._is_retryable)
-        return vec.tolist()
+        return [float(x) for x in vec.tolist()]
 
     def health_check(self) -> None:
         _ = self.model.get_sentence_embedding_dimension()
