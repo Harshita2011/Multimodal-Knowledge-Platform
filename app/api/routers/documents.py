@@ -1,4 +1,5 @@
 import uuid
+from datetime import UTC, datetime
 
 from fastapi import APIRouter, Depends, File, Form, UploadFile
 from sqlalchemy import create_engine, text
@@ -23,13 +24,14 @@ router = APIRouter(prefix="/documents", tags=["documents"])
 def _ensure_anonymous_user_row() -> None:
     settings = get_settings()
     engine = create_engine(normalize_sync_database_url(settings.database_url), future=True)
+    now = datetime.now(UTC)
     try:
         with engine.begin() as conn:
             conn.execute(
                 text(
                     """
-                    INSERT INTO users (id, email, name, avatar_url, provider, provider_account_id, password_hash, is_active)
-                    VALUES (:id, :email, :name, NULL, NULL, NULL, NULL, TRUE)
+                    INSERT INTO users (id, email, name, avatar_url, provider, provider_account_id, password_hash, is_active, created_at, updated_at)
+                    VALUES (:id, :email, :name, NULL, NULL, NULL, NULL, TRUE, :created_at, :updated_at)
                     ON CONFLICT (id) DO NOTHING
                     """
                 ),
@@ -37,6 +39,8 @@ def _ensure_anonymous_user_row() -> None:
                     "id": UserPgRepository.ANONYMOUS_USER_ID,
                     "email": UserPgRepository.ANONYMOUS_USER_EMAIL,
                     "name": "Anonymous",
+                    "created_at": now,
+                    "updated_at": now,
                 },
             )
     finally:
